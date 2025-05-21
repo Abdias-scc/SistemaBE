@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DashboardController;
+
+// Sección para las vistas estáticas de la página
+Route::view('/', 'index')->name('index');
+Route::view('/sobre_nosotros', 'aboutUs')->name('aboutUs');
+Route::view('/login', 'login')->name('login');
+
+// Dashboard
+Route::view('/dashboard', 'dashboard.index')->name('dashboard');
+Route::view('/dashboard/config', 'dashboard.config')->name('config');
+Route::view('/dashboard/empleado', 'dashboard.maestro.empleado')->name('empleado');
+Route::view('/dashboard/horario', 'dashboard.maestro.horario')->name('horario');
+Route::view('/dashboard/administradores', 'dashboard.admin')->name('admin');
+
+// Rutas de autenticación
+Auth::routes();
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+

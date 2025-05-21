@@ -1,0 +1,37 @@
+main{
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+body{
+    background-color: rgb(230, 230, 230);
+}
+
+div > h3+p{
+  font-size: 1.14rem;
+}
+
+.imag{
+  max-width: 400px;
+  aspect-ratio: 16/9;
+}
+.sobre-nosotros1 {
+  background-color: #ceaa9b;
+  color:#AC203D;
+  padding: 2rem;
+}
+.nose>div>h3{
+  font-weight: bold;
+  font-size: 3.6rem;
+}
+.sobre-nosotros2 {
+  background-color: #2E2c2b;
+  color: #ceaa9b;
+  padding: 2rem;
+}
+
+.sobre-nosotros3 {
+  background-color: #e7bba8;
+  color: #AC203D;
+  padding: 2rem;
+}
