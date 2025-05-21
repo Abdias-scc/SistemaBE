@@ -58,7 +58,7 @@
             >
           </div>
          
-          <!-- NUEVO: mostrar error general -->
+          <!-- mostrar error general -->
 @if ($errors->any())
   <div id="mensajeError" class="invalid-feedback" style="margin-top: 10px; color: red;">
     {{ $errors->first() }}
@@ -78,7 +78,7 @@
       </div>
 
       <div class="container-forn">
-        <!-- Formulario de Registro (opcional) -->
+        <!-- Formulario de Registro -->
         <form class="sing-up" method="POST" action="{{ route('register') }}">
           @csrf
           <h2>Registrarse</h2>
