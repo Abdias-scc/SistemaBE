@@ -13,7 +13,7 @@ const timerSpan = document.createElement('span');
 
 const nombreInput = document.getElementById("nombre");
 const apellidoInput = document.getElementById("apellido");
-const cedulaInputRegistro = document.getElementById("cedulaLogin");
+const cedulaInputRegistro = document.getElementById("cedulaRegistro");
 const correoInput = document.getElementById("email");
 const contrasenaInputRegistro = document.getElementById("contrasena");
 const cedulaInputLogin = document.querySelector(".sing-in input[placeholder='Cédula']");
@@ -181,40 +181,188 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
- document.addEventListener('DOMContentLoaded', () => {
-    if (window.lockoutTimer) { 
-        const passwordInput = document.getElementById('password');
-        const lockoutMsg = document.getElementById('lockout-message'); // mensaje original
+ document.addEventListener("DOMContentLoaded", () => {
+    const lockoutStart = localStorage.getItem('lockoutStartTime');
+    const passwordInput = document.getElementById('password');
+    const lockoutMsg = document.getElementById('lockout-message');
 
-        if (!passwordInput) return;
+    if (lockoutStart && passwordInput) {
+        const elapsed = Date.now() - parseInt(lockoutStart);
+        const duration = 180000; // 3 minutos
 
-        passwordInput.disabled = true;
+        if (elapsed < duration) {
+            const timerSpan = document.createElement('span');
+            timerSpan.style.minWidth = "100px";
+            timerSpan.style.marginTop = "12px";
+            timerSpan.style.marginLeft = "15px";
+            timerSpan.style.display = "inline-block";
+            timerSpan.style.color = "red";
+            timerSpan.style.fontWeight = "bold";
+            passwordInput.parentNode.appendChild(timerSpan);
 
-        const timerSpan = document.createElement('span');
-        timerSpan.style.minWidth = "100px";
-        timerSpan.style.marginTop = "12px";
-        timerSpan.style.marginLeft = "15px";
-        timerSpan.style.display = "inline-block";
-        timerSpan.style.color = "red";
-        timerSpan.style.fontWeight = "bold";
+            passwordInput.disabled = true;
 
-        passwordInput.parentNode.appendChild(timerSpan);
+            let seconds = Math.floor((duration - elapsed) / 1000);
+            const countdown = setInterval(() => {
+                const mins = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                timerSpan.textContent = `Intentar en ${mins}:${secs < 10 ? '0' : ''}${secs}`;
+                seconds--;
 
-        let seconds = 180;
-        const countdown = setInterval(() => {
-            const mins = Math.floor(seconds / 60);
-            const secs = seconds % 60;
-            timerSpan.textContent = `Intentar en ${mins}:${secs < 10 ? '0' : ''}${secs}`;
-            seconds--;
-
-            if (seconds < 0) {
-                clearInterval(countdown);
-                passwordInput.disabled = false;
-                timerSpan.textContent = '';
-                if (lockoutMsg) lockoutMsg.textContent = ''; // oculta mensaje
-                window.lockoutTimer = false; // opcional
-            }
-        }, 1000);
+                if (seconds < 0) {
+                    clearInterval(countdown);
+                    passwordInput.disabled = false;
+                    timerSpan.textContent='';
+                    if (lockoutMsg) lockoutMsg.style.display = 'none';
+                    window.lockoutTimer = false;
+                    localStorage.removeItem('lockoutStartTime');
+                }
+            }, 1000);
+        } else {
+            // Ya pasaron los 3 minutos
+            localStorage.removeItem('lockoutStartTime');
+            if (lockoutMsg) lockoutMsg.style.display = 'none';
+        }
     }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  
+  const cedulaInput = document.getElementById("cedulaRegistro");
+  const emailInput = document.getElementById("correo");
+  const passwordInput = document.getElementById("contraseñaRegistro");
+  const confirmPasswordInput = document.getElementById("contraseñaConfirmacion");
+  const btnRegister = document.getElementById("btn-sing-in-registro");
+
+  // Mensajes de error
+  const cedulaError = document.getElementById("cedula-error");
+  cedulaError.style.marginTop = "1px";
+  cedulaError.style.marginLeft = "1.2px";
+  cedulaError.style.fontSize = "12px";  
+  cedulaError.style.paddingLeft = "5px";
+
+  const emailError = document.getElementById("email-error");
+  emailError.style.marginTop = "1px";
+  emailError.style.marginLeft = "1.2px";
+  emailError.style.fontSize = "12px";
+  emailError.style.paddingLeft = "5px";
+
+  const passwordError = document.getElementById("contraseña-error");
+  passwordError.style.marginTop = "1px";
+  passwordError.style.marginLeft = "1.2px";
+  passwordError.style.fontSize = "12px";
+  passwordError.style.paddingLeft = "5px";
+
+
+  const confirmError = document.getElementById("contraseña-confirm-error");
+  confirmError.style.marginTop = "1px";
+  confirmError.style.marginLeft = "1.2px";
+  confirmError.style.fontSize = "12px";
+  confirmError.style.paddingLeft = "5px";
+
+  // Estado de cada campo
+  let validCedula = false;
+  let validEmail = false;
+  let validPassword = false;
+  let validConfirm = false;
+
+  // Desactiva o activa el botón dependiendo de si todo está bien
+  const updateButtonState = () => {
+    btnRegister.disabled = !(validCedula && validEmail && validPassword && validConfirm);
+  };
+
+  // Validación de cédula
+  cedulaInput.addEventListener("blur", async () => {
+    const cedula = cedulaInput.value.trim();
+
+    if ((cedula.length !== 7 && cedula.length !==8 || isNaN(cedula))) {
+      cedulaError.textContent = "Debe tener 7 u 8 números";
+      validCedula = false;
+      updateButtonState();
+      return;
+    }
+
+    try {
+      const res = await fetch(`/verificar-cedula?cedula=${cedula}`);
+      const data = await res.json();
+
+      if (data.exists) {
+        cedulaError.textContent = "Cédula ya registrada";
+        validCedula = false;
+      } else {
+        cedulaError.textContent = "";
+        validCedula = true;
+      }
+    } catch (err) {
+      cedulaError.textContent = "Error al verificar la cédula";
+      validCedula = false;
+    }
+
+    updateButtonState();
+  });
+
+  // Validación de correo
+  emailInput.addEventListener("blur", async () => {
+    const email = emailInput.value.trim();
+
+    if (!email.includes("@") || !email.includes(".")) {
+      emailError.textContent = "Correo no válido";
+      validEmail = false;
+      updateButtonState();
+      return;
+    }
+
+    try {
+      const res = await fetch(`/verificar-email?email=${email}`);
+      const data = await res.json();
+
+      if (data.exists) {
+        emailError.textContent = "Correo ya registrado";
+        validEmail = false;
+      } else {
+        emailError.textContent = "";
+        validEmail = true;
+      }
+    } catch (err) {
+      emailError.textContent = "Error al verificar el correo";
+      validEmail = false;
+    }
+
+    updateButtonState();
+  });
+
+  // Validación de contraseña (mínimo 8 caracteres)
+  passwordInput.addEventListener("blur", async () => {
+    const password = passwordInput.value;
+
+    if (password.length < 8) {
+      passwordError.textContent = "Mínimo 8 caracteres";
+      validPassword = false;
+    } else {
+      passwordError.textContent = "";
+      validPassword = true;
+    }
+
+    validateConfirmPassword(); // Verifica también si coinciden
+    updateButtonState();
+  });
+
+  // Confirmar contraseña
+  confirmPasswordInput.addEventListener("input", () => {
+    validateConfirmPassword();
+    updateButtonState();
+  });
+
+  const validateConfirmPassword = () => {
+    const password = passwordInput.value;
+    const confirm = confirmPasswordInput.value;
+
+    if (confirm !== password || confirm.length === 0) {
+      confirmError.textContent = "No coinciden";
+      validConfirm = false;
+    } else {
+      confirmError.textContent = "";
+      validConfirm = true;
+    }
+  };
+});

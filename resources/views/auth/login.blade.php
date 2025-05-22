@@ -121,13 +121,13 @@
           <div class="container-input oculto">
             <ion-icon name="id-card-outline"></ion-icon>
             <input
-              id="cedulaRegister"
+              id="cedulaRegistro"
               type="text"
               name="cedula"
+              maxlength="8"
               placeholder="Cédula"
               value="{{ old('cedula') }}" required>
-              
-            >
+            <small id="cedula-error" style="color: red;"></small>
           </div>
 
           <div class="container-input oculto">
@@ -139,8 +139,8 @@
               placeholder="Correo Electrónico"
               value="{{ old('email') }}"
               required
-              class="@error('email') is-invalid @enderror"
-            >
+              class="@error('email') is-invalid @enderror">
+            <small id="email-error" style="color: red;"></small>
           </div>
           @error('email')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -149,13 +149,13 @@
           <div class="container-input oculto">
             <ion-icon name="lock-closed-outline"></ion-icon>
             <input
-              id="contrasena"
+              id="contraseñaRegistro"
               type="password"
               name="password"
               placeholder="Contraseña"
               required
-              class="@error('password') is-invalid @enderror"
-            >
+              class="@error('password') is-invalid @enderror">
+            <small id="contraseña-error" style="color: red;"></small>
           </div>
           @error('password')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -164,11 +164,12 @@
           <div class="container-input oculto">
             <ion-icon name="lock-closed-outline"></ion-icon>
             <input
+              id="contraseñaConfirmacion"
               type="password"
               name="password_confirmation"
               placeholder="Confirmar Contraseña"
-              required
-            >
+              required>
+            <small id="contraseña-confirm-error" style="color: red;"></small>
           </div>
 
           <button id="btn-sing-in-registro" class="button" type="submit">Registrarse</button>
@@ -203,13 +204,13 @@
         {{ $errors->first('email') }}
     </div>
     <script>
-        window.lockoutTimer = true;
+        localStorage.setItem('lockoutStartTime', Date.now ());
     </script>
 @endif
 
 @if (session('lockout'))
   <script>
-    window.lockoutTimer = true;
+      localStorage.setItem('lockoutStartTime', Date.now ());
   </script>
 @endif
 

@@ -23,6 +23,17 @@ Auth::routes();
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 });
+Route::get('/verificar-cedula', function (Illuminate\Http\Request $request) {
+    $exists = \App\Models\User::where('cedula', $request->cedula)->exists();
+    return response()->json(['exists' => $exists]);
+});
+
+Route::get('/verificar-email', function (Illuminate\Http\Request $request) {
+    $exists = \App\Models\User::where('email', $request->email)->exists();
+    return response()->json(['exists' => $exists]);
+});
+
 
