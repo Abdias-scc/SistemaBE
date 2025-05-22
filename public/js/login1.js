@@ -240,18 +240,21 @@ document.addEventListener("DOMContentLoaded", () => {
   cedulaError.style.marginLeft = "1.2px";
   cedulaError.style.fontSize = "12px";  
   cedulaError.style.paddingLeft = "5px";
+  cedulaError.style.textAlign = "center";
 
   const emailError = document.getElementById("email-error");
   emailError.style.marginTop = "1px";
   emailError.style.marginLeft = "1.2px";
   emailError.style.fontSize = "12px";
   emailError.style.paddingLeft = "5px";
+  emailError.style.textAlign = "center";
 
   const passwordError = document.getElementById("contraseña-error");
   passwordError.style.marginTop = "1px";
   passwordError.style.marginLeft = "1.2px";
   passwordError.style.fontSize = "12px";
-  passwordError.style.paddingLeft = "5px";
+  passwordError.style.paddingLeft = "5px"; 
+  passwordError.style.textAlign = "center";
 
 
   const confirmError = document.getElementById("contraseña-confirm-error");
@@ -259,6 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
   confirmError.style.marginLeft = "1.2px";
   confirmError.style.fontSize = "12px";
   confirmError.style.paddingLeft = "5px";
+  confirmError.style.textAlign = "center";
 
   // Estado de cada campo
   let validCedula = false;
@@ -358,7 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirm = confirmPasswordInput.value;
 
     if (confirm !== password || confirm.length === 0) {
-      confirmError.textContent = "No coinciden";
+      confirmError.textContent = "Contraseñas no coinciden";
       validConfirm = false;
     } else {
       confirmError.textContent = "";
