@@ -9,23 +9,23 @@ use App\Http\Controllers\DashboardController;
 // Sección para las vistas estáticas de la página
 Route::view('/', 'index')->name('index');
 Route::view('/sobre_nosotros', 'aboutUs')->name('aboutUs');
-Route::view('/login', 'login')->name('login');
 
-// Dashboard
-Route::view('/dashboard', 'dashboard.index')->name('dashboard');
-Route::view('/dashboard/config', 'dashboard.config')->name('config');
-Route::view('/dashboard/empleado', 'dashboard.maestro.empleado')->name('empleado');
-Route::view('/dashboard/horario', 'dashboard.maestro.horario')->name('horario');
-Route::view('/dashboard/administradores', 'dashboard.admin')->name('admin');
-
-// Rutas de autenticación
 Auth::routes();
-Route::post('/login', [LoginController::class, 'login'])->name('login');
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 Route::middleware(['auth'])->group(function () {
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::view('/dashboard', 'dashboard.index')->name('dashboard');
+    Route::view('/dashboard/config', 'dashboard.config')->name('config');
+    Route::view('/dashboard/empleado', 'dashboard.maestro.empleado')->name('empleado');
+    Route::view('/dashboard/horario', 'dashboard.maestro.horario')->name('horario');
+    Route::view('/dashboard/administradores', 'dashboard.admin')->name('admin');
+
 
 });
+
+
 Route::get('/verificar-cedula', function (Illuminate\Http\Request $request) {
     $exists = \App\Models\User::where('cedula', $request->cedula)->exists();
     return response()->json(['exists' => $exists]);

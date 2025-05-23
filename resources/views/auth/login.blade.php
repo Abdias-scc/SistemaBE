@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="cache-control" content="max-age=0" />
+  <meta http-equiv="pragma" content="no-cache" />
   <title>UPTP inicio de sesión</title>
   <link rel="stylesheet" href="{{ asset('css/estilosxd.css') }}">
 </head>
@@ -79,7 +81,7 @@
 
       <div class="container-forn">
         <!-- Formulario de Registro -->
-        <form class="sing-up" method="POST" action="{{ route('register') }}">
+        <form class="sing-up" method="POST" action="{{ route('register') }}" autocomplete="off" >
           @csrf
           <h2>Registrarse</h2>
 
@@ -115,6 +117,8 @@
               name="apellido"
               placeholder="Apellido"
               value="{{ old('apellido') }}"
+              required
+              class="@error('apellido') is-invalid @enderror"
             >
           </div>
 
