@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/register';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -45,7 +45,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('login.register'); // Asegúrate que esta vista exista.
+        return view('/dashboard'); // Asegúrate que esta vista exista.
     }
 
     /**
@@ -100,13 +100,17 @@ class RegisterController extends Controller
         ]);
     }
 
-    protected function registered(Request $request, $user)
+   
+    public function registered(\Illuminate\Http\Request $request, $user)
+    // Tu código aquí
+
+
 {
     // Pon la notificación flash en sesión
     session()->flash('registro_exitoso', '¡Felicidades! Te has registrado exitosamente.');
     
     // Si quieres que se quede en la misma página (por ejemplo: /register)
-    return redirect()->back();
+    //return redirect()->back();
 
 
 }

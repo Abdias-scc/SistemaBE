@@ -12,7 +12,8 @@
 
   <div class="wrapper">
     <div class="titulo-lateral">
-      <h1>Control de Asistencias</h1>
+      <h1>Gestor Administrativo del deparmento </h1>
+      <h2>Bienestar Estudiantil</h2>
       <h2>UPTP Juan de Jesús Montilla</h2>
     </div>
 
