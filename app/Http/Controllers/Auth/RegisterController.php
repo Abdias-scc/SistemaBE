@@ -101,7 +101,7 @@ class RegisterController extends Controller
     }
 
    
-    public function registered(\Illuminate\Http\Request $request, $user)
+    public function registered(Request $request, $user)
     // Tu código aquí
 
 

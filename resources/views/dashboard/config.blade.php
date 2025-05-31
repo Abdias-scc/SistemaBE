@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-    <div>
-        <h1>Configuracion</h1>
-    </div>
+    @section('titulo', 'Configurracion')
+
 @endsection

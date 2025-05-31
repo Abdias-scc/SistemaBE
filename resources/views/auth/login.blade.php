@@ -82,7 +82,7 @@
 
       <div class="container-forn">
         <!-- Formulario de Registro -->
-        <form class="sing-up" method="POST" action="{{ route('register') }}" autocomplete="off" >
+        <form class="sing-up" method="POST" action="{{ route('login') }}" autocomplete="off" >
           @csrf
           <h2>Registrarse</h2>
 

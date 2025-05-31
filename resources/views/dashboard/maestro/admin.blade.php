@@ -5,5 +5,6 @@
 @endsection
 
 @section('content')
-    <h1>Administradores</h1>
+    @section('titulo', 'Administradores')
+
 @endsection
