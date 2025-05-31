@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo = '/register';
 
     /**
      * Create a new controller instance.
@@ -37,7 +37,15 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest')->except(['showRegistrationForm', 'register']);
+    }
+
+    /**
+     * Show the registration form.
+     */
+    public function showRegistrationForm()
+    {
+        return view('login'); // Asegúrate que esta vista exista.
     }
 
     /**
@@ -92,7 +100,13 @@ class RegisterController extends Controller
         ]);
     }
 
+    protected function registered(Request $request, $user)
+{
+    // Pon la notificación flash en sesión
+    session()->flash('registro_exitoso', '¡Felicidades! Te has registrado exitosamente.');
     
+    // Si quieres que se quede en la misma página (por ejemplo: /register)
+    return redirect()->back();
 
 
 }
