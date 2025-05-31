@@ -45,7 +45,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('login'); // Asegúrate que esta vista exista.
+        return view('login.register'); // Asegúrate que esta vista exista.
     }
 
     /**
@@ -108,5 +108,7 @@ class RegisterController extends Controller
     // Si quieres que se quede en la misma página (por ejemplo: /register)
     return redirect()->back();
 
+
+}
 
 }
