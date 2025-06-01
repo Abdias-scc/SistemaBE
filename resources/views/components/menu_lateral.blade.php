@@ -3,7 +3,7 @@
 <aside class="sidebar">
     <header class="sidebar-header"> 
         <a href="#">
-            <img src="{{ asset('img/imagen-gotty.png') }}" alt="Logo de la universidad" class="header-logo">
+            <img src="{{ asset('img/logo_nuevo2.png') }}" alt="Logo de la universidad" class="header-logo">
         </a>
         <button class="sidebar-toggler">
             <img src="{{ asset('icons/chevron_left.svg') }}" alt="Icono de menu" class="nav-icon">
@@ -103,35 +103,6 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link dropdown-link">Becas</a>
-                    </li>
-                </ul>
-            </li>
-
-        <li class="nav-item dropdown-container">
-                <a href="#" class="nav-link Dropdown-toggle">
-                    <img src="{{ asset('icons/cases.svg') }}" alt="Icono de usuario" class="nav-icon">
-                    <span class="nav-label">Servicios</span>
-                    <img src="{{ asset('icons/keyboard_arrow_down.svg') }}" alt="Icono de dropdown" class="dropdown-icon">
-                </a>
-                <!-- Dropdown menu-->
-                <ul class="Dropdown-menu">
-                    <li class="nav-item">
-                        <a href="" class="nav-link dropdown-title">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('comedor') }}" class="nav-link dropdown-link">Comedor</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('transporte') }}" class="nav-link dropdown-link">Transporte</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('atencion_social') }}" class="nav-link dropdown-link">Atencion Social</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('servicio_medico') }}" class="nav-link dropdown-link">Servicio médico</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link dropdown-link">Deportivos Cultural</a>
                     </li>
                 </ul>
             </li>
