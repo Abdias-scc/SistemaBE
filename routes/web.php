@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\RegisterController;
 // Sección para las vistas estáticas de la página
 Route::view('/', 'index')->name('index');
 Route::view('/sobre_nosotros', 'aboutUs')->name('aboutUs');
@@ -37,6 +39,7 @@ Route::view('/dashboard/servicios/atencion_social', 'dashboard.servicios.atencio
 Route::view('/dashboard/servicios/censo', 'dashboard.reporte.censo')->name('censo');
 
 Route::post('login', [LoginController::class, 'login'])->name('login');
+Route::post('login', [RegisterController::class, 'register'])->name('register');
 
 Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 

@@ -100,19 +100,6 @@ class RegisterController extends Controller
         ]);
     }
 
-   
-    public function registered(Request $request, $user)
-    // Tu código aquí
 
-
-{
-    // Pon la notificación flash en sesión
-    session()->flash('registro_exitoso', '¡Felicidades! Te has registrado exitosamente.');
-    
-    // Si quieres que se quede en la misma página (por ejemplo: /register)
-    //return redirect()->back();
-
-
-}
 
 }
