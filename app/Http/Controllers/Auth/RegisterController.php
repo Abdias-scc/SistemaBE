@@ -45,7 +45,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('/dashboard'); // Asegúrate que esta vista exista.
+        return view('login'); // Asegúrate que esta vista exista.
     }
 
     /**
