@@ -96,9 +96,13 @@ a{
     display: flex;
     flex-direction: column;
     gap: 4px;
-    overflow-x: hidden;/*Cambio*/
     transform: translateY(15px);
     transition: 0.4s ease;
+
+}
+
+.sidebar-nav:has(.collapsed) .nav-list{
+    overflow-x: hidden;
 }
 
 .sidebar.collapsed .sidebar-nav .primary-nav{
@@ -111,6 +115,7 @@ a{
     padding-bottom: 50px;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
+    padding-bottom: 5rem;
 }
 
 .sidebar-nav .primary-nav:hover{
@@ -152,7 +157,7 @@ a{
     bottom: 30px;
     width: 100%;
     overflow-y: hidden;
-
+    background-color: var(--prymary-color);
 }
 /* Dropdown menu*/
 .sidebar-nav .nav-item{
@@ -215,6 +220,11 @@ a{
     display: none;
 }
 
+/*Titulos de subcategorías*/
+.Dropdown-menu .nav-item .dropdown-title.sub-title{
+    display: block;
+}
+
 .Dropdown-menu:has(.dropdown-link) .nav-item .dropdown-title{
     font-weight: 500;
 }
@@ -224,8 +234,22 @@ a{
 }
 
 .Dropdown-menu{
-    background-color: color-mix(in srgb, var(--prymary-color), black 20%);
+    background-color: color-mix(in srgb, var(--prymary-color), black 30%);
 }
+
+.nav-item>ul{
+    padding: 0;
+}
+.Dropdown-menu .nav-item>ul{
+    list-style-type: none!important;
+}
+.nav-item.sub-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10ppx;
+}
+
 
 /*estilos de botones*/
 
