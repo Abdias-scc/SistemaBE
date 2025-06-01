@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 :root{
-    --prymary-color: #4d4b4b;
-    --prymary-color-hover: #919191;
+    --prymary-color: #3b73a8;
+    --size-bar-lateral: 291px;
+    --size-bar-lateral-collapsed: 85px;
+    --height-header: 80px;
 }
 
 *{
@@ -14,14 +16,24 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 260px;
+    width: var(--size-bar-lateral);
     min-height: 100vh;
     background-color: var(--prymary-color);
     transition: all .4s ease;
+    z-index: 1000;
 }
+
+ol, ul{
+    padding: 0;
+}/*cambio*/
+
+.sidebar.collapsed .sidebar-nav .nav-list{
+    padding: 0 15px;
+}/*cambio*/
+
 /* sidebar collapsed*/
 .sidebar.collapsed{
-    width: 85px;
+    width: var(--size-bar-lateral-collapsed);
 }
 
 a{
@@ -35,12 +47,14 @@ a{
     position:  relative;
     align-items: center;
     justify-content: space-between;
+    object-fit: contain;
     padding: 25px 20px ;
 }
 
 .sidebar .sidebar-header .header-logo{
     width: 110px;
     transition: .4s ease;
+    Filter: brightness(0) invert(100%);
 }
 .sidebar.collapsed .sidebar-header .header-logo{
     width: 50px;
@@ -82,7 +96,7 @@ a{
     display: flex;
     flex-direction: column;
     gap: 4px;
-    padding: 0 15px;
+    overflow-x: hidden;/*Cambio*/
     transform: translateY(15px);
     transition: 0.4s ease;
 }
@@ -120,7 +134,8 @@ a{
     
 }
 .sidebar-nav .nav-item:is(:hover, .open) > .nav-link:not(.dropdown-title){
-    background-color: var(--prymary-color-hover);
+    background-color: color-mix(in srgb, var(--prymary-color) 80%, white);
+    transform: scale(1.05);/*Cambio*/
 }
 
 .sidebar-nav .nav-link :where(.nav-label,.dropdown-icon){
@@ -136,6 +151,7 @@ a{
     position:absolute;
     bottom: 30px;
     width: 100%;
+    overflow-y: hidden;
 
 }
 /* Dropdown menu*/
@@ -206,3 +222,63 @@ a{
 .sidebar.collapsed .Dropdown-menu .dropdown-title{
     display: block;
 }
+
+.Dropdown-menu{
+    background-color: color-mix(in srgb, var(--prymary-color), black 20%);
+}
+
+/*estilos de botones*/
+
+        .btn-minimal {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 0.25rem;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            line-height: 1.5;
+            font-family: 'Poppins',Roboto, sans-serif;
+            cursor: pointer;
+        }
+        
+        .btn-icon-right {
+            flex-direction: row-reverse;
+        }
+        
+        .material-symbols-outlined {
+            font-size: 1.1rem;
+            vertical-align: middle;
+        }
+        
+        /* Botón Cancelar - Gris (acción neutra) */
+        .btn-cancel {
+            background-color: #f5f5f5;
+            color: #616161;
+            border: 1px solid #e0e0e0;
+        }
+        .btn-cancel:hover {
+            background-color: #eeeeee;
+        }
+        
+        /* Botón Editar - Azul */
+        .btn-edit { background-color: #d6ecfc; color: #1976d2; }
+        .btn-edit:hover { background-color: #bbdefb; }
+        
+        /* Botón Eliminar - Rojo */
+        .btn-delete { background-color: #ffebee; color: #d32f2f; }
+        .btn-delete:hover { background-color: #ffcdd2; }
+        
+        /* Botón Guardar - Verde */
+        .btn-save { background-color: #e8f5e9; color: #388e3c; }
+        .btn-save:hover { background-color: #c8e6c9; }
+        
+        /* Botón Añadir - Morado */
+        .btn-add { background-color: #f3e5f5; color: #7b1fa2; }
+        .btn-add:hover { background-color: #e1bee7; }
+        
+        /* Botón Descargar - Naranja */
+        .btn-download { background-color: #fff3e0; color: #f57c00; }
+        .btn-download:hover { background-color: #ffe0b2; }

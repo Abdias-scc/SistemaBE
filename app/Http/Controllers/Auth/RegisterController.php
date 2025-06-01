@@ -45,7 +45,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('/dashboard'); // Asegúrate que esta vista exista.
+        return view('login'); // Asegúrate que esta vista exista.
     }
 
     /**
@@ -101,7 +101,7 @@ class RegisterController extends Controller
     }
 
    
-    public function registered(\Illuminate\Http\Request $request, $user)
+    public function registered(Request $request, $user)
     // Tu código aquí
 
 
