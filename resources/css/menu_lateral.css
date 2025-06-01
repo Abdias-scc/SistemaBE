@@ -52,9 +52,8 @@ a{
 }
 
 .sidebar .sidebar-header .header-logo{
-    width: 110px;
+    width: 170px;
     transition: .4s ease;
-    Filter: brightness(0) invert(100%);
 }
 .sidebar.collapsed .sidebar-header .header-logo{
     width: 50px;
@@ -157,6 +156,8 @@ a{
     bottom: 30px;
     width: 100%;
     overflow-y: hidden;
+    overflow-x: hidden;
+    overflow: hiden;
     background-color: var(--prymary-color);
 }
 /* Dropdown menu*/
