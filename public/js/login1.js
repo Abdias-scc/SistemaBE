@@ -229,6 +229,12 @@ window.addEventListener('DOMContentLoaded', () => {
 document.addEventListener("DOMContentLoaded", () => {
   
   const cedulaInput = document.getElementById("cedulaRegistro");
+  cedulaInput.addEventListener("input", function (e) {
+  
+
+// Elimina caracteres que no sean números y restringe a máximo 10 dígitos
+  this.value = this.value.replace(/\D/g, "").slice(0, 10);
+});
   const emailInput = document.getElementById("correo");
   const passwordInput = document.getElementById("contraseñaRegistro");
   const confirmPasswordInput = document.getElementById("contraseñaConfirmacion");
@@ -279,8 +285,8 @@ document.addEventListener("DOMContentLoaded", () => {
   cedulaInput.addEventListener("blur", async () => {
     const cedula = cedulaInput.value.trim();
 
-    if ((cedula.length !== 7 && cedula.length !==8 || isNaN(cedula))) {
-      cedulaError.textContent = "Debe tener 7 u 8 números";
+    if (!/^\d{7,10}$/.test(cedula)) {
+      cedulaError.textContent = "Debe minimo 7 números";
       validCedula = false;
       updateButtonState();
       return;

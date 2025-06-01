@@ -82,7 +82,7 @@
 
       <div class="container-forn">
         <!-- Formulario de Registro -->
-        <form class="sing-up" method="POST" action="{{ route('login') }}" autocomplete="off" >
+        <form class="sing-up" method="POST" action="{{ route('register') }}" autocomplete="off" >
           @csrf
           <h2>Registrarse</h2>
 
@@ -129,7 +129,7 @@
               id="cedulaRegistro"
               type="text"
               name="cedula"
-              maxlength="8"
+              maxlength="10"
               placeholder="Cédula"
               value="{{ old('cedula') }}" required>
             <small id="cedula-error" style="color: red;"></small>

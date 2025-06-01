@@ -39,7 +39,7 @@ Route::view('/dashboard/servicios/atencion_social', 'dashboard.servicios.atencio
 Route::view('/dashboard/servicios/censo', 'dashboard.reporte.censo')->name('censo');
 
 Route::post('login', [LoginController::class, 'login'])->name('login');
-Route::post('login', [RegisterController::class, 'register'])->name('register');
+Route::post('register', [RegisterController::class, 'register'])->name('register');
 
 Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 
