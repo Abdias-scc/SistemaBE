@@ -409,32 +409,52 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="editCedula" class="form-label">Cedula</label>
-                            <input type="text" class="form-control" id="editCedula" name="identificacion" maxlength="8" pattern="\d{1,8}" required>
-                            <div class="invalid-feedback">
-                                Solo números, mínimo 8 dígitos.
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="editCedula" class="form-label">Cédula</label>
+                                    <input type="text" class="form-control" id="editCedula" name="identificacion" pattern="\d{8}" required>
+                                    <div class="invalid-feedback">
+                                        Solo números, exactamente 8 dígitos.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editSegundoNombre" class="form-label">Segundo Nombre (opcional)</label>
+                                    <input type="text" class="form-control" id="editSegundoNombre" name="segundo_nombre">
+                                </div>
+                                                                <div class="mb-3">
+                                    <label for="editSegundoApellido" class="form-label">Segundo Apellido (opcional)</label>
+                                    <input type="text" class="form-control" id="editSegundoApellido" name="segundo_apellido">
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editNombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="editNombre" name="nombre" required>
-                            <div class="invalid-feedback">
-                                El nombre no puede estar vacío.
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editApellido" class="form-label">Apellido</label>
-                            <input type="text" class="form-control" id="editApellido" name="apellido" required>
-                            <div class="invalid-feedback">
-                                El apellido no puede estar vacío.
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editPNF" class="form-label">PNF</label>
-                            <input type="text" class="form-control" id="editPNF" name="pnf" required>
-                            <div class="invalid-feedback">
-                                Ingrese el PNF.
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="editNombre" class="form-label">Primer Nombre</label>
+                                    <input type="text" class="form-control" id="editNombre" name="nombre" required>
+                                    <div class="invalid-feedback">
+                                        El nombre no puede estar vacío.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editApellido" class="form-label">Primer Apellido</label>
+                                    <input type="text" class="form-control" id="editApellido" name="apellido" required>
+                                    <div class="invalid-feedback">
+                                        El apellido no puede estar vacío.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editPNF" class="form-label">PNF</label>
+                                    <select class="form-select" id="editPNF" name="pnf" required>
+                                        <option value="">Seleccione un PNF</option>
+                                        <option value="Informatica">Informatica</option>
+                                        <option value="Ing.Mecanica">Ing.Mecanica</option>
+                                        <option value="Veterinaria">Veterinaria</option>
+                                        <option value="Electricidad">Electricidad</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Ingrese el PNF.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

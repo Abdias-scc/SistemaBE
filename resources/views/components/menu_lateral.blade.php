@@ -32,10 +32,32 @@
                         <a href="{{ route('estudiantes') }}" class="nav-link dropdown-link">Estudiantes</a> 
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin') }}" class="nav-link dropdown-link">Administradores</a>
+                        <a href="{{ route('becados') }}" class="nav-link dropdown-link">Becados</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('becados') }}" class="nav-link dropdown-link">Becados</a>
+                        <a href="{{ route('becados') }}" class="nav-link dropdown-link">PNF</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('becados') }}" class="nav-link dropdown-link">Sede</a>
+                    </li>
+                    <!-- Subcategorias-->
+                    <li class="nav-item sub-title">
+                        <a href="#" class="nav-link dropdown-title sub-title">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('comedor') }}" class="nav-link dropdown-link">Comedor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('transporte') }}" class="nav-link dropdown-link">Transporte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('atencion_social') }}" class="nav-link dropdown-link">Atencion Social</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('servicio_medico') }}" class="nav-link dropdown-link">Servicio médico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-link">Deportivos Cultural</a>
                     </li>
                 </ul>
             </li>
