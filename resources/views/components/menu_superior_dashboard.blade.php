@@ -7,7 +7,7 @@
                 <img src="{{ asset('img/imagen-gotty.png') }}" alt="Logo de la universidad" class="header-logo" style="width: 65px;margin-right: 10px;">
             </div>
         -->
-            <p class="title">Gestor administrativo<br> UPTP J.J Montilla</p>
+            <p class="title">Control Administrativo del <br>Bienestras Estudiantil, UPTP J.J Montilla.</p>
             <a href="{{ route('dashboard') }}" class="navbar-brand ms-5 nav-link">Panel de control/</a>
             @yield('links')
         </div>
