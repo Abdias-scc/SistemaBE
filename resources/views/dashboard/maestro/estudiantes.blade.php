@@ -7,14 +7,20 @@
 @section('content')
     @section('titulo', 'Estudiantes')
     <div class="contenedor">
-        <div class="d-flex justify-content-end my-4" style="max-width: 400px; margin-left: auto;">
+        <div class="d-flex justify-content-end my-4" style="max-width: 400px; margin-left: auto; flex-direction: column;">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Buscar Persona..." id="searchInput">
                 <button class="btn btn-primary" type="button" id="searchButton">
                     <i class="bi bi-search"></i> Buscar
                 </button>
             </div>
+            <div class="d-flex justify-content-end">
+                <button style="text-wrap: nowrap; width: 190px; display: flex; margin-top: 10px;" type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#registerStudentModal">
+                    <i class="bi bi-person-plus"></i> Registrar Estudiante
+                </button>
+            </div>
         </div>
+
         <div class="table-container">
             <table class="table table-striped table-bordered my-2" id="sortable-table">
                 <thead>
@@ -35,7 +41,7 @@
                         <td>Hernandez</td>
                         <td>Informatica</td>
                         <td>Sede Central</td>
-                        <td>Activo</td>
+                        <td>Regular</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -53,7 +59,7 @@
                         <td>zinga</td>
                         <td>Veterinaria</td>
                         <td>Sede Norte</td>
-                        <td>Inactivo</td>
+                        <td>Regular</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -107,7 +113,7 @@
                         <td>Lopez</td>
                         <td>Quimica</td>
                         <td>Sede Oeste</td>
-                        <td>Activo</td>
+                        <td>Regular</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -125,7 +131,7 @@
                         <td>Ramirez</td>
                         <td>Electronica</td>
                         <td>Sede Los Andes</td>
-                        <td>Inactivo</td>
+                        <td>Regular</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -179,7 +185,7 @@
                         <td>Martinez</td>
                         <td>Agroalimentaria</td>
                         <td>Sede Portuguesa</td>
-                        <td>Activo</td>
+                        <td>Regular</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -197,7 +203,7 @@
                         <td>Martinez</td>
                         <td>Agroalimentaria</td>
                         <td>Sede Carabobo</td>
-                        <td>Inactivo</td>
+                        <td>Regular</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -528,4 +534,207 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Modal de registro de estudiante -->
+            <div class="modal fade" id="registerStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="registerStudentModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <form id="registerStudentForm" novalidate>
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="registerStudentModalLabel">Registrar Nuevo Estudiante</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="regCedula" class="form-label">Cédula</label>
+                                            <input type="text" class="form-control" id="regCedula" name="cedula" required pattern="\d{8}">
+                                            <div class="invalid-feedback">
+                                                Solo números, exactamente 8 dígitos.
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="regSegundoNombre" class="form-label">Segundo Nombre (opcional)</label>
+                                            <input type="text" class="form-control" id="regSegundoNombre" name="segundo_nombre">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="regSegundoApellido" class="form-label">Segundo Apellido (opcional)</label>
+                                            <input type="text" class="form-control" id="regSegundoApellido" name="segundo_apellido">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="regSede" class="form-label">Sede</label>
+                                            <select class="form-select" id="regSede" name="sede" required>
+                                                <option value="">Seleccione una Sede</option>
+                                                <option value="sedeCentral">Sede Central</option>
+                                                <option value="sedeNorte">Sede Norte</option>
+                                                <option value="sedeSur">Sede Sur</option>
+                                                <option value="sedeEste">Sede Este</option>
+                                                <option value="sedeOeste">Sede Oeste</option>
+                                                <option value="sedeAndes">Sede Los Andes</option>
+                                                <option value="sedeMaracay">Sede Maracay</option>
+                                                <option value="sedeBarinas">Sede Barinas</option>
+                                                <option value="sedePortuguesa">Sede Portuguesa</option>
+                                                <option value="sedeCarabobo">Sede Carabobo</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Ingrese el PNF.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="regNombre" class="form-label">Primer Nombre</label>
+                                            <input type="text" class="form-control" id="regNombre" name="nombre" required>
+                                            <div class="invalid-feedback">
+                                                El nombre no puede estar vacío.
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="regApellido" class="form-label">Primer Apellido</label>
+                                            <input type="text" class="form-control" id="regApellido" name="apellido" required>
+                                            <div class="invalid-feedback">
+                                                El apellido no puede estar vacío.
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="regPNF" class="form-label">PNF</label>
+                                            <select class="form-select" id="regPNF" name="pnf" required>
+                                                <option value="">Seleccione un PNF</option>
+                                                <option value="Informatica">Informatica</option>
+                                                <option value="Ing.Mecanica">Ing.Mecanica</option>
+                                                <option value="Veterinaria">Veterinaria</option>
+                                                <option value="Electricidad">Electricidad</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Ingrese el PNF.
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="regCondicion" class="form-label">Condicion</label>
+                                            <select class="form-select" id="regCondicion" name="condicion" required>
+                                                <option value="">Seleccione un Condicion</option>
+                                                <option value="sedeCentral">Regular</option>
+                                                <option value="sedeNorte">Per (Repitencia)</option>
+                                                <option value="sedeSur">Congeldo</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Ingrese la condicion.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
+                                    <img src="{{ asset('icons/close.svg') }}" alt="Icono de cancelar" class="icon-close">
+                                    Cancelar
+                                </button>
+                                <button type="submit" class="btn-minimal btn-save">
+                                    <img src="{{ asset('icons/save_green.svg') }}" alt="Icono de guardar" class="icon-save">
+                                    Registrar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Solo números y máximo 8 dígitos para cédula
+                document.getElementById('regCedula').addEventListener('input', function() {
+                    this.value = this.value.replace(/\D/g, '').slice(0, 8);
+                });
+
+                // Validación y envío del formulario de registro
+                document.getElementById('registerStudentForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    let form = this;
+                    let valid = true;
+
+                    // Validar cédula
+                    const cedula = form.regCedula.value.trim();
+                    if (!/^\d{8}$/.test(cedula)) {
+                        form.regCedula.classList.add('is-invalid');
+                        valid = false;
+                    } else {
+                        form.regCedula.classList.remove('is-invalid');
+                    }
+
+                    // Validar nombre
+                    if (form.regNombre.value.trim() === '') {
+                        form.regNombre.classList.add('is-invalid');
+                        valid = false;
+                    } else {
+                        form.regNombre.classList.remove('is-invalid');
+                    }
+
+                    // Validar apellido
+                    if (form.regApellido.value.trim() === '') {
+                        form.regApellido.classList.add('is-invalid');
+                        valid = false;
+                    } else {
+                        form.regApellido.classList.remove('is-invalid');
+                    }
+
+                    // Validar PNF
+                    if (form.regPNF.value === '') {
+                        form.regPNF.classList.add('is-invalid');
+                        valid = false;
+                    } else {
+                        form.regPNF.classList.remove('is-invalid');
+                    }
+
+                    // Validar sede
+                    if (form.regSede.value === '') {
+                        form.regSede.classList.add('is-invalid');
+                        valid = false;
+                    } else {
+                        form.regSede.classList.remove('is-invalid');
+                    }
+
+                    // Validar condicion
+                    if (form.regCondicion.value === '') {
+                        form.regCondicion.classList.add('is-invalid');
+                        valid = false;
+                    } else {
+                        form.regCondicion.classList.remove('is-invalid');
+                    }
+
+                    if (!valid) return;
+
+                    // Confirmación con SweetAlert
+                    Swal.fire({
+                        title: '¿Registrar estudiante?',
+                        text: 'Verifique los datos antes de confirmar.',
+                        icon: 'question',
+                        confirmButtonText: 'Registrar',
+                        showCancelButton: true,
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire({
+                                title: '¡Registrado!',
+                                text: 'El estudiante ha sido registrado.',
+                                icon: 'success',
+                                confirmButtonText: 'Aceptar',
+                            });
+                            // Cerrar modal
+                            var modal = bootstrap.Modal.getInstance(document.getElementById('registerStudentModal'));
+                            modal.hide();
+                            form.reset();
+                            // Aquí puedes agregar la lógica para enviar los datos al backend
+                        }
+                    });
+                });
+
+                // Quitar la clase is-invalid al escribir
+                ['regCedula', 'regNombre', 'regApellido', 'regPNF', 'regSede', 'regCondicion'].forEach(function(id) {
+                    document.getElementById(id).addEventListener('input', function() {
+                        this.classList.remove('is-invalid');
+                    });
+                });
+            });
+            </script>
 @endsection

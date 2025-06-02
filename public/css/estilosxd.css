@@ -25,7 +25,7 @@ body {
 }
 
 .titulo-lateral {
-    text-align: right;
+    text-align: center;
 }
 
 .titulo-lateral h1,
@@ -72,7 +72,7 @@ body {
 }
 
 .redes ion-icon {
-    border: 1px solid #6E0D25;
+    border: 1px solid #000;
     font-size: 18px;
     border-radius: 6px;
     padding: 8px;
@@ -118,7 +118,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    background-color: #6e0d0d;
+    background-color: #3b73a8;
     color: white;
 }
 
@@ -153,7 +153,7 @@ body {
     align-items: center;
     justify-content: center;
     transform: translateX(100%);
-    background-color: #6E0D25;
+    background-color: #3b73a8;
     transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out, background-color 0.5s ease-in;
     overflow: hidden;
     border-radius: 50% 0 0 50%;
@@ -264,4 +264,10 @@ body {
 }
 h2,h1{
     text-align: center;
+}
+
+.img-login {
+    filter: brightness(0);
+    margin-bottom: 10px;
+    width: 250px;
 }

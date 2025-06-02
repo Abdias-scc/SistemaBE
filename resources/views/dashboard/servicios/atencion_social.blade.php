@@ -5,10 +5,9 @@
 @endsection
 
 @section('content')
-    <div>
-        <h1>Atencion Social</h1>
-        <div class="alert alert-warning mx-2 z-n1" role="alert">
+    @section('titulo', 'Atencion Social') 
+        <div class="alert alert-warning mx-2 " role="alert">
             Este servicio no está disponible temporalmente.
         </div>
-    </div>
 @endsection
+
