@@ -15,147 +15,203 @@
                 </button>
             </div>
         </div>
-
-        <table class="table table-striped table-bordered my-5" id="sortable-table">
-            <thead>
-                <tr>
-                    <th scope="col" onclick="sortTable(0)">Cedula ↑</th>
-                    <th scope="col" onclick="sortTable(1)">Nombre ↑</th>
-                    <th scope="col" onclick="sortTable(2)">Apellido ↑</th>
-                    <th scope="col" onclick="sortTable(3)">PNF ↑</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>12345678</td>
-                    <td>Angel</td>
-                    <td>Hernandez</td>
-                    <td>Informatica</td>
-                    <td>
-                        <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                            Editar
-                        </button>
-                        <button class="btn-minimal btn-delete" id="deleteButton">
-                            <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                            Eliminar
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>87654321</td>
-                    <td>Jose</td>
-                    <td>zinga</td>
-                    <td>Veterinaria</td>
-                    <td>
-                        <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                            Editar
-                        </button>
-                        <button class="btn-minimal btn-delete" id="deleteButton">
-                            <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                            Eliminar
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>12387498</td>
-                    <td>Angel</td>
-                    <td>Hernandez</td>
-                    <td>Adminstracion</td>
-                    <td>
-                        <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                            Editar
-                        </button>
-                        <button class="btn-minimal btn-delete" id="deleteButton">
-                            <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                            Eliminar
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>34387622</td>
-                    <td>Pablo</td>
-                    <td>Gimenez</td>
-                    <td>Mecanica</td>
-                    <td>
-                        <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                            Editar
-                        </button>
-                        <button class="btn-minimal btn-delete" id="deleteButton">
-                            <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                            Eliminar
-                        </button>
-                    </td>
-                <tr>
-                    <td>23456789</td>
-                    <td>Maria</td>
-                    <td>Lopez</td>
-                    <td>Quimica</td>
-                    <td>
-                        <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                            Editar
-                        </button>
-                        <button class="btn-minimal btn-delete" id="deleteButton">
-                            <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                            Eliminar
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>98765432</td>
-                    <td>Carlos</td>
-                    <td>Ramirez</td>
-                    <td>Electronica</td>
-                    <td>
-                        <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                            Editar
-                        </button>
-                        <button class="btn-minimal btn-delete" id="deleteButton">
-                            <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                            Eliminar
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>45678901</td>
-                    <td>Lucia</td>
-                    <td>Fernandez</td>
-                    <td>Construccion Civil</td>
-                    <td>
-                        <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                            Editar
-                        </button>
-                        <button class="btn-minimal btn-delete" id="deleteButton">
-                            <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                            Eliminar
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>56789012</td>
-                    <td>Andrea</td>
-                    <td>Martinez</td>
-                    <td>Agroalimentaria</td>
-                    <td>
-                        <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                            Editar
-                        </button>
-                        <button class="btn-minimal btn-delete" id="deleteButton">
-                            <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                            Eliminar
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-container">
+            <table class="table table-striped table-bordered my-2" id="sortable-table">
+                <thead>
+                    <tr>
+                        <th scope="col" onclick="sortTable(0)">Cedula ↑</th>
+                        <th scope="col" onclick="sortTable(1)">Nombre ↑</th>
+                        <th scope="col" onclick="sortTable(2)">Apellido ↑</th>
+                        <th scope="col" onclick="sortTable(3)">PNF ↑</th>
+                        <th scope="col">Sede</th>
+                        <th scope="col">Condición</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12345678</td>
+                        <td>Angel</td>
+                        <td>Hernandez</td>
+                        <td>Informatica</td>
+                        <td>Sede Central</td>
+                        <td>Activo</td>
+                        <td>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>87654321</td>
+                        <td>Jose</td>
+                        <td>zinga</td>
+                        <td>Veterinaria</td>
+                        <td>Sede Norte</td>
+                        <td>Inactivo</td>
+                        <td>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12387498</td>
+                        <td>Angel</td>
+                        <td>Hernandez</td>
+                        <td>Adminstracion</td>
+                        <td>Sede Sur</td>
+                        <td>Congelado</td>
+                        <td>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>34387622</td>
+                        <td>Pablo</td>
+                        <td>Gimenez</td>
+                        <td>Mecanica</td>
+                        <td>Sede Este</td>
+                        <td>Per</td>
+                        <td>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>23456789</td>
+                        <td>Maria</td>
+                        <td>Lopez</td>
+                        <td>Quimica</td>
+                        <td>Sede Oeste</td>
+                        <td>Activo</td>
+                        <td>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>98765432</td>
+                        <td>Carlos</td>
+                        <td>Ramirez</td>
+                        <td>Electronica</td>
+                        <td>Sede Los Andes</td>
+                        <td>Inactivo</td>
+                        <td>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>45678901</td>
+                        <td>Lucia</td>
+                        <td>Fernandez</td>
+                        <td>Construccion Civil</td>
+                        <td>Sede Maracay</td>
+                        <td>Congelado</td>
+                        <td>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>56789012</td>
+                        <td>Andrea</td>
+                        <td>Martinez</td>
+                        <td>Agroalimentaria</td>
+                        <td>Sede Barinas</td>
+                        <td>Per</td>
+                        <td>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>56789012</td>
+                        <td>Andrea</td>
+                        <td>Martinez</td>
+                        <td>Agroalimentaria</td>
+                        <td>Sede Portuguesa</td>
+                        <td>Activo</td>
+                        <td>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>56789012</td>
+                        <td>Andrea</td>
+                        <td>Martinez</td>
+                        <td>Agroalimentaria</td>
+                        <td>Sede Carabobo</td>
+                        <td>Inactivo</td>
+                        <td>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <li class="page-item">
