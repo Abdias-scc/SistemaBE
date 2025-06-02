@@ -12,6 +12,7 @@
 
   <div class="wrapper">
     <div class="titulo-lateral">
+      <img src="{{ asset('img/logo_nuevo2.png') }}" alt="Logo" class="img-login">
       <h1>Gestor Administrativo del deparmento </h1>
       <h2>Bienestar Estudiantil</h2>
       <h2>UPTP Juan de Jesús Montilla</h2>
