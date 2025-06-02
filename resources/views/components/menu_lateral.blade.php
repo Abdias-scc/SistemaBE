@@ -35,10 +35,10 @@
                         <a href="{{ route('becados') }}" class="nav-link dropdown-link">Becados</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('becados') }}" class="nav-link dropdown-link">PNF</a>
+                        <a href="{{ route('pnf') }}" class="nav-link dropdown-link">PNF</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('becados') }}" class="nav-link dropdown-link">Sede</a>
+                        <a href="{{ route('sede') }}" class="nav-link dropdown-link">Sede</a>
                     </li>
                     <!-- Subcategorias-->
                     <li class="nav-item sub-title">

@@ -1,13 +1,13 @@
 @extends('layouts.layoutDash')
-@section('title', 'Becas')
+@section('title', 'PNF')
 @section('links')
-    <a href="{{ route('becados') }}" class="navbar-brand nav-link">Becados/</a>
+    <a href="{{ route('pnf') }}" class="navbar-brand nav-link">PNF/</a>
 @endsection
 
 @section('content')
-    @section('titulo', 'Becados')
-     <div class="contenedor">
-        <div class="d-flex justify-content-end my-4" style="max-width: 400px; margin-left: auto; flex-direction:column">
+    @section('titulo', 'PNF')
+    <div class="contenedor">
+        <div class="d-flex justify-content-end my-4" style="max-width: 400px; margin-left: auto; flex-direction: column;">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Buscar Persona..." id="searchInput">
                 <button class="btn btn-primary" type="button" id="searchButton">
@@ -15,8 +15,8 @@
                 </button>
             </div>
             <div class="d-flex justify-content-end">
-                <button style="text-wrap: nowrap; width: 165px; display: flex; margin-top: 10px;" type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#registerStudentModal">
-                    <i class="bi bi-person-plus"></i> Registrar Becado
+                <button style="text-wrap: nowrap; width: 130px; display: flex; margin-top: 10px;" type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#registerStudentModal">
+                    <i class="bi bi-person-plus"></i> Registrar PNF
                 </button>
             </div>
         </div>
@@ -24,25 +24,15 @@
             <table class="table table-striped table-bordered my-2" id="sortable-table">
                 <thead>
                     <tr>
-                        <th scope="col" onclick="sortTable(0)">Cedula ↑</th>
-                        <th scope="col" onclick="sortTable(1)">Nombre ↑</th>
-                        <th scope="col" onclick="sortTable(2)">Apellido ↑</th>
-                        <th scope="col" onclick="sortTable(3)">PNF ↑</th>
-                        <th scope="col">Sede</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col">Status</th>
+                        <th scope="col" onclick="sortTable(0)">PNF ↑</th>
+                        <th scope="col">Condición</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>12345678</td>
-                        <td>Angel</td>
-                        <td>Hernandez</td>
                         <td>Informatica</td>
-                        <td>Sede Central</td>
-                        <td>angel.hernandez@email.com</td>
-                        <td>Aprobado</td>
+                        <td>Activo</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -55,13 +45,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>87654321</td>
-                        <td>Jose</td>
-                        <td>Zinga</td>
                         <td>Veterinaria</td>
-                        <td>Sede Norte</td>
-                        <td>jose.zinga@email.com</td>
-                        <td>Desaprobado</td>
+                        <td>Activo</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -74,13 +59,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>12387498</td>
-                        <td>Angel</td>
-                        <td>Hernandez</td>
                         <td>Adminstracion</td>
-                        <td>Sede Sur</td>
-                        <td>angel.hdz@email.com</td>
-                        <td>Aprobado</td>
+                        <td>Activo</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -93,13 +73,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>34387622</td>
-                        <td>Pablo</td>
-                        <td>Gimenez</td>
                         <td>Mecanica</td>
-                        <td>Sede Este</td>
-                        <td>pablo.gimenez@email.com</td>
-                        <td>Desaprobado</td>
+                        <td>Activo</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -112,13 +87,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>23456789</td>
-                        <td>Maria</td>
-                        <td>Lopez</td>
                         <td>Quimica</td>
-                        <td>Sede Oeste</td>
-                        <td>maria.lopez@email.com</td>
-                        <td>Aprobado</td>
+                        <td>Inactivo</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -131,13 +101,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>98765432</td>
-                        <td>Carlos</td>
-                        <td>Ramirez</td>
                         <td>Electronica</td>
-                        <td>Sede Los Andes</td>
-                        <td>carlos.ramirez@email.com</td>
-                        <td>Desaprobado</td>
+                        <td>Inactivo</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -150,13 +115,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>45678901</td>
-                        <td>Lucia</td>
-                        <td>Fernandez</td>
                         <td>Construccion Civil</td>
-                        <td>Sede Maracay</td>
-                        <td>lucia.fernandez@email.com</td>
-                        <td>Aprobado</td>
+                        <td>Inactivo</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -169,13 +129,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>56789012</td>
-                        <td>Andrea</td>
-                        <td>Martinez</td>
                         <td>Agroalimentaria</td>
-                        <td>Sede Barinas</td>
-                        <td>andrea.martinez@email.com</td>
-                        <td>Desaprobado</td>
+                        <td>Activo</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -188,13 +143,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>56789012</td>
-                        <td>Andrea</td>
-                        <td>Martinez</td>
-                        <td>Agroalimentaria</td>
-                        <td>Sede Portuguesa</td>
-                        <td>andrea.portuguesa@email.com</td>
-                        <td>Aprobado</td>
+                        <td>Electricidad</td>
+                        <td>Activo</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -207,13 +157,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>56789012</td>
-                        <td>Andrea</td>
-                        <td>Martinez</td>
-                        <td>Agroalimentaria</td>
-                        <td>Sede Carabobo</td>
-                        <td>andrea.carabobo@email.com</td>
-                        <td>Desaprobado</td>
+                        <td>Matematicas</td>
+                        <td>Inactivo</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -227,25 +172,7 @@
                     </tr>
                 </tbody>
             </table>
-            
         </div>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
     
     <script>
         //*Script para el inputt de buscar
@@ -304,17 +231,12 @@
             const aValue = a.cells[columnIndex].textContent.trim().toLowerCase();
             const bValue = b.cells[columnIndex].textContent.trim().toLowerCase();
 
-            // Para columnas numéricas (Nr. de Identificacion)
-            if (columnIndex === 0) {
-                const numA = parseInt(aValue);
-                const numB = parseInt(bValue);
-                return direction === 'asc' ? numA - numB : numB - numA;
+            // Ordenar siempre como string, de la A a la Z o Z a A, sin importar si es número
+            if (direction === 'asc') {
+            return aValue.localeCompare(bValue, 'es', { numeric: false });
+            } else {
+            return bValue.localeCompare(aValue, 'es', { numeric: false });
             }
-
-            // Para columnas de texto
-            return direction === 'asc' 
-                ? aValue.localeCompare(bValue)
-                : bValue.localeCompare(aValue);
         });
 
         // Reconstruir la tabla
@@ -546,99 +468,38 @@
         </div>
     </div>
 
+
     <!-- Modal de registro de estudiante -->
             <div class="modal fade" id="registerStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="registerStudentModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <form id="registerStudentForm" novalidate>
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="registerStudentModalLabel">Registrar Nuevo Becado</h1>
+                                <h1 class="modal-title fs-5" id="registerStudentModalLabel">Registrar Nuevo PNF</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="regCedula" class="form-label">Cédula</label>
-                                            <input type="text" class="form-control" id="regCedula" name="cedula" required pattern="\d{8}">
+                                            <label for="regPNF" class="form-label">PNF</label>
+                                            <input type="text" class="form-control" id="regPNF" name="pnf" required>
                                             <div class="invalid-feedback">
-                                                Solo números, exactamente 8 dígitos.
-                                            </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="regSegundoNombre" class="form-label">Segundo Nombre (opcional)</label>
-                                            <input type="text" class="form-control" id="regSegundoNombre" name="segundo_nombre">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="regSegundoApellido" class="form-label">Segundo Apellido (opcional)</label>
-                                            <input type="text" class="form-control" id="regSegundoApellido" name="segundo_apellido">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="regSede" class="form-label">Sede</label>
-                                            <select class="form-select" id="regSede" name="sede" required>
-                                                <option value="">Seleccione una Sede</option>
-                                                <option value="sedeCentral">Sede Central</option>
-                                                <option value="sedeNorte">Sede Norte</option>
-                                                <option value="sedeSur">Sede Sur</option>
-                                                <option value="sedeEste">Sede Este</option>
-                                                <option value="sedeOeste">Sede Oeste</option>
-                                                <option value="sedeAndes">Sede Los Andes</option>
-                                                <option value="sedeMaracay">Sede Maracay</option>
-                                                <option value="sedeBarinas">Sede Barinas</option>
-                                                <option value="sedePortuguesa">Sede Portuguesa</option>
-                                                <option value="sedeCarabobo">Sede Carabobo</option>
-                                            </select>
-                                            <div class="invalid-feedback">
-                                                Ingrese el PNF.
+                                                El pnf no puede estar vacío.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="regNombre" class="form-label">Primer Nombre</label>
-                                            <input type="text" class="form-control" id="regNombre" name="nombre" required>
-                                            <div class="invalid-feedback">
-                                                El nombre no puede estar vacío.
-                                            </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="regApellido" class="form-label">Primer Apellido</label>
-                                            <input type="text" class="form-control" id="regApellido" name="apellido" required>
-                                            <div class="invalid-feedback">
-                                                El apellido no puede estar vacío.
-                                            </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="regPNF" class="form-label">PNF</label>
-                                            <select class="form-select" id="regPNF" name="pnf" required>
-                                                <option value="">Seleccione un PNF</option>
-                                                <option value="Informatica">Informatica</option>
-                                                <option value="Ing.Mecanica">Ing.Mecanica</option>
-                                                <option value="Veterinaria">Veterinaria</option>
-                                                <option value="Electricidad">Electricidad</option>
+                                            <label for="regEstatus" class="form-label">Estatus</label>
+                                            <select class="form-select" id="regEstatus" name="estatus" required>
+                                                <option value="">Seleccione un Estatus</option>
+                                                <option value="estatusActivo">Activo</option>
+                                                <option value="estatusInactivo">Inactivo</option>
                                             </select>
                                             <div class="invalid-feedback">
-                                                Ingrese el PNF.
+                                                Ingrese el Estatus.
                                             </div>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="regCorreo" class="form-label">Correo</label>
-                                            <input type="email" class="form-control" id="regCorreo" name="correo" required>
-                                            <div class="invalid-feedback">
-                                                No es valido.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="regEstatus" class="form-label">Estatus</label>
-                                        <select class="form-select" id="regEstatus" name="estatus" required>
-                                            <option value="">Seleccione un Estatus</option>
-                                            <option value="estatusActivo">Activo</option>
-                                            <option value="estatusInactivo">Inactivo</option>
-                                        </select>
-                                        <div class="invalid-feedback">
-                                            Ingrese el Estatus.
                                         </div>
                                     </div>
                                 </div>
@@ -671,53 +532,12 @@
                     let form = this;
                     let valid = true;
 
-                    // Validar cédula
-                    const cedula = form.regCedula.value.trim();
-                    if (!/^\d{8}$/.test(cedula)) {
-                        form.regCedula.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regCedula.classList.remove('is-invalid');
-                    }
-
-                    // Validar nombre
-                    if (form.regNombre.value.trim() === '') {
-                        form.regNombre.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regNombre.classList.remove('is-invalid');
-                    }
-
-                    // Validar apellido
-                    if (form.regApellido.value.trim() === '') {
-                        form.regApellido.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regApellido.classList.remove('is-invalid');
-                    }
-
-                    // Validar correo
-                    if (form.regCorreo.value.trim() === '') {
-                        form.regCorreo.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regCorreo.classList.remove('is-invalid');
-                    }
-
                     // Validar PNF
                     if (form.regPNF.value === '') {
                         form.regPNF.classList.add('is-invalid');
                         valid = false;
                     } else {
                         form.regPNF.classList.remove('is-invalid');
-                    }
-
-                    // Validar sede
-                    if (form.regSede.value === '') {
-                        form.regSede.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regSede.classList.remove('is-invalid');
                     }
 
                     // Validar estatus
@@ -755,7 +575,7 @@
                 });
 
                 // Quitar la clase is-invalid al escribir
-                ['regCedula', 'regNombre', 'regApellido', 'regCorreo', 'regPNF', 'regSede', 'regEstatus'].forEach(function(id) {
+                ['regPNF', 'regEstatus'].forEach(function(id) {
                     document.getElementById(id).addEventListener('input', function() {
                         this.classList.remove('is-invalid');
                     });

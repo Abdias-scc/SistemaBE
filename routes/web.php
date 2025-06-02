@@ -22,6 +22,8 @@ Route::view('/dashboard', 'dashboard.index')->name('dashboard');
 Route::view('/dashboard/estudiantes', 'dashboard.maestro.estudiantes')->name('estudiantes');
 Route::view('/dashboard/administradores', 'dashboard.maestro.admin')->name('admin');
 Route::view('/dashboard/becados', 'dashboard.maestro.becados')->name('becados');
+Route::view('/dashboard/sede', 'dashboard.maestro.sede')->name('sede');
+Route::view('/dashboard/pnf', 'dashboard.maestro.pnf')->name('pnf');
 
 //Movimientos
 Route::view('/dashboard/registro_comedor', 'dashboard.movimientos.R_comedor')->name('R_comedor');
