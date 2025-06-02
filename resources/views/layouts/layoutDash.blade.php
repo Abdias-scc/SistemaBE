@@ -11,7 +11,7 @@
         <!-- NO QUITAR(por alguna razon no agarra la modal sin esto xd) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     <title>@yield('title')</title>
-    @vite(['resources/js/dashboard/main.js'])
+    @vite(['resources/js/dashboard/main.js', 'resources/css/general.css'])
 </head>
 <body>
     @include('components.menu_lateral')
@@ -27,33 +27,4 @@
         </div>
     </main>
 </body>
-
-
-
-<style>
-    html{
-        background-color: #f8f8f8
-    }
-
-    .info-container> h1{
-        padding-left: 25px;
-        margin: 10px 0 20px 0
-    }
-    .main-content {
-        margin-left: var(--size-bar-lateral);
-        padding-top: calc(var(--height-header) + 20px);
-        transition: .4s ease;
-    }
-
-    .main-content.colapsed {
-        margin-left: var(--size-bar-lateral-collapsed);
-    }
-
-    .contenedor {
-        border-radius: 20px;
-        box-shadow: 0 -5px 20px -5px rgba(0, 0, 0, 0.25);
-        padding: 30px;
-        background-color: rgb(247, 247, 247);
-    }
-</style>
 </html>
