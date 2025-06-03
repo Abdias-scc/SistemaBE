@@ -24,6 +24,8 @@ Route::view('/dashboard/administradores', 'dashboard.maestro.admin')->name('admi
 Route::view('/dashboard/becados', 'dashboard.maestro.becados')->name('becados');
 Route::view('/dashboard/sede', 'dashboard.maestro.sede')->name('sede');
 Route::view('/dashboard/pnf', 'dashboard.maestro.pnf')->name('pnf');
+Route::view('/dashboard/servicios', 'dashboard.maestro.servicio')->name('servicio');
+Route::view('/dashboard/lapso', 'dashboard.maestro.lapso')->name('lapso');
 
 //Movimientos
 Route::view('/dashboard/registro_comedor', 'dashboard.movimientos.R_comedor')->name('R_comedor');
