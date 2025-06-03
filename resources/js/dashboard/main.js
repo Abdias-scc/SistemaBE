@@ -1,6 +1,7 @@
 document.querySelector('.sidebar-toggler').addEventListener('click', () => {
     document.querySelector('.main-content').classList.toggle('colapsed');
     document.querySelector('.nav-main').classList.toggle('colapsed');
+    document.querySelector('.nav-secondary').classList.toggle('collapsed');
 });
 
 const date = new Date().toLocaleTimeString("es-VE", {

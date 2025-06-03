@@ -38,26 +38,13 @@
                         <a href="{{ route('pnf') }}" class="nav-link dropdown-link">PNF</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('sede') }}" class="nav-link dropdown-link">Sede</a>
-                    </li>
-                    <!-- Subcategorias-->
-                    <li class="nav-item sub-title">
-                        <a href="#" class="nav-link dropdown-title sub-title">Servicios</a>
+                        <a href="{{ route('sede') }}" class="nav-link dropdown-link">Sede/Extensiones</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('comedor') }}" class="nav-link dropdown-link">Comedor</a>
+                        <a href="{{ route('servicio') }}" class="nav-link dropdown-link">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('transporte') }}" class="nav-link dropdown-link">Transporte</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('atencion_social') }}" class="nav-link dropdown-link">Atencion Social</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('servicio_medico') }}" class="nav-link dropdown-link">Servicio médico</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link dropdown-link">Deportivos Cultural</a>
+                        <a href="{{ route('lapso') }}" class="nav-link dropdown-link">Lapso</a>
                     </li>
                 </ul>
             </li>

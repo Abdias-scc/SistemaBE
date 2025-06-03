@@ -1,3 +1,10 @@
+:root{
+    --prymary-color: #3b73a8;
+    --size-bar-lateral: 291px;
+    --size-bar-lateral-collapsed: 85px;
+    --height-header: 80px;
+}
+
 html{
     background-color: #f8f8f8
 }
@@ -8,7 +15,7 @@ html{
 }
 .main-content {
     margin-left: var(--size-bar-lateral);
-    padding-top: calc(var(--height-header) + 20px);
+    padding-top: calc(var(--height-header) + 50px);
     transition: .4s ease;
 }
 
