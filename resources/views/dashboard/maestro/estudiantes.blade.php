@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <div class="table-container">
+        <div class="table-container ">
             <table class="table table-striped table-bordered my-2" id="sortable-table">
                 <thead>
                     <tr>
@@ -29,9 +29,8 @@
                         <th scope="col" onclick="sortTable(1)">Nombre ↑</th>
                         <th scope="col" onclick="sortTable(2)">Apellido ↑</th>
                         <th scope="col" onclick="sortTable(3)">PNF ↑</th>
-                        <th scope="col">Sede</th>
-                        <th scope="col">Condición</th>
-                        <th scope="col">Acciones</th>
+                        <th scope="col" onclick="sortTable(4)">Lapso Académico ↑</th>
+                        <th scope="col" style="width: 1%; white-space: nowrap;">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,8 +39,7 @@
                         <td>Angel</td>
                         <td>Hernandez</td>
                         <td>Informatica</td>
-                        <td>Sede Central</td>
-                        <td>Regular</td>
+                        <td>2023-2</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -57,9 +55,8 @@
                         <td>87654321</td>
                         <td>Jose</td>
                         <td>zinga</td>
-                        <td>Veterinaria</td>
-                        <td>Sede Norte</td>
-                        <td>Regular</td>
+                        <td>Electricidad</td>
+                        <td>2022-1</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -75,9 +72,8 @@
                         <td>12387498</td>
                         <td>Angel</td>
                         <td>Hernandez</td>
-                        <td>Adminstracion</td>
-                        <td>Sede Sur</td>
-                        <td>Congelado</td>
+                        <td>Veterinaria</td>
+                        <td>2023-1</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -93,9 +89,8 @@
                         <td>34387622</td>
                         <td>Pablo</td>
                         <td>Gimenez</td>
-                        <td>Mecanica</td>
-                        <td>Sede Este</td>
-                        <td>Per</td>
+                        <td>Informatica</td>
+                        <td>2022-2</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -111,9 +106,8 @@
                         <td>23456789</td>
                         <td>Maria</td>
                         <td>Lopez</td>
-                        <td>Quimica</td>
-                        <td>Sede Oeste</td>
-                        <td>Regular</td>
+                        <td>Ing.Mecanica</td>
+                        <td>2021-2</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -129,9 +123,8 @@
                         <td>98765432</td>
                         <td>Carlos</td>
                         <td>Ramirez</td>
-                        <td>Electronica</td>
-                        <td>Sede Los Andes</td>
-                        <td>Regular</td>
+                        <td>Electricidad</td>
+                        <td>2023-2</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -147,9 +140,8 @@
                         <td>45678901</td>
                         <td>Lucia</td>
                         <td>Fernandez</td>
-                        <td>Construccion Civil</td>
-                        <td>Sede Maracay</td>
-                        <td>Congelado</td>
+                        <td>Veterinaria</td>
+                        <td>2022-1</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -165,9 +157,8 @@
                         <td>56789012</td>
                         <td>Andrea</td>
                         <td>Martinez</td>
-                        <td>Agroalimentaria</td>
-                        <td>Sede Barinas</td>
-                        <td>Per</td>
+                        <td>Informatica</td>
+                        <td>2023-1</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -183,9 +174,8 @@
                         <td>56789012</td>
                         <td>Andrea</td>
                         <td>Martinez</td>
-                        <td>Agroalimentaria</td>
-                        <td>Sede Portuguesa</td>
-                        <td>Regular</td>
+                        <td>Informatica</td>
+                        <td>2023-1</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -201,10 +191,13 @@
                         <td>56789012</td>
                         <td>Andrea</td>
                         <td>Martinez</td>
-                        <td>Agroalimentaria</td>
-                        <td>Sede Carabobo</td>
-                        <td>Regular</td>
+                        <td>Informatica</td>
+                        <td>2023-1</td>
                         <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
                                 Editar
@@ -217,6 +210,7 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
         </div>
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
@@ -458,7 +452,6 @@
 
         })
     });
-
     </script>
 
     <!-- Modal -->
@@ -484,7 +477,7 @@
                                     <label for="editSegundoNombre" class="form-label">Segundo Nombre (opcional)</label>
                                     <input type="text" class="form-control" id="editSegundoNombre" name="segundo_nombre">
                                 </div>
-                                                                <div class="mb-3">
+                                <div class="mb-3">
                                     <label for="editSegundoApellido" class="form-label">Segundo Apellido (opcional)</label>
                                     <input type="text" class="form-control" id="editSegundoApellido" name="segundo_apellido">
                                 </div>
@@ -534,7 +527,94 @@
             </div>
         </div>
     </div>
-
+    <!-- Modal de detalles del estudiante -->
+    <div class="modal fade" id="detailsStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detailsStudentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="detailsStudentModalLabel">Detalles del Estudiante</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- Primera fila: 4 inputs -->
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">Cédula:</label>
+                                <input type="text" class="form-control" id="detailsCedula" value="12345678" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">Nombre:</label>
+                                <input type="text" class="form-control" id="detailsPrimerNombre" value="Angel" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">Apellido:</label>
+                                <input type="text" class="form-control" id="detailsPrimerApellido" value="Hernandez" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">Lapso Académico:</label>
+                                <input type="text" class="form-control" id="detailsLapso" value="2023-2" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Segunda fila: 3 inputs -->
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">PNF:</label>
+                                <input type="text" class="form-control" id="detailsPNF" value="Informatica" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Sexo:</label>
+                                <input type="text" class="form-control" id="detailsSexo" value="Masculino" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="detailsEmail" value="angel@email.com" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Tercera fila: 3 inputs -->
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Sede:</label>
+                                <input type="text" class="form-control" id="detailsSede" value="Sede Central" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Condición:</label>
+                                <input type="text" class="form-control" id="detailsCondicion" value="Regular" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Fecha de Nacimiento:</label>
+                                <input type="date" class="form-control" id="detailsFechaNacimiento" value="2000-01-01" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
+                        <img src="{{ asset('icons/close.svg') }}" alt="Icono de cancelar" class="icon-close">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal de registro de estudiante -->
             <div class="modal fade" id="registerStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="registerStudentModalLabel" aria-hidden="true">
@@ -547,61 +627,64 @@
                             </div>
                             <div class="modal-body">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <!-- Primera fila: 4 columnas -->
+                                    <div class="col-md-3">
                                         <div class="mb-3">
                                             <label for="regCedula" class="form-label">Cédula</label>
-                                            <input type="text" class="form-control" id="regCedula" name="cedula" required pattern="\d{8}">
+                                            <input type="text" class="form-control" id="regCedula" name="cedula" required pattern="\d{8}" placeholder="Ej: 12345678">
                                             <div class="invalid-feedback">
                                                 Solo números, exactamente 8 dígitos.
                                             </div>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="regSegundoNombre" class="form-label">Segundo Nombre (opcional)</label>
-                                            <input type="text" class="form-control" id="regSegundoNombre" name="segundo_nombre">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="regSegundoApellido" class="form-label">Segundo Apellido (opcional)</label>
-                                            <input type="text" class="form-control" id="regSegundoApellido" name="segundo_apellido">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="regSede" class="form-label">Sede</label>
-                                            <select class="form-select" id="regSede" name="sede" required>
-                                                <option value="">Seleccione una Sede</option>
-                                                <option value="sedeCentral">Sede Central</option>
-                                                <option value="sedeNorte">Sede Norte</option>
-                                                <option value="sedeSur">Sede Sur</option>
-                                                <option value="sedeEste">Sede Este</option>
-                                                <option value="sedeOeste">Sede Oeste</option>
-                                                <option value="sedeAndes">Sede Los Andes</option>
-                                                <option value="sedeMaracay">Sede Maracay</option>
-                                                <option value="sedeBarinas">Sede Barinas</option>
-                                                <option value="sedePortuguesa">Sede Portuguesa</option>
-                                                <option value="sedeCarabobo">Sede Carabobo</option>
-                                            </select>
-                                            <div class="invalid-feedback">
-                                                Ingrese el PNF.
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <div class="mb-3">
-                                            <label for="regNombre" class="form-label">Primer Nombre</label>
-                                            <input type="text" class="form-control" id="regNombre" name="nombre" required>
+                                            <label for="regNombre" class="form-label">Nombre</label>
+                                            <input type="text" class="form-control" id="regNombre" name="nombre" required placeholder="Ej: Angel">
                                             <div class="invalid-feedback">
                                                 El nombre no puede estar vacío.
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-md-3">
                                         <div class="mb-3">
-                                            <label for="regApellido" class="form-label">Primer Apellido</label>
-                                            <input type="text" class="form-control" id="regApellido" name="apellido" required>
+                                            <label for="regApellido" class="form-label">Apellido</label>
+                                            <input type="text" class="form-control" id="regApellido" name="apellido" required placeholder="Ej: Hernandez">
                                             <div class="invalid-feedback">
                                                 El apellido no puede estar vacío.
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="mb-3">
+                                            <label for="regSexo" class="form-label">Sexo</label>
+                                            <select class="form-select" id="regSexo" name="sexo" required>
+                                                <option value="">Seleccione Sexo</option>
+                                                <option value="Masculino">Masculino</option>
+                                                <option value="Femenino">Femenino</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Ingrese el Sexo.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- Segunda fila: 4 columnas (agregado Teléfono) -->
+                                    <div class="col-md-3">
+                                        <div class="mb-3">
+                                            <label for="regFechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                            <input type="date" class="form-control" id="regFechaNacimiento" name="fecha_nacimiento" required placeholder="Ej: 2000-01-01">
+                                            <div class="invalid-feedback">
+                                                Ingrese la fecha de nacimiento.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
                                         <div class="mb-3">
                                             <label for="regPNF" class="form-label">PNF</label>
                                             <select class="form-select" id="regPNF" name="pnf" required>
-                                                <option value="">Seleccione un PNF</option>
+                                                <option value="">Seleccione PNF</option>
                                                 <option value="Informatica">Informatica</option>
                                                 <option value="Ing.Mecanica">Ing.Mecanica</option>
                                                 <option value="Veterinaria">Veterinaria</option>
@@ -611,16 +694,64 @@
                                                 Ingrese el PNF.
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-md-3">
                                         <div class="mb-3">
-                                            <label for="regCondicion" class="form-label">Condicion</label>
+                                            <label for="regLapso" class="form-label">Lapso Académico</label>
+                                            <input type="text" class="form-control" id="regLapso" name="lapso" placeholder="Ej: 2023-2" required pattern="\d{4}-\d{2}">
+                                            <div class="invalid-feedback">
+                                                Ingrese el lapso académico.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="mb-3">
+                                            <label for="regCondicion" class="form-label">Condición</label>
                                             <select class="form-select" id="regCondicion" name="condicion" required>
-                                                <option value="">Seleccione un Condicion</option>
-                                                <option value="sedeCentral">Regular</option>
-                                                <option value="sedeNorte">Per (Repitencia)</option>
-                                                <option value="sedeSur">Congeldo</option>
+                                                <option value="">Seleccione Condición</option>
+                                                <option value="Regular">Regular</option>
+                                                <option value="Per (Repitencia)">Per (Repitencia)</option>
+                                                <option value="Congelado">Congelado</option>
+                                                <option value="Reingreso">Reingreso</option>
                                             </select>
                                             <div class="invalid-feedback">
-                                                Ingrese la condicion.
+                                                Ingrese la condición.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- Tercera fila: 3 columnas -->
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="regEmail" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="regEmail" name="email" required placeholder="Ej: angel@email.com">
+                                            <div class="invalid-feedback">
+                                                Ingrese un email válido.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="regSede" class="form-label">Sede</label>
+                                            <select class="form-select" id="regSede" name="sede" required>
+                                                <option value="">Seleccione Sede</option>
+                                                <option value="Sede Central">Sede Central</option>
+                                                <option value="Sede Norte">Sede Norte</option>
+                                                <option value="Sede Sur">Sede Sur</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Ingrese la sede.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="mb-3">
+                                            <label for="regTelefono" class="form-label">Teléfono</label>
+                                            <input type="text" class="form-control" id="regTelefono" name="telefono" required placeholder="Ej: 04141234567" pattern="\d{11}">
+                                            <div class="invalid-feedback">
+                                                Ingrese un teléfono válido (11 dígitos).
                                             </div>
                                         </div>
                                     </div>

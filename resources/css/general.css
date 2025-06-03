@@ -25,7 +25,8 @@ html{
 
 
 .table-container {
-    width: 100%;
+    margin-inline: auto;
+    width: 80%;
     overflow-x: auto; /* Esto permite el scroll horizontal */
     margin-bottom: 10px;
 }
@@ -108,11 +109,10 @@ html{
     background-color: #e1bee7;
 }
 
-/* Botón Descargar - Naranja */
-.btn-download {
-    background-color: #fff3e0;
-    color: #f57c00;
+.btn-details {
+    background-color: #eceff1;
+    color: #546e7a;
 }
-.btn-download:hover {
-    background-color: #ffe0b2;
+.btn-details:hover {
+    background-color: #cfd8dc;
 }
