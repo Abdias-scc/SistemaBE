@@ -15,7 +15,7 @@ html{
 }
 .main-content {
     margin-left: var(--size-bar-lateral);
-    padding-top: calc(var(--height-header) + 50px);
+    padding-top: calc(var(--height-header) + 70px);
     transition: .4s ease;
 }
 
@@ -24,10 +24,7 @@ html{
 }
 
 .contenedor {
-    border-radius: 20px;
-    box-shadow: 0 -5px 20px -5px rgba(0, 0, 0, 0.25);
     padding: 30px;
-    background-color: rgb(247, 247, 247);
 }
 
 
