@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --prymary-color: #3b73a8;
+    --size-bar-lateral: 291px;
+    --size-bar-lateral-collapsed: 85px;
+    --height-header: 80px;
+}
 
 * {
     margin: 0;
@@ -118,7 +124,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    background-color: #3b73a8;
+    background-color: var(--prymary-color);
     color: white;
 }
 
@@ -153,7 +159,7 @@ body {
     align-items: center;
     justify-content: center;
     transform: translateX(100%);
-    background-color: #3b73a8;
+    background-color: var(--prymary-color);
     transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out, background-color 0.5s ease-in;
     overflow: hidden;
     border-radius: 50% 0 0 50%;
@@ -162,7 +168,7 @@ body {
 .container.toggle .container-welcome {
     transform: translateX(0);
     border-radius: 0 50% 50% 0;
-    background-color: black;
+    background-color: var(--prymary-color);
 }
 
 .welcome-sing-up,
@@ -209,22 +215,6 @@ body {
     transform: translateX(-100%);
 }
 
-.slide-down {
-    animation: slideDown 0.5s ease-out forwards;
-    opacity: 0;
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
 .oculto {
     display: none;
 }
@@ -234,7 +224,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--prymary-color);
     color: white;
     padding: 20px;
     border-radius: 8px;

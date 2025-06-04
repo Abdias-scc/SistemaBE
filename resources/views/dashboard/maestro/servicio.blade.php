@@ -1,39 +1,45 @@
 @extends('layouts.layoutDash')
-@section('title', 'PNF')
+@section('title', 'Servicios')
 @section('links')
-    <a href="{{ route('pnf') }}" class="navbar-brand nav-link">PNF/</a>
+    <a href="{{ route('servicio') }}" class="navbar-brand nav-link">Servicios/</a>
 @endsection
 
 @section('content')
-    @section('titulo', 'PNF')
+    @section('titulo', 'Servicios')
     <div class="contenedor">
         <div class="d-flex justify-content-end my-4" style="max-width: 400px; margin-left: auto; flex-direction: column;">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Buscar Persona..." id="searchInput">
+                <input type="text" class="form-control" placeholder="Buscar Servicio..." id="searchInput">
                 <button class="btn btn-primary" type="button" id="searchButton">
                     <i class="bi bi-search"></i> Buscar
                 </button>
             </div>
             <div class="d-flex justify-content-end">
-                <button style="text-wrap: nowrap; width: 130px; display: flex; margin-top: 10px;" type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#registerStudentModal">
-                    <i class="bi bi-person-plus"></i> Registrar PNF
+                <button style="text-wrap: nowrap; width: 165px; display: flex; margin-top: 10px;" type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#registerStudentModal">
+                    <i class="bi bi-person-plus"></i> Registrar Servicio
                 </button>
             </div>
         </div>
         <div class="table-container">
-            
-
             <table class="table table-striped table-bordered my-2" id="sortable-table">
                 <thead>
                     <tr>
-                        <th scope="col" onclick="sortTable(0)">PNF ↑</th>
-                        <th scope="col">Estado</th>
+                        <th scope="col" onclick="sortTable(0)">Servicios ↑</th>
+                        <th scope="col">Condición</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Informatica</td>
+                        <td>Comedor</td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="servicioComedorSwitch" checked style="width: 2.5em; height: 1.3em;" data-servicio="Comedor">
+                                <label class="form-check-label ms-2" for="servicioComedorSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -43,18 +49,18 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Central">
-                                <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
                         </td>
                     </tr>
                     <tr>
-                        <td>Veterinaria</td>
+                        <td>Transporte</td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="servicioTransporteSwitch" checked style="width: 2.5em; height: 1.3em;" data-servicio="Transporte">
+                                <label class="form-check-label ms-2" for="servicioTransporteSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -64,18 +70,18 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeNorteSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Norte">
-                                <label class="form-check-label ms-2" for="sedeNorteSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
                         </td>
                     </tr>
                     <tr>
-                        <td>Adminstracion</td>
+                        <td>Atencion Social</td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="servicioAtencionSwitch" checked style="width: 2.5em; height: 1.3em;" data-servicio="Atencion Social">
+                                <label class="form-check-label ms-2" for="servicioAtencionSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -85,18 +91,18 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeSurSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Sur">
-                                <label class="form-check-label ms-2" for="sedeSurSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
                         </td>
                     </tr>
                     <tr>
-                        <td>Mecanica</td>
+                        <td>Servicio Medico</td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="servicioMedicoSwitch" checked style="width: 2.5em; height: 1.3em;" data-servicio="Servicio Medico">
+                                <label class="form-check-label ms-2" for="servicioMedicoSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -106,18 +112,18 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeEsteSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Este">
-                                <label class="form-check-label ms-2" for="sedeEsteSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
                         </td>
                     </tr>
                     <tr>
-                        <td>Quimica</td>
+                        <td>Deporte</td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="servicioDeporteSwitch" checked style="width: 2.5em; height: 1.3em;" data-servicio="Deporte">
+                                <label class="form-check-label ms-2" for="servicioDeporteSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -127,18 +133,18 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeOesteSwitch" style="width: 2.5em; height: 1.3em;" data-sede="Sede Oeste">
-                                <label class="form-check-label ms-2" for="sedeOesteSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
                         </td>
                     </tr>
                     <tr>
-                        <td>Electronica</td>
+                        <td>Cultura</td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="servicioCulturaSwitch" checked style="width: 2.5em; height: 1.3em;" data-servicio="Cultura">
+                                <label class="form-check-label ms-2" for="servicioCulturaSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -148,144 +154,54 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeAndesSwitch" style="width: 2.5em; height: 1.3em;" data-sede="Sede Los Andes">
-                                <label class="form-check-label ms-2" for="sedeAndesSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Construccion Civil</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeMaracaySwitch" style="width: 2.5em; height: 1.3em;" data-sede="Sede Maracay">
-                                <label class="form-check-label ms-2" for="sedeMaracaySwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Agroalimentaria</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeBarinasSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Barinas">
-                                <label class="form-check-label ms-2" for="sedeBarinasSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Electricidad</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedePortuguesaSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Portuguesa">
-                                <label class="form-check-label ms-2" for="sedePortuguesaSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Matematicas</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCaraboboSwitch" style="width: 2.5em; height: 1.3em;" data-sede="Sede Carabobo">
-                                <label class="form-check-label ms-2" for="sedeCaraboboSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
                         </td>
                     </tr>
                 </tbody>
-
-
-                {{-- Script para el switch de activar/inactivar sedes --}}
-                <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    document.querySelectorAll('.sede-switch').forEach(function(switchInput) {
-                        switchInput.addEventListener('change', function(e) {
-                            const label = switchInput.nextElementSibling;
-                            const sede = switchInput.getAttribute('data-sede');
-                            const checked = switchInput.checked;
-
-                            // Revert the switch until user confirms
-                            switchInput.checked = !checked;
-
-                            Swal.fire({
-                                title: checked ? `¿Desea activar la sede ${sede}?` : `¿Desea inactivar la sede ${sede}?`,
-                                text: checked ? 'La sede será marcada como activa.' : 'La sede será marcada como inactiva.',
-                                icon: checked ? 'question' : 'warning',
-                                showCancelButton: true,
-                                confirmButtonText: checked ? 'Activar' : 'Inactivar',
-                                cancelButtonText: 'Cancelar',
-                                reverseButtons: true
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    switchInput.checked = checked;
-                                    label.textContent = checked ? 'Activo' : 'Inactivo';
-                                    Swal.fire({
-                                        title: checked ? '¡Activada!' : '¡Inactivada!',
-                                        text: checked ? `La sede ${sede} ha sido activada.` : `La sede ${sede} ha sido inactivada.`,
-                                        icon: 'success',
-                                        confirmButtonText: 'Aceptar'
-                                    });
-                                    // Aquí puedes agregar la lógica para activar/inactivar la sede en el backend
-                                }
-                            });
-                        });
-                    });
-                });
-                </script>
             </table>
         </div>
-    
-    <script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.sede-switch').forEach(function(switchInput) {
+                switchInput.addEventListener('change', function(e) {
+                    const label = switchInput.nextElementSibling;
+                    const servicio = switchInput.getAttribute('data-servicio');
+                    const checked = switchInput.checked;
+
+                    // Revert the switch until user confirms
+                    switchInput.checked = !checked;
+
+                    Swal.fire({
+                        title: checked
+                            ? `¿Desea activar el servicio "${servicio}"?`
+                            : `¿Desea inactivar el servicio "${servicio}"?`,
+                        text: checked
+                            ? `El servicio "${servicio}" será marcado como activo.`
+                            : `El servicio "${servicio}" será marcado como inactivo.`,
+                        icon: checked ? 'question' : 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: checked ? 'Activar' : 'Inactivar',
+                        cancelButtonText: 'Cancelar',
+                        reverseButtons: true
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            switchInput.checked = checked;
+                            label.textContent = checked ? 'Activo' : 'Inactivo';
+                            Swal.fire({
+                                title: checked
+                                    ? `¡Servicio "${servicio}" activado!`
+                                    : `¡Servicio "${servicio}" inactivado!`,
+                                text: checked
+                                    ? `El servicio "${servicio}" ha sido activado.`
+                                    : `El servicio "${servicio}" ha sido inactivado.`,
+                                icon: 'success',
+                                confirmButtonText: 'Aceptar'
+                            });
+                            // Aquí puedes agregar la lógica para activar/inactivar el servicio en el backend
+                        }
+                    });
+                });
+            });
+        });
         //*Script para el inputt de buscar
         document.getElementById('searchButton').addEventListener('click', function() {
             const input = document.getElementById('searchInput');
@@ -371,69 +287,80 @@
         table.setAttribute('data-sort-direction', direction);
     }
 
-    /* Script para la edición de estudiantes */
-        document.addEventListener('DOMContentLoaded', function () {
-        // Delegación para todos los botones Editar
-        document.querySelectorAll('button[data-bs-target="#staticBackdrop"]').forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                const row = btn.closest('tr');
-                if (row) {
-                    document.getElementById('editPNF').value = row.cells[0].textContent.trim();
-                }
-            });
+    /* Script para la edición de servicios */
+    document.querySelectorAll('button[data-bs-target="#staticBackdrop"]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            const row = btn.closest('tr');
+            if (row) {
+                // Llenar los campos del modal con los datos de la fila
+                document.getElementById('editServicio').value = row.cells[0].textContent.trim();
+                const estatusLabel = row.querySelector('.form-check-label').textContent.trim();
+                document.getElementById('editEstatus').value = estatusLabel === 'Activo' ? 'estatusActivo' : 'estatusInactivo';
+            }
         });
+    });
 
-
-        document.getElementById('editStudentForm').addEventListener('submit', function(e) {
+    // Validación y envío del formulario de edición
+    const editServiceForm = document.getElementById('editServiceForm');
+    if (editServiceForm) {
+        editServiceForm.addEventListener('submit', function(e) {
             e.preventDefault();
             let form = this;
             let valid = true;
 
-
-            // Validar cargo
-            if (form.editPNF.value === '') {
-                form.editPNF.classList.add('is-invalid');
+            // Validar servicio
+            if (form.editServicio.value.trim() === '') {
+                form.editServicio.classList.add('is-invalid');
                 valid = false;
             } else {
-                form.editPNF.classList.remove('is-invalid');
+                form.editServicio.classList.remove('is-invalid');
+            }
+
+            // Validar estatus
+            if (form.editEstatus.value === '') {
+                form.editEstatus.classList.add('is-invalid');
+                valid = false;
+            } else {
+                form.editEstatus.classList.remove('is-invalid');
             }
 
             if (!valid) return;
 
-            //Mensaje de confirmación
+            // Confirmación con SweetAlert
             Swal.fire({
-                title: '¿Estas seguro que quieres actualizar los datos?',
-                text: 'Comprueba los datos antes de confirmar.',
-                icon: 'warning',
-                confirmButtonText: 'Aceptar',
+                title: '¿Actualizar servicio?',
+                text: 'Verifique los datos antes de confirmar.',
+                icon: 'question',
+                confirmButtonText: 'Actualizar',
                 showCancelButton: true,
-            })
-            .then((result)=>{
+            }).then((result) => {
                 if (result.isConfirmed) {
                     Swal.fire({
                         title: '¡Actualizado!',
-                        text: 'Los datos han sido actualizados',
+                        text: 'El servicio ha sido actualizado.',
                         icon: 'success',
                         confirmButtonText: 'Aceptar',
-                    })
-                    
-                    // Cierra el modal después de actualizar
+                    });
+                    // Cerrar modal
                     var modal = bootstrap.Modal.getInstance(document.getElementById('staticBackdrop'));
                     modal.hide();
+                    // Aquí puedes agregar la lógica para enviar los datos al backend
                 }
             });
-
         });
 
         // Quitar la clase is-invalid al escribir
-        ['editCedula', 'editNombre', 'editApellido', 'editPNF'].forEach(function(id) {
-            document.getElementById(id).addEventListener('input', function() {
-                this.classList.remove('is-invalid');
-            });
+        ['editServicio', 'editEstatus'].forEach(function(id) {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener('input', function() {
+                    this.classList.remove('is-invalid');
+                });
+            }
         });
+    }
 
 
-    });
     /*Script para el boton de eliminar*/
     document.querySelectorAll('button[id="deleteButton"]').forEach(function(btn) {
         //Recoger el nombre y el apellido del estudiante a eliminar en la fila que esta en el boton
@@ -446,7 +373,7 @@
         btn.addEventListener('click', function(e) {
             //Mostrar el modal de confirmación con los datos del estudiante a eliminar
             Swal.fire({
-                title: `¿Estás seguro que quieres eliminar a ${nombre}?`,
+                title: `¿Estás seguro que quieres eliminar a el servicio "${nombre}"?`,
                 text: 'Esta acción no se puede deshacer',
                 icon: 'warning',
                 showCancelButton: true,
@@ -459,7 +386,7 @@
                 if (result.isConfirmed) {
                     Swal.fire({
                         title: '¡Eliminado!',
-                        text: 'El estudiante ha sido eliminado',
+                        text: 'El servicio ha sido eliminado',
                         icon: 'success',
                         confirmButtonText: 'Aceptar',
                     })
@@ -476,26 +403,26 @@
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form id="editStudentForm" novalidate>
+                <form id="editServiceForm" novalidate>
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Datos del PNF</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Servicio</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="editPNF" class="form-label">PNF</label>
-                                    <input type="text" class="form-control" id="editPNF" name="pnf" required>
+                                    <label for="editServicio" class="form-label">Servicio</label>
+                                    <input type="text" class="form-control" id="editServicio" name="servicio" required>
                                     <div class="invalid-feedback">
-                                        El PNF no puede estar vacío.
+                                        El servicio no puede estar vacío.
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="regEstatus" class="form-label">Estatus</label>
-                                    <select class="form-select" id="regEstatus" name="estatus" required>
+                                    <label for="editEstatus" class="form-label">Estatus</label>
+                                    <select class="form-select" id="editEstatus" name="estatus" required>
                                         <option value="">Seleccione un Estatus</option>
                                         <option value="estatusActivo">Activo</option>
                                         <option value="estatusInactivo">Inactivo</option>
@@ -523,23 +450,23 @@
     </div>
 
 
-    <!-- Modal de registro de PNF -->
+    <!-- Modal de registro de estudiante -->
             <div class="modal fade" id="registerStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="registerStudentModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <form id="registerStudentForm" novalidate>
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="registerStudentModalLabel">Registrar Nuevo PNF</h1>
+                                <h1 class="modal-title fs-5" id="registerStudentModalLabel">Registrar Nuevo Servicio</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="regPNF" class="form-label">PNF</label>
-                                            <input type="text" class="form-control" id="regPNF" name="pnf" required>
+                                            <label for="regServicio" class="form-label">Servicio</label>
+                                            <input type="text" class="form-control" id="regServicio" name="servicio" required>
                                             <div class="invalid-feedback">
-                                                El PNF no puede estar vacío.
+                                                El servicio no puede estar vacío.
                                             </div>
                                         </div>
                                     </div>
@@ -573,27 +500,25 @@
                 </div>
             </div>
 
-
-
-            {{-- Copia y pega este script bien exactamente aqui en las demas vistas y cambia  o agrega los nombres de regPNF por los que estan en esa vista
-            
-            ejemplo: regPNF lo vas a cambiar por regCedula en la vistade estudiante y asi con todas
-            --}}
-
             <script>
             document.addEventListener('DOMContentLoaded', function () {
+                // Solo números y máximo 8 dígitos para cédula
+                document.getElementById('regCedula').addEventListener('input', function() {
+                    this.value = this.value.replace(/\D/g, '').slice(0, 8);
+                });
+
                 // Validación y envío del formulario de registro
                 document.getElementById('registerStudentForm').addEventListener('submit', function(e) {
                     e.preventDefault();
                     let form = this;
                     let valid = true;
 
-                    // Validar Sede
-                    if (form.regPNF.value.trim() === '') {
-                        form.regPNF.classList.add('is-invalid');
+                    // Validar servicio
+                    if (form.regServicio.value === '') {
+                        form.regServicio.classList.add('is-invalid');
                         valid = false;
                     } else {
-                        form.regPNF.classList.remove('is-invalid');
+                        form.regServicio.classList.remove('is-invalid');
                     }
 
                     // Validar estatus
@@ -604,19 +529,11 @@
                         form.regEstatus.classList.remove('is-invalid');
                     }
 
-                    if (!valid) {
-                        Swal.fire({
-                            title: 'Campos vacíos',
-                            text: 'Por favor complete todos los campos obligatorios.',
-                            icon: 'error',
-                            confirmButtonText: 'Aceptar'
-                        });
-                        return;
-                    }
+                    if (!valid) return;
 
                     // Confirmación con SweetAlert
                     Swal.fire({
-                        title: '¿Registrar PNF?',
+                        title: '¿Registrar estudiante?',
                         text: 'Verifique los datos antes de confirmar.',
                         icon: 'question',
                         confirmButtonText: 'Registrar',
@@ -625,22 +542,21 @@
                         if (result.isConfirmed) {
                             Swal.fire({
                                 title: '¡Registrado!',
-                                text: 'El PNF ha sido registrado.',
+                                text: 'El estudiante ha sido registrado.',
                                 icon: 'success',
                                 confirmButtonText: 'Aceptar',
-                            }).then(() => {
-                                // Cerrar modal y limpiar formulario después de aceptar
-                                var modal = bootstrap.Modal.getInstance(document.getElementById('registerStudentModal'));
-                                modal.hide();
-                                form.reset();
                             });
+                            // Cerrar modal
+                            var modal = bootstrap.Modal.getInstance(document.getElementById('registerStudentModal'));
+                            modal.hide();
+                            form.reset();
                             // Aquí puedes agregar la lógica para enviar los datos al backend
                         }
                     });
                 });
 
                 // Quitar la clase is-invalid al escribir
-                ['regPNF', 'regEstatus'].forEach(function(id) {
+                ['regServicio', 'regEstatus'].forEach(function(id) {
                     document.getElementById(id).addEventListener('input', function() {
                         this.classList.remove('is-invalid');
                     });

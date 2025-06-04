@@ -7,6 +7,7 @@
   <meta http-equiv="pragma" content="no-cache" />
   <title>UPTP inicio de sesión</title>
   <link rel="stylesheet" href="{{ asset('css/estilosxd.css') }}">
+  @vite('resources/css/app.css') 
 </head>
 <body>
 

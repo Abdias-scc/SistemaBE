@@ -1,3 +1,10 @@
+:root{
+    --prymary-color: #3b73a8;
+    --size-bar-lateral: 291px;
+    --size-bar-lateral-collapsed: 85px;
+    --height-header: 80px;
+}
+
 html{
     background-color: #f8f8f8
 }
@@ -8,7 +15,7 @@ html{
 }
 .main-content {
     margin-left: var(--size-bar-lateral);
-    padding-top: calc(var(--height-header) + 20px);
+    padding-top: calc(var(--height-header) + 70px);
     transition: .4s ease;
 }
 
@@ -17,15 +24,13 @@ html{
 }
 
 .contenedor {
-    border-radius: 20px;
-    box-shadow: 0 -5px 20px -5px rgba(0, 0, 0, 0.25);
     padding: 30px;
-    background-color: rgb(247, 247, 247);
 }
 
 
 .table-container {
-    width: 100%;
+    margin-inline: auto;
+    width: 80%;
     overflow-x: auto; /* Esto permite el scroll horizontal */
     margin-bottom: 10px;
 }
@@ -64,12 +69,11 @@ html{
 
 /* Botón Cancelar - Gris (acción neutra) */
 .btn-cancel {
-    background-color: #f5f5f5;
-    color: #616161;
-    border: 1px solid #e0e0e0;
+    background-color: #eaeaea;
+    color: #606060;
 }
 .btn-cancel:hover {
-    background-color: #eeeeee;
+    background-color: #dddddd;
 }
 
 /* Botón Editar - Azul */
@@ -108,11 +112,10 @@ html{
     background-color: #e1bee7;
 }
 
-/* Botón Descargar - Naranja */
-.btn-download {
-    background-color: #fff3e0;
-    color: #f57c00;
+.btn-details {
+    background-color: #eceff1;
+    color: #546e7a;
 }
-.btn-download:hover {
-    background-color: #ffe0b2;
+.btn-details:hover {
+    background-color: #cfd8dc;
 }
