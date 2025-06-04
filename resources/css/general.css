@@ -72,12 +72,11 @@ html{
 
 /* Botón Cancelar - Gris (acción neutra) */
 .btn-cancel {
-    background-color: #f5f5f5;
-    color: #616161;
-    border: 1px solid #e0e0e0;
+    background-color: #eaeaea;
+    color: #606060;
 }
 .btn-cancel:hover {
-    background-color: #eeeeee;
+    background-color: #dddddd;
 }
 
 /* Botón Editar - Azul */

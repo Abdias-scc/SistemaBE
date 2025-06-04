@@ -24,26 +24,14 @@
             <table class="table table-striped table-bordered my-2" id="sortable-table">
                 <thead>
                     <tr>
-                        <th scope="col" onclick="sortTable(0)">PNF ↑</th>
-                        <th scope="col">Condición</th>
-                        <th scope="col">Acciones</th>
+                        <th scope="col" onclick="sortTable(0)">Sedes ↑</th>
                         <th scope="col">Estado</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Sede Central</td>
-                        <td>Activo</td>
-                        <td>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -53,21 +41,18 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Central">
+                                <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <td>Sede Norte</td>
-                        <td>Activo</td>
-                        <td>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -77,21 +62,18 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeNorteSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Norte">
+                                <label class="form-check-label ms-2" for="sedeNorteSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <td>Sede Sur</td>
-                        <td>Activo</td>
-                        <td>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -101,21 +83,18 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeSurSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Sur">
+                                <label class="form-check-label ms-2" for="sedeSurSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <td>Sede Este</td>
-                        <td>Activo</td>
-                        <td>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -125,21 +104,18 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeEsteSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Este">
+                                <label class="form-check-label ms-2" for="sedeEsteSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <td>Sede Oeste</td>
-                        <td>Inactivo</td>
-                        <td>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -149,21 +125,18 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeOesteSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Oeste">
+                                <label class="form-check-label ms-2" for="sedeOesteSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <td>Sede Los Andes</td>
-                        <td>Inactivo</td>
-                        <td>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -173,21 +146,18 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeAndesSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Los Andes">
+                                <label class="form-check-label ms-2" for="sedeAndesSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <td>Sede Maracay</td>
-                        <td>Inactivo</td>
-                        <td>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -197,21 +167,18 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeMaracaySwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Maracay">
+                                <label class="form-check-label ms-2" for="sedeMaracaySwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <td>Sede Barinas</td>
-                        <td>Activo</td>
-                        <td>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -221,21 +188,18 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeBarinasSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Barinas">
+                                <label class="form-check-label ms-2" for="sedeBarinasSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <td>Sede Portuguesa</td>
-                        <td>Activo</td>
-                        <td>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -245,21 +209,18 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedePortuguesaSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Portuguesa">
+                                <label class="form-check-label ms-2" for="sedePortuguesaSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <td>Sede Carabobo</td>
-                        <td>Inactivo</td>
-                        <td>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -270,8 +231,55 @@
                                 Eliminar
                             </button>
                         </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCaraboboSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Carabobo">
+                                <label class="form-check-label ms-2" for="sedeCaraboboSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
+
+
+                {{-- Script para el switch de activar/inactivar sedes --}}
+                <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    document.querySelectorAll('.sede-switch').forEach(function(switchInput) {
+                        switchInput.addEventListener('change', function(e) {
+                            const label = switchInput.nextElementSibling;
+                            const sede = switchInput.getAttribute('data-sede');
+                            const checked = switchInput.checked;
+
+                            // Revert the switch until user confirms
+                            switchInput.checked = !checked;
+
+                            Swal.fire({
+                                title: checked ? `¿Desea activar la sede ${sede}?` : `¿Desea inactivar la sede ${sede}?`,
+                                text: checked ? 'La sede será marcada como activa.' : 'La sede será marcada como inactiva.',
+                                icon: checked ? 'question' : 'warning',
+                                showCancelButton: true,
+                                confirmButtonText: checked ? 'Activar' : 'Inactivar',
+                                cancelButtonText: 'Cancelar',
+                                reverseButtons: true
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    switchInput.checked = checked;
+                                    label.textContent = checked ? 'Activo' : 'Inactivo';
+                                    Swal.fire({
+                                        title: checked ? '¡Activada!' : '¡Inactivada!',
+                                        text: checked ? `La sede ${sede} ha sido activada.` : `La sede ${sede} ha sido inactivada.`,
+                                        icon: 'success',
+                                        confirmButtonText: 'Aceptar'
+                                    });
+                                    // Aquí puedes agregar la lógica para activar/inactivar la sede en el backend
+                                }
+                            });
+                        });
+                    });
+                });
+                </script>
             </table>
         </div>
     
@@ -361,40 +369,23 @@
         table.setAttribute('data-sort-direction', direction);
     }
 
-    /* Script para la edición de estudiantes */
-        document.addEventListener('DOMContentLoaded', function () {
+    /* Script para la edición de sedes */
+    document.addEventListener('DOMContentLoaded', function () {
         // Delegación para todos los botones Editar
         document.querySelectorAll('button[data-bs-target="#staticBackdrop"]').forEach(function(btn) {
             btn.addEventListener('click', function(e) {
                 const row = btn.closest('tr');
                 if (row) {
-                    document.getElementById('editCedula').value = row.cells[0].textContent.trim();
-                    document.getElementById('editNombre').value = row.cells[1].textContent.trim();
-                    document.getElementById('editApellido').value = row.cells[2].textContent.trim();
-                    document.getElementById('editPNF').value = row.cells[3].textContent.trim();
+                    document.getElementById('editNombre').value = row.cells[0].textContent.trim();
+                    document.getElementById('regEstatus').value = row.cells[1].textContent.trim() === 'Activo' ? 'estatusActivo' : 'estatusInactivo';
                 }
             });
-        });
-
-        // Validación personalizada
-        document.getElementById('editCedula').addEventListener('input', function(e) {
-            // Solo números y máximo 8 dígitos
-            this.value = this.value.replace(/\D/g, '').slice(0, 8);
         });
 
         document.getElementById('editStudentForm').addEventListener('submit', function(e) {
             e.preventDefault();
             let form = this;
             let valid = true;
-
-            // Validar identificación
-            const identificacion = form.editCedula.value.trim();
-            if (!/^\d{1,8}$/.test(identificacion)) {
-                form.editCedula.classList.add('is-invalid');
-                valid = false;
-            } else {
-                form.editCedula.classList.remove('is-invalid');
-            }
 
             // Validar nombre
             if (form.editNombre.value.trim() === '') {
@@ -404,23 +395,23 @@
                 form.editNombre.classList.remove('is-invalid');
             }
 
-            // Validar apellido
-            if (form.editApellido.value.trim() === '') {
-                form.editApellido.classList.add('is-invalid');
+            // Validar estatus
+            if (form.regEstatus.value === '') {
+                form.regEstatus.classList.add('is-invalid');
                 valid = false;
             } else {
-                form.editApellido.classList.remove('is-invalid');
+                form.regEstatus.classList.remove('is-invalid');
             }
 
-            // Validar cargo
-            if (form.editPNF.value === '') {
-                form.editPNF.classList.add('is-invalid');
-                valid = false;
-            } else {
-                form.editPNF.classList.remove('is-invalid');
+            if (!valid) {
+                Swal.fire({
+                    title: 'Campos vacíos',
+                    text: 'Por favor complete todos los campos obligatorios.',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+                return;
             }
-
-            if (!valid) return;
 
             //Mensaje de confirmación
             Swal.fire({
@@ -448,13 +439,11 @@
         });
 
         // Quitar la clase is-invalid al escribir
-        ['editCedula', 'editNombre', 'editApellido', 'editPNF'].forEach(function(id) {
+        ['editNombre', 'regEstatus'].forEach(function(id) {
             document.getElementById(id).addEventListener('input', function() {
                 this.classList.remove('is-invalid');
             });
         });
-
-
     });
     /*Script para el boton de eliminar*/
     document.querySelectorAll('button[id="deleteButton"]').forEach(function(btn) {
@@ -462,18 +451,18 @@
         const row = btn.closest('tr');
 
         //Guardar los datos del estudiante a eliminar en variables
-        const nombre = row.cells[1].textContent.trim();
-        const apellido = row.cells[2].textContent.trim();
+        const nombre = row.cells[0].textContent.trim();
+        const apellido = row.cells[1].textContent.trim();
 
 
         btn.addEventListener('click', function(e) {
             //Mostrar el modal de confirmación con los datos del estudiante a eliminar
             Swal.fire({
-                title: `¿Estás seguro que quieres eliminar a ${nombre} ${apellido}?`,
+                title: `¿Estás seguro que quieres inactivar a ${nombre}`,
                 text: 'Esta acción no se puede deshacer',
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonText: 'Eliminar',
+                confirmButtonText: 'Inactivar',
                 reverseButtons: true
             })
             .then((result)=>{
@@ -492,7 +481,6 @@
 
         })
     });
-
     </script>
 
     <!-- Modal -->
@@ -508,47 +496,23 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="editCedula" class="form-label">Cédula</label>
-                                    <input type="text" class="form-control" id="editCedula" name="identificacion" pattern="\d{8}" required>
-                                    <div class="invalid-feedback">
-                                        Solo números, exactamente 8 dígitos.
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="editSegundoNombre" class="form-label">Segundo Nombre (opcional)</label>
-                                    <input type="text" class="form-control" id="editSegundoNombre" name="segundo_nombre">
-                                </div>
-                                                                <div class="mb-3">
-                                    <label for="editSegundoApellido" class="form-label">Segundo Apellido (opcional)</label>
-                                    <input type="text" class="form-control" id="editSegundoApellido" name="segundo_apellido">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
                                     <label for="editNombre" class="form-label">Primer Nombre</label>
                                     <input type="text" class="form-control" id="editNombre" name="nombre" required>
                                     <div class="invalid-feedback">
                                         El nombre no puede estar vacío.
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="editApellido" class="form-label">Primer Apellido</label>
-                                    <input type="text" class="form-control" id="editApellido" name="apellido" required>
-                                    <div class="invalid-feedback">
-                                        El apellido no puede estar vacío.
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="editPNF" class="form-label">PNF</label>
-                                    <select class="form-select" id="editPNF" name="pnf" required>
-                                        <option value="">Seleccione un PNF</option>
-                                        <option value="Informatica">Informatica</option>
-                                        <option value="Ing.Mecanica">Ing.Mecanica</option>
-                                        <option value="Veterinaria">Veterinaria</option>
-                                        <option value="Electricidad">Electricidad</option>
+                                    <label for="regEstatus" class="form-label">Estatus</label>
+                                    <select class="form-select" id="regEstatus" name="estatus" required>
+                                        <option value="">Seleccione un Estatus</option>
+                                        <option value="estatusActivo">Activo</option>
+                                        <option value="estatusInactivo">Inactivo</option>
                                     </select>
                                     <div class="invalid-feedback">
-                                        Ingrese el PNF.
+                                        Ingrese el Estatus.
                                     </div>
                                 </div>
                             </div>
@@ -622,19 +586,14 @@
 
             <script>
             document.addEventListener('DOMContentLoaded', function () {
-                // Solo números y máximo 8 dígitos para cédula
-                document.getElementById('regCedula').addEventListener('input', function() {
-                    this.value = this.value.replace(/\D/g, '').slice(0, 8);
-                });
-
                 // Validación y envío del formulario de registro
                 document.getElementById('registerStudentForm').addEventListener('submit', function(e) {
                     e.preventDefault();
                     let form = this;
                     let valid = true;
 
-                    // Validar PNF
-                    if (form.regSede.value === '') {
+                    // Validar Sede
+                    if (form.regSede.value.trim() === '') {
                         form.regSede.classList.add('is-invalid');
                         valid = false;
                     } else {
@@ -649,11 +608,19 @@
                         form.regEstatus.classList.remove('is-invalid');
                     }
 
-                    if (!valid) return;
+                    if (!valid) {
+                        Swal.fire({
+                            title: 'Campos vacíos',
+                            text: 'Por favor complete todos los campos obligatorios.',
+                            icon: 'error',
+                            confirmButtonText: 'Aceptar'
+                        });
+                        return;
+                    }
 
                     // Confirmación con SweetAlert
                     Swal.fire({
-                        title: '¿Registrar estudiante?',
+                        title: '¿Registrar sede?',
                         text: 'Verifique los datos antes de confirmar.',
                         icon: 'question',
                         confirmButtonText: 'Registrar',
@@ -662,14 +629,15 @@
                         if (result.isConfirmed) {
                             Swal.fire({
                                 title: '¡Registrado!',
-                                text: 'El estudiante ha sido registrado.',
+                                text: 'La sede ha sido registrada.',
                                 icon: 'success',
                                 confirmButtonText: 'Aceptar',
+                            }).then(() => {
+                                // Cerrar modal y limpiar formulario después de aceptar
+                                var modal = bootstrap.Modal.getInstance(document.getElementById('registerStudentModal'));
+                                modal.hide();
+                                form.reset();
                             });
-                            // Cerrar modal
-                            var modal = bootstrap.Modal.getInstance(document.getElementById('registerStudentModal'));
-                            modal.hide();
-                            form.reset();
                             // Aquí puedes agregar la lógica para enviar los datos al backend
                         }
                     });
