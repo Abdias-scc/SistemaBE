@@ -7,7 +7,7 @@
                 <img src="{{ asset('img/imagen-gotty.png') }}" alt="Logo de la universidad" class="header-logo" style="width: 65px;margin-right: 10px;">
             </div>
         -->
-            <p class="title">Control Administrativo del <br>Bienestras Estudiantil, UPTP J.J Montilla.</p>
+            <p class="title">Control Administrativo del <br>Departamento del Bienestras Estudiantil</p>
             <a href="{{ route('dashboard') }}" class="navbar-brand ms-5 nav-link">Panel de control/</a>
             @yield('links')
         </div>
@@ -76,8 +76,6 @@
     .custom-dropdown-bg {
         background-color: #f1f1f1 !important;
     }
-</style>
-<style>
     .container-imagen{
         Filter: brightness(0) invert(100%);
     }
@@ -129,6 +127,7 @@
     #hora{
         color: white;
         z-index: 1000;
+        text-align: right
     }
     .title{
         text-align: center;
