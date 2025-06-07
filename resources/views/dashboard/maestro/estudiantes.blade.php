@@ -28,8 +28,6 @@
                         <th scope="col" onclick="sortTable(0)">Cedula ↑</th>
                         <th scope="col" onclick="sortTable(1)">Nombre ↑</th>
                         <th scope="col" onclick="sortTable(2)">Apellido ↑</th>
-                        <th scope="col" onclick="sortTable(3)">PNF ↑</th>
-                        <th scope="col" onclick="sortTable(4)">Lapso Académico ↑</th>
                         <th scope="col" style="width: 1%; white-space: nowrap;">Acciones</th>
                     </tr>
                 </thead>
@@ -38,8 +36,6 @@
                         <td>12345678</td>
                         <td>Angel</td>
                         <td>Hernandez</td>
-                        <td>Informatica</td>
-                        <td>2023-2</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -55,8 +51,6 @@
                         <td>87654321</td>
                         <td>Jose</td>
                         <td>zinga</td>
-                        <td>Electricidad</td>
-                        <td>2022-1</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -72,8 +66,6 @@
                         <td>12387498</td>
                         <td>Angel</td>
                         <td>Hernandez</td>
-                        <td>Veterinaria</td>
-                        <td>2023-1</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -89,8 +81,6 @@
                         <td>34387622</td>
                         <td>Pablo</td>
                         <td>Gimenez</td>
-                        <td>Informatica</td>
-                        <td>2022-2</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -106,8 +96,6 @@
                         <td>23456789</td>
                         <td>Maria</td>
                         <td>Lopez</td>
-                        <td>Ing.Mecanica</td>
-                        <td>2021-2</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -123,8 +111,6 @@
                         <td>98765432</td>
                         <td>Carlos</td>
                         <td>Ramirez</td>
-                        <td>Electricidad</td>
-                        <td>2023-2</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -140,8 +126,6 @@
                         <td>45678901</td>
                         <td>Lucia</td>
                         <td>Fernandez</td>
-                        <td>Veterinaria</td>
-                        <td>2022-1</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -157,8 +141,6 @@
                         <td>56789012</td>
                         <td>Andrea</td>
                         <td>Martinez</td>
-                        <td>Informatica</td>
-                        <td>2023-1</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -174,8 +156,6 @@
                         <td>56789012</td>
                         <td>Andrea</td>
                         <td>Martinez</td>
-                        <td>Informatica</td>
-                        <td>2023-1</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -191,8 +171,6 @@
                         <td>56789012</td>
                         <td>Andrea</td>
                         <td>Martinez</td>
-                        <td>Informatica</td>
-                        <td>2023-1</td>
                         <td>
                             <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -617,46 +595,41 @@
     </div>
 
     <!-- Modal de registro de estudiante -->
-            <div class="modal fade" id="registerStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="registerStudentModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <form id="registerStudentForm" novalidate>
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="registerStudentModalLabel">Registrar Nuevo Estudiante</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <!-- Primera fila: 4 columnas -->
-                                    <div class="col-md-3">
-                                        <div class="mb-3">
-                                            <label for="regCedula" class="form-label">Cédula</label>
-                                            <input type="text" class="form-control" id="regCedula" name="cedula" required pattern="\d{8}" placeholder="Ej: 12345678">
-                                            <div class="invalid-feedback">
-                                                Solo números, exactamente 8 dígitos.
-                                            </div>
-                                        </div>
+    <div class="modal fade" id="registerStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="registerStudentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="max-width: 450px;">
+            <div class="modal-content">
+                <form id="registerStudentForm" novalidate>
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="registerStudentModalLabel">Registrar Nuevo Estudiante</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="regCedula" class="form-label">Cédula</label>
+                                    <input type="text" class="form-control" id="regCedula" name="cedula" required pattern="\d{1,10}" maxlength="10" style="max-width: 220px;" placeholder="Ej: 1234567890">
+                                    <div class="invalid-feedback">
+                                        Solo números, máximo 10 dígitos.
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="mb-3">
-                                            <label for="regNombre" class="form-label">Nombre</label>
-                                            <input type="text" class="form-control" id="regNombre" name="nombre" required placeholder="Ej: Angel">
-                                            <div class="invalid-feedback">
-                                                El nombre no puede estar vacío.
-                                            </div>
-                                        </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="regNombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="regNombre" name="nombre" required placeholder="Ej: Angel">
+                                    <div class="invalid-feedback">
+                                        El nombre no puede estar vacío.
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="mb-3">
-                                            <label for="regApellido" class="form-label">Apellido</label>
-                                            <input type="text" class="form-control" id="regApellido" name="apellido" required placeholder="Ej: Hernandez">
-                                            <div class="invalid-feedback">
-                                                El apellido no puede estar vacío.
-                                            </div>
-                                        </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="regApellido" class="form-label">Apellido</label>
+                                    <input type="text" class="form-control" id="regApellido" name="apellido" required placeholder="Ej: Hernandez">
+                                    <div class="invalid-feedback">
+                                        El apellido no puede estar vacío.
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="mb-3">
+                                </div>
+                                <div class="mb-3">
+                                    <div class="row g-2 align-items-end">
+                                        <div class="col-md-6">
                                             <label for="regSexo" class="form-label">Sexo</label>
                                             <select class="form-select" id="regSexo" name="sexo" required>
                                                 <option value="">Seleccione Sexo</option>
@@ -667,114 +640,496 @@
                                                 Ingrese el Sexo.
                                             </div>
                                         </div>
+                                        <div class="col-md-6">
+                                            <label for="regTelefono" class="form-label">Teléfono</label>
+                                            <input type="text" class="form-control" id="regTelefono" name="telefono" required placeholder="Ej: 04141234567" pattern="\d{11}" maxlength="11" style="max-width: 220px;">
+                                            <div class="invalid-feedback">
+                                                Ingrese un teléfono válido.
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <!-- Segunda fila: 4 columnas (agregado Teléfono) -->
-                                    <div class="col-md-3">
-                                        <div class="mb-3">
+                                <div class="mb-3">
+                                    <div class="row g-2 align-items-start">
+                                        <div class="col-md-6">
                                             <label for="regFechaNacimiento" class="form-label">Fecha de Nacimiento</label>
                                             <input type="date" class="form-control" id="regFechaNacimiento" name="fecha_nacimiento" required placeholder="Ej: 2000-01-01">
                                             <div class="invalid-feedback">
-                                                Ingrese la fecha de nacimiento.
+                                                Fecha Invalida.
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="mb-3">
-                                            <label for="regPNF" class="form-label">PNF</label>
-                                            <select class="form-select" id="regPNF" name="pnf" required>
-                                                <option value="">Seleccione PNF</option>
-                                                <option value="Informatica">Informatica</option>
-                                                <option value="Ing.Mecanica">Ing.Mecanica</option>
-                                                <option value="Veterinaria">Veterinaria</option>
-                                                <option value="Electricidad">Electricidad</option>
-                                            </select>
-                                            <div class="invalid-feedback">
-                                                Ingrese el PNF.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="mb-3">
-                                            <label for="regLapso" class="form-label">Lapso Académico</label>
-                                            <input type="text" class="form-control" id="regLapso" name="lapso" placeholder="Ej: 2023-2" required pattern="\d{4}-\d{2}">
-                                            <div class="invalid-feedback">
-                                                Ingrese el lapso académico.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="mb-3">
-                                            <label for="regCondicion" class="form-label">Condición</label>
-                                            <select class="form-select" id="regCondicion" name="condicion" required>
-                                                <option value="">Seleccione Condición</option>
-                                                <option value="Regular">Regular</option>
-                                                <option value="Per (Repitencia)">Per (Repitencia)</option>
-                                                <option value="Congelado">Congelado</option>
-                                                <option value="Reingreso">Reingreso</option>
-                                            </select>
-                                            <div class="invalid-feedback">
-                                                Ingrese la condición.
-                                            </div>
+                                        <div class="col-md-6">
+                                            <label for="regEdad" class="form-label">Edad</label>
+                                            <input type="text" class="form-control" id="regEdad" name="edad" readonly placeholder="Edad" disabled>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <!-- Tercera fila: 3 columnas -->
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label for="regEmail" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="regEmail" name="email" required placeholder="Ej: angel@email.com">
-                                            <div class="invalid-feedback">
-                                                Ingrese un email válido.
+                                <div class="mb-3">
+                                    <label for="regCondicion" class="form-label">Condición</label>
+                                    <select class="form-select" id="regCondicion" name="condicion" required>
+                                        <option value="">Seleccione Condición</option>
+                                        <option value="Regular">Regular</option>
+                                        <option value="Per (Repitencia)">Per (Repitencia)</option>
+                                        <option value="Congelado">Congelado</option>
+                                        <option value="Reingreso">Reingreso</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Ingrese la condición.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="regEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="regEmail" name="email" required placeholder="Ej: angel@email.com">
+                                    <div class="invalid-feedback">
+                                        El campo no puede estar vacío.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="regDireccion" class="form-label">Dirección Permanente</label>
+                                    <input type="text" class="form-control" id="regDireccion" name="direccion" required placeholder="Ej: Calle 123, Ciudad">
+                                    <div class="invalid-feedback">
+                                        La dirección no puede estar vacía.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="regProcedencia" class="form-label">Procedencia</label>
+                                    <input type="text" class="form-control" id="regProcedencia" name="procedencia" required placeholder="Ej: Agua Blanca, Acarigua">
+                                    <div class="invalid-feedback">
+                                        La procedencia no puede estar vacía.
+                                    </div>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="regForaneo" name="foraneo">
+                                    <label class="form-check-label" for="regForaneo">¿Es Foráneo?</label>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="regPatria" name="patria">
+                                    <label class="form-check-label" for="regPatria">¿Está registrado en patria?</label>
+                                </div>
+                                
+                                <!--  Campos extra de foraneo -->
+                                <div id="patriaExtraFields" style="display: none; overflow: hidden; max-height: 0; transition: max-height 0.4s ease;">
+                                    <div class="mb-3">
+                                        <label for="regDireccionTemporal" class="form-label">Dirección Temporal</label>
+                                        <input type="text" class="form-control" id="regDireccionTemporal" name="direccion_temporal" placeholder="Ej: Calle 456, Ciudad" maxlength="150">
+                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                            La dirección temporal no puede estar vacía.
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">¿Pagas residencia?</label>
+                                        <div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="paga_residencia" id="pagaResidenciaSi" value="si" required>
+                                                <label class="form-check-label" for="pagaResidenciaSi">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="paga_residencia" id="pagaResidenciaNo" value="no" required>
+                                                <label class="form-check-label" for="pagaResidenciaNo">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                            Seleccione una opción.
+                                        </div>
+                                    </div>
+                                    <div class="mb-3" id="cuantoPagasResidenciaDiv">
+                                        <label for="cuantoPagasResidencia" class="form-label">¿Cuánto pagas?</label>
+                                        <input type="number" class="form-control" id="cuantoPagasResidencia" name="cuanto_pagas_residencia" min="0" placeholder="Monto en Bs." disabled>
+                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                            Ingrese un monto válido.
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">¿Viajas a diario a clases?</label>
+                                        <div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="viaja_diario" id="viajaDiarioSi" value="si" required>
+                                                <label class="form-check-label" for="viajaDiarioSi">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="viaja_diario" id="viajaDiarioNo" value="no" required>
+                                                <label class="form-check-label" for="viajaDiarioNo">No</label>
+                                            </div>
+                                            <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                Seleccione una opción.
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label for="regSede" class="form-label">Sede</label>
-                                            <select class="form-select" id="regSede" name="sede" required>
-                                                <option value="">Seleccione Sede</option>
-                                                <option value="Sede Central">Sede Central</option>
-                                                <option value="Sede Norte">Sede Norte</option>
-                                                <option value="Sede Sur">Sede Sur</option>
-                                            </select>
-                                            <div class="invalid-feedback">
-                                                Ingrese la sede.
+                                    <div class="mb-3" id="vecesSemanaDiv">
+                                        <label for="vecesSemana" class="form-label">¿Cuántas veces a la semana?</label>
+                                        <input type="number" class="form-control" id="vecesSemana" name="veces_semana" min="1" max="7" placeholder="Ej: 5" disabled>
+                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                            El campo no puede estar vacío.
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">¿Cuánto tiempo inviertes en el viaje?</label>
+                                        <div class="row g-2">
+                                            <div class="col">
+                                                <input type="number" class="form-control" id="tiempoViajeHoras" name="tiempo_viaje_horas" min="0" max="24" placeholder="Horas" required>
+                                                <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                    El campo no puede estar vacío.
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <input type="number" class="form-control" id="tiempoViajeMinutos" name="tiempo_viaje_minutos" min="0" max="59" placeholder="Minutos" required>
+                                                <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                    El campo no puede estar vacío.
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-3">
-                                        <div class="mb-3">
-                                            <label for="regTelefono" class="form-label">Teléfono</label>
-                                            <input type="text" class="form-control" id="regTelefono" name="telefono" required placeholder="Ej: 04141234567" pattern="\d{11}">
-                                            <div class="invalid-feedback">
-                                                Ingrese un teléfono válido (11 dígitos).
-                                            </div>
+                                    <div class="mb-3">
+                                        <label for="gastoDiarioPasaje" class="form-label">Gasto diario en pasaje</label>
+                                        <input type="text" class="form-control" id="gastoDiarioPasaje" name="gasto_diario_pasaje" min="0" placeholder="Monto en Bs." required>
+                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                            Ingrese un monto válido.
                                         </div>
                                     </div>
                                 </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
+                                        <img src="{{ asset('icons/close.svg') }}" alt="Icono de cancelar" class="icon-close">
+                                        Cancelar
+                                    </button>
+                                    <button type="submit" class="btn-minimal btn-save">
+                                        <img src="{{ asset('icons/save_green.svg') }}" alt="Icono de guardar" class="icon-save">
+                                        Registrar
+                                    </button>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
-                                    <img src="{{ asset('icons/close.svg') }}" alt="Icono de cancelar" class="icon-close">
-                                    Cancelar
-                                </button>
-                                <button type="submit" class="btn-minimal btn-save">
-                                    <img src="{{ asset('icons/save_green.svg') }}" alt="Icono de guardar" class="icon-save">
-                                    Registrar
-                                </button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
-
+        </div>
+    </div>
             <script>
             document.addEventListener('DOMContentLoaded', function () {
                 // Solo números y máximo 8 dígitos para cédula
+                document.getElementById('regCedula').addEventListener('input', function() {
+                    this.value = this.value.replace(/\D/g, '').slice(0, 8);
+                });
+
+                // Solo números y máximo 11 dígitos para teléfono
+                document.getElementById('regTelefono').addEventListener('input', function() {
+                    this.value = this.value.replace(/\D/g, '').slice(0, 11);
+                });
+
+                // Calcular edad automáticamente al cambiar la fecha de nacimiento
+                document.getElementById('regFechaNacimiento').addEventListener('input', function() {
+                    const fecha = this.value;
+                    const edadInput = document.getElementById('regEdad');
+                    if (fecha) {
+                        const hoy = new Date();
+                        const nacimiento = new Date(fecha);
+                        let edad = hoy.getFullYear() - nacimiento.getFullYear();
+                        const m = hoy.getMonth() - nacimiento.getMonth();
+                        if (m < 0 || (m === 0 && hoy.getDate() < nacimiento.getDate())) {
+                            edad--;
+                        }
+                        edadInput.value = edad >= 0 ? edad : '';
+                    } else {
+                        edadInput.value = '';
+                    }
+                });
+
+                // Animación y mostrar/ocultar campos extra de patria
+                const foraneoCheckbox = document.getElementById('regForaneo');
+                const extraFields = document.getElementById('patriaExtraFields');
+                foraneoCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        extraFields.style.display = 'block';
+                        // For animation: set max-height to 0 first, then to scrollHeight
+                        extraFields.style.maxHeight = '0';
+                        setTimeout(() => {
+                            extraFields.style.maxHeight = extraFields.scrollHeight + 'px';
+                        }, 10);
+                    } else {
+                        extraFields.style.maxHeight = '0';
+                        setTimeout(() => {
+                            extraFields.style.display = 'none';
+                        }, 400);
+                        // Limpiar los campos al ocultar
+                        document.getElementById('regPatriaCarnet').value = '';
+                        document.getElementById('regPatriaSerial').value = '';
+                    }
+                });
+                /* Script para mostrar la edad del estudiante*/
+                document.getElementById('regFechaNacimiento').addEventListener('input', function() {
+                    const fecha = this.value;
+                    const edadInput = document.getElementById('regEdad');
+                    if (fecha) {
+                        const hoy = new Date();
+                        const nacimiento = new Date(fecha);
+                        let edad = hoy.getFullYear() - nacimiento.getFullYear();
+                        const m = hoy.getMonth() - nacimiento.getMonth();
+                        if (m < 0 || (m === 0 && hoy.getDate() < nacimiento.getDate())) {
+                            edad--;
+                        }
+                        edadInput.value = edad >= 0 ? edad : '';
+                    } else {
+                        edadInput.value = '';
+                    }
+                });
+
+                //Habiliar los input en pagas residencia y cuanto viajas a diario a clases
+                // Habilitar/deshabilitar el input de "¿Cuánto pagas?" según "¿Pagas residencia?"
+                document.getElementsByName('paga_residencia').forEach(function(radio) {
+                    radio.addEventListener('change', function() {
+                        const cuantoDiv = document.getElementById('cuantoPagasResidenciaDiv');
+                        const cuantoInput = document.getElementById('cuantoPagasResidencia');
+                        if (this.value === 'si') {
+                            cuantoInput.removeAttribute('disabled');
+                        } else {
+                            cuantoInput.setAttribute('disabled', true);
+                        }
+                    });
+                });
+
+                // Habilitar/deshabilitar el input de "¿Cuántas veces a la semana?" según "¿Viajas a diario a clases?"
+                document.getElementsByName('viaja_diario').forEach(function(radio) {
+                    radio.addEventListener('change', function() {
+                        const vecesDiv = document.getElementById('vecesSemanaDiv');
+                        const vecesInput = document.getElementById('vecesSemana');
+                        if (this.value === 'si') {
+                            vecesInput.removeAttribute('disabled');
+                        } else {
+                            vecesInput.setAttribute('disabled', true);
+                        }
+                    });
+                });
+
+                //Hablitar hora o minutos si unos de los 2 son rellenados 
+                const tiempoViajeHoras = document.getElementById('tiempoViajeHoras');
+                const tiempoViajeMinutos = document.getElementById('tiempoViajeMinutos');
+                //Verificar que los campos no tengan mas de 3 dígitos
+                tiempoViajeHoras.addEventListener('input', function() {
+
+                });
+
+                tiempoViajeHoras.addEventListener('input', function() {
+                    // Solo permitir números y máximo 3 dígitos
+                    if (tiempoViajeHoras.value.length > 3) {
+                        tiempoViajeHoras.value = tiempoViajeHoras.value.slice(0, 3);
+                    }
+                    // Deshabilitar minutos si horas están rellenados
+                    if (tiempoViajeHoras.value !== '') {
+                        tiempoViajeMinutos.setAttribute("disabled", true);
+                    } else {
+                        tiempoViajeMinutos.removeAttribute("disabled");
+                    }
+                });
+                //Deshabilitar hora si minutos están rellenados
+                tiempoViajeMinutos.addEventListener('input', function() {
+                    // Solo permitir números y máximo 3 dígitos
+                    if (tiempoViajeMinutos.value.length > 3) {
+                        tiempoViajeMinutos.value = tiempoViajeMinutos.value.slice(0, 3);
+                    }
+                    // Deshabilitar horas si minutos están rellenados
+                    if (tiempoViajeMinutos.value !== '') {
+                        tiempoViajeHoras.setAttribute("disabled", true);
+                    } else {
+                        tiempoViajeHoras.removeAttribute("disabled");
+                    }
+                });
+
+                
+                // Función para validar campos requeridos
+
+                function validarInputVacio(input) {
+                    if (input.value.trim() === '') {
+                        input.classList.add('is-invalid');
+                        return false;
+                    } else {
+                        input.classList.remove('is-invalid');
+                        return true;
+                    }
+                }
+
+                // Validación y envío del formulario de registro
+                document.getElementById('registerStudentForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    let form = this;
+                    let valid = true;
+
+                    // Validar cédula
+                    const cedula = form.regCedula.value.trim();
+                    if (!/^\d{8}$/.test(cedula)) {
+                        form.regCedula.classList.add('is-invalid');
+                        valid = false;
+                    } else {
+                        form.regCedula.classList.remove('is-invalid');
+                    }
+
+                    //validar email con una expresión regular
+                    const email = form.regEmail.value.trim();
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    // Validar email
+                    if (email.trim() === '') {
+                        form.regEmail.classList.add('is-invalid');
+                    } else if (!emailRegex.test(email)) {
+                        form.regEmail.classList.add('is-invalid');
+                        form.regEmail.nextElementSibling.textContent = 'Ingrese un email válido.';
+                        valid = false;
+                    } else {
+                        form.regEmail.classList.remove('is-invalid');
+                        form.regEmail.nextElementSibling.textContent = 'El campo no puede estar vacío.';
+                    }
+
+
+                    //Validar los campos requeridos
+                    valid = validarInputVacio(form.regNombre) && valid;
+                    valid = validarInputVacio(form.regApellido) && valid;
+                    valid = validarInputVacio(form.regSexo) && valid;
+                    valid = validarInputVacio(form.regTelefono) && valid;
+                    valid = validarInputVacio(form.regFechaNacimiento) && valid;
+                    valid = validarInputVacio(form.regCondicion) && valid;
+                    valid = validarInputVacio(form.regDireccion) && valid;
+                    valid = validarInputVacio(form.regProcedencia) && valid;
+
+
+                    // Validar los campos necesarios si esta chek el foraneo 
+
+                    if(foraneoCheckbox.checked){
+                        // Validar dirección temporal
+                        valid = validarInputVacio(form.regDireccionTemporal) && valid;
+
+                        // Validar si paga residencia
+                        const pagaResidenciaGroup = form.pagaResidenciaSi.closest('.mb-3');
+                        const pagaResidenciaFeedback = pagaResidenciaGroup.querySelector('.invalid-feedback');
+                        if (!form.pagaResidenciaSi.checked && !form.pagaResidenciaNo.checked) {
+                            pagaResidenciaFeedback.style.display = 'block';
+                            valid = false;
+                        } else {
+                            pagaResidenciaFeedback.style.display = 'none';
+                        }
+
+                        //validar el input residencia si el usuario selecciono si
+                        if(form.pagaResidenciaSi.checked){
+                            const cuantoPagasResidencia = form.cuantoPagasResidencia.value;
+                            valid = validarInputVacio(form.cuantoPagasResidencia) && valid;
+                        }
+
+                        // Validar si viajas a diario a clases
+                        const viajaDiarioGroup = form.viajaDiarioSi.closest('.mb-3');
+                        const viajaDiarioFeedback = viajaDiarioGroup.querySelector('.invalid-feedback');
+                        if (!form.viajaDiarioSi.checked && !form.viajaDiarioNo.checked) {
+                            viajaDiarioFeedback.style.display = 'block';
+                            valid = false;
+                        } else {
+                            viajaDiarioFeedback.style.display = 'none';
+                        }
+
+                        //validar el input viaja diario si el usuario selecciono si
+                        if(form.viajaDiarioSi.checked){
+                            const vecesSemana = form.vecesSemana.value;
+                            valid = validarInputVacio(form.vecesSemana) && valid;
+                        }
+
+                        // Validar tiempo de viaje
+                        if(form.tiempoViajeHoras.value === '' && form.tiempoViajeMinutos.value === ''){
+                            form.tiempoViajeHoras.classList.add('is-invalid');
+                            form.tiempoViajeMinutos.classList.add('is-invalid');
+                            valid = false;
+                        }else{
+                            form.tiempoViajeHoras.classList.remove('is-invalid');
+                            form.tiempoViajeMinutos.classList.remove('is-invalid');
+                        }
+
+                        // Validar gasto diario en pasaje
+                        valid = validarInputVacio(form.gastoDiarioPasaje) && valid;
+                    }
+
+                    //ajusar el tamaño de la modal cuando se haga un summit 
+                    if (foraneoCheckbox.checked) {
+                        extraFields.style.maxHeight = extraFields.scrollHeight + 'px';
+                    }
+
+                    if (!valid) return;
+
+                    // Confirmación con SweetAlert
+                    Swal.fire({
+                        title: '¿Registrar estudiante?',
+                        text: 'Verifique los datos antes de confirmar.',
+                        icon: 'question',
+                        confirmButtonText: 'Registrar',
+                        showCancelButton: true,
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire({
+                                title: '¡Registrado!',
+                                text: 'El estudiante ha sido registrado.',
+                                icon: 'success',
+                                confirmButtonText: 'Aceptar',
+                            });
+                            // Cerrar modal
+                            var modal = bootstrap.Modal.getInstance(document.getElementById('registerStudentModal'));
+                            modal.hide();
+                            form.reset();
+                            document.getElementById('regEdad').value = '';
+                            // Aquí puedes agregar la lógica para enviar los datos al backend
+                        }
+                    });
+                });
+
+                // Quitar la clase is-invalid al escribir
+
+                //Variable para almacenar los ids de los inputs
+                const inputIds = [
+                    'regCedula', 'regNombre', 'regApellido', 'regSexo', 'regTelefono',
+                    'regFechaNacimiento', 'regCondicion', 'regEmail', 'regDireccion',
+                    'regProcedencia', 'regDireccionTemporal', 'cuantoPagasResidencia',
+                    'vecesSemana', 'tiempoViajeHoras', 'tiempoViajeMinutos', 'gastoDiarioPasaje',
+                    'pagaResidenciaSi', 'pagaResidenciaNo', 'viajaDiarioSi', 'viajaDiarioNo'
+                ];
+
+                // Agregar evento de input a cada uno de los inputs
+                inputIds.forEach(function(id) {
+                    var el = document.getElementById(id);
+                    if (el) {
+                        el.addEventListener('input', function() {
+                            this.classList.remove('is-invalid');
+                        });
+                    }
+                    // Quitar la clase is-invalid al escribir en cualquiera de los dos inputs de tiempo de viaje
+                    if (id === 'tiempoViajeHoras' || id === 'tiempoViajeMinutos') {
+                        el.addEventListener('input', function() {
+                            document.getElementById('tiempoViajeHoras').classList.remove('is-invalid');
+                            document.getElementById('tiempoViajeMinutos').classList.remove('is-invalid');
+                        });
+                    }
+                    // quitar la clase is-invalid a los input radio de paga residencia
+                    if(id === 'pagaResidenciaSi' || id === 'pagaResidenciaNo'){
+                        el.addEventListener('change', function() {
+                            // Busca el feedback específico dentro del grupo de paga residencia
+                            const pagaResidenciaGroup = el.closest('.mb-3');
+                            const cuantoDiv = pagaResidenciaGroup ? pagaResidenciaGroup.querySelector('.invalid-feedback') : null;
+                            if (cuantoDiv) {
+                                cuantoDiv.style.display = this.checked ? 'none' : 'block';
+                            }
+                        });
+                    }
+
+                    //quitar la clase is-invalid a los input radio de viaja diario
+                    if(id === 'viajaDiarioSi' || id === 'viajaDiarioNo'){
+                        el.addEventListener('change', function() {
+                            // Busca el feedback específico dentro del grupo de viaja diario
+                            const viajaDiarioGroup = el.closest('.mb-3');
+                            const cuantoDiv = viajaDiarioGroup ? viajaDiarioGroup.querySelector('.invalid-feedback') : null;
+                            if (cuantoDiv) {
+                                cuantoDiv.style.display = this.checked ? 'none' : 'block';
+                            }
+                        });
+                    }
+
+                });
+            });
+            </script>
+
+            <script>
+            document.addEventListener('DOMContentLoaded', function () {
+               // Solo números y máximo 8 dígitos para cédula
                 document.getElementById('regCedula').addEventListener('input', function() {
                     this.value = this.value.replace(/\D/g, '').slice(0, 8);
                 });
