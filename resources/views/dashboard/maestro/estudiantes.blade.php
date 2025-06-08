@@ -37,6 +37,10 @@
                         <td>Angel</td>
                         <td>Hernandez</td>
                         <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
                                 Editar
@@ -52,6 +56,10 @@
                         <td>Jose</td>
                         <td>zinga</td>
                         <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
                                 Editar
@@ -67,6 +75,10 @@
                         <td>Angel</td>
                         <td>Hernandez</td>
                         <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
                                 Editar
@@ -82,6 +94,10 @@
                         <td>Pablo</td>
                         <td>Gimenez</td>
                         <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
                                 Editar
@@ -97,6 +113,10 @@
                         <td>Maria</td>
                         <td>Lopez</td>
                         <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
                                 Editar
@@ -112,6 +132,10 @@
                         <td>Carlos</td>
                         <td>Ramirez</td>
                         <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
                                 Editar
@@ -127,6 +151,10 @@
                         <td>Lucia</td>
                         <td>Fernandez</td>
                         <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
                                 Editar
@@ -142,6 +170,10 @@
                         <td>Andrea</td>
                         <td>Martinez</td>
                         <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
                                 Editar
@@ -157,6 +189,10 @@
                         <td>Andrea</td>
                         <td>Martinez</td>
                         <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
                                 Editar
@@ -309,7 +345,6 @@
                     document.getElementById('editCedula').value = row.cells[0].textContent.trim();
                     document.getElementById('editNombre').value = row.cells[1].textContent.trim();
                     document.getElementById('editApellido').value = row.cells[2].textContent.trim();
-                    document.getElementById('editPNF').value = row.cells[3].textContent.trim();
                 }
             });
         });
@@ -325,9 +360,9 @@
             let form = this;
             let valid = true;
 
-            // Validar identificación
-            const identificacion = form.editCedula.value.trim();
-            if (!/^\d{1,8}$/.test(identificacion)) {
+            // Validar cédula
+            const cedula = form.editCedula.value.trim();
+            if (!/^\d{8}$/.test(cedula)) {
                 form.editCedula.classList.add('is-invalid');
                 valid = false;
             } else {
@@ -350,12 +385,135 @@
                 form.editApellido.classList.remove('is-invalid');
             }
 
-            // Validar cargo
-            if (form.editPNF.value === '') {
-                form.editPNF.classList.add('is-invalid');
+            // Validar sexo
+            if (form.editSexo.value.trim() === '') {
+                form.editSexo.classList.add('is-invalid');
                 valid = false;
             } else {
-                form.editPNF.classList.remove('is-invalid');
+                form.editSexo.classList.remove('is-invalid');
+            }
+
+            // Validar teléfono
+            if (!/^\d{11}$/.test(form.editTelefono.value.trim())) {
+                form.editTelefono.classList.add('is-invalid');
+                valid = false;
+            } else {
+                form.editTelefono.classList.remove('is-invalid');
+            }
+
+            // Validar fecha de nacimiento
+            if (form.editFechaNacimiento.value.trim() === '') {
+                form.editFechaNacimiento.classList.add('is-invalid');
+                valid = false;
+            } else {
+                form.editFechaNacimiento.classList.remove('is-invalid');
+            }
+
+            // Validar condición
+            if (form.editCondicion.value.trim() === '') {
+                form.editCondicion.classList.add('is-invalid');
+                valid = false;
+            } else {
+                form.editCondicion.classList.remove('is-invalid');
+            }
+
+            // Validar email
+            const email = form.editEmail.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '' || !emailRegex.test(email)) {
+                form.editEmail.classList.add('is-invalid');
+                valid = false;
+            } else {
+                form.editEmail.classList.remove('is-invalid');
+            }
+
+            // Validar dirección
+            if (form.editDireccion.value.trim() === '') {
+                form.editDireccion.classList.add('is-invalid');
+                valid = false;
+            } else {
+                form.editDireccion.classList.remove('is-invalid');
+            }
+
+            // Validar procedencia
+            if (form.editProcedencia.value.trim() === '') {
+                form.editProcedencia.classList.add('is-invalid');
+                valid = false;
+            } else {
+                form.editProcedencia.classList.remove('is-invalid');
+            }
+
+            // Los campos "¿Es Foráneo?" y "¿Está registrado en patria?" NO son obligatorios, así que no se validan aquí.
+
+            // Validar campos extra si es foráneo
+            if (form.editForaneo.checked) {
+                // Dirección temporal
+                if (form.editDireccionTemporal.value.trim() === '') {
+                    form.editDireccionTemporal.classList.add('is-invalid');
+                    valid = false;
+                } else {
+                    form.editDireccionTemporal.classList.remove('is-invalid');
+                }
+
+                // ¿Pagas residencia?
+                const pagaResidenciaSi = form.editPagaResidenciaSi;
+                const pagaResidenciaNo = form.editPagaResidenciaNo;
+                const pagaResidenciaGroup = pagaResidenciaSi.closest('.mb-3');
+                const pagaResidenciaFeedback = pagaResidenciaGroup.querySelector('.invalid-feedback');
+                if (!pagaResidenciaSi.checked && !pagaResidenciaNo.checked) {
+                    pagaResidenciaFeedback.style.display = 'block';
+                    valid = false;
+                } else {
+                    pagaResidenciaFeedback.style.display = 'none';
+                }
+                // ¿Cuánto pagas? (si seleccionó sí)
+                if (pagaResidenciaSi.checked) {
+                    if (form.editCuantoPagasResidencia.value.trim() === '') {
+                        form.editCuantoPagasResidencia.classList.add('is-invalid');
+                        valid = false;
+                    } else {
+                        form.editCuantoPagasResidencia.classList.remove('is-invalid');
+                    }
+                }
+
+                // ¿Viajas a diario?
+                const viajaDiarioSi = form.editViajaDiarioSi;
+                const viajaDiarioNo = form.editViajaDiarioNo;
+                const viajaDiarioGroup = viajaDiarioSi.closest('.mb-3');
+                const viajaDiarioFeedback = viajaDiarioGroup.querySelector('.invalid-feedback');
+                if (!viajaDiarioSi.checked && !viajaDiarioNo.checked) {
+                    viajaDiarioFeedback.style.display = 'block';
+                    valid = false;
+                } else {
+                    viajaDiarioFeedback.style.display = 'none';
+                }
+                // ¿Cuántas veces a la semana? (si seleccionó sí)
+                if (viajaDiarioSi.checked) {
+                    if (form.editVecesSemana.value.trim() === '') {
+                        form.editVecesSemana.classList.add('is-invalid');
+                        valid = false;
+                    } else {
+                        form.editVecesSemana.classList.remove('is-invalid');
+                    }
+                }
+
+                // Tiempo de viaje (al menos uno)
+                if (form.editTiempoViajeHoras.value.trim() === '' && form.editTiempoViajeMinutos.value.trim() === '') {
+                    form.editTiempoViajeHoras.classList.add('is-invalid');
+                    form.editTiempoViajeMinutos.classList.add('is-invalid');
+                    valid = false;
+                } else {
+                    form.editTiempoViajeHoras.classList.remove('is-invalid');
+                    form.editTiempoViajeMinutos.classList.remove('is-invalid');
+                }
+
+                // Gasto diario en pasaje
+                if (form.editGastoDiarioPasaje.value.trim() === '') {
+                    form.editGastoDiarioPasaje.classList.add('is-invalid');
+                    valid = false;
+                } else {
+                    form.editGastoDiarioPasaje.classList.remove('is-invalid');
+                }
             }
 
             if (!valid) return;
@@ -386,7 +544,7 @@
         });
 
         // Quitar la clase is-invalid al escribir
-        ['editCedula', 'editNombre', 'editApellido', 'editPNF'].forEach(function(id) {
+        ['editCedula', 'editNombre', 'editApellido'].forEach(function(id) {
             document.getElementById(id).addEventListener('input', function() {
                 this.classList.remove('is-invalid');
             });
@@ -434,80 +592,314 @@
 
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-lg" style="max-width: 450px;">
             <div class="modal-content">
                 <form id="editStudentForm" novalidate>
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Datos del Estudiante</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <div class="mb-3">
                                     <label for="editCedula" class="form-label">Cédula</label>
-                                    <input type="text" class="form-control" id="editCedula" name="identificacion" pattern="\d{8}" required>
+                                    <input type="text" class="form-control" id="editCedula" name="cedula" required pattern="\d{1,10}" maxlength="10" style="max-width: 220px;" placeholder="Ej: 1234567890">
                                     <div class="invalid-feedback">
-                                        Solo números, exactamente 8 dígitos.
+                                        Solo números, máximo 10 dígitos.
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="editSegundoNombre" class="form-label">Segundo Nombre (opcional)</label>
-                                    <input type="text" class="form-control" id="editSegundoNombre" name="segundo_nombre">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="editSegundoApellido" class="form-label">Segundo Apellido (opcional)</label>
-                                    <input type="text" class="form-control" id="editSegundoApellido" name="segundo_apellido">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="editNombre" class="form-label">Primer Nombre</label>
-                                    <input type="text" class="form-control" id="editNombre" name="nombre" required>
+                                    <label for="editNombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="editNombre" name="nombre" required placeholder="Ej: Angel">
                                     <div class="invalid-feedback">
                                         El nombre no puede estar vacío.
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="editApellido" class="form-label">Primer Apellido</label>
-                                    <input type="text" class="form-control" id="editApellido" name="apellido" required>
+                                    <label for="editApellido" class="form-label">Apellido</label>
+                                    <input type="text" class="form-control" id="editApellido" name="apellido" required placeholder="Ej: Hernandez">
                                     <div class="invalid-feedback">
                                         El apellido no puede estar vacío.
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="editPNF" class="form-label">PNF</label>
-                                    <select class="form-select" id="editPNF" name="pnf" required>
-                                        <option value="">Seleccione un PNF</option>
-                                        <option value="Informatica">Informatica</option>
-                                        <option value="Ing.Mecanica">Ing.Mecanica</option>
-                                        <option value="Veterinaria">Veterinaria</option>
-                                        <option value="Electricidad">Electricidad</option>
+                                    <div class="row g-2 align-items-end">
+                                        <div class="col-md-6">
+                                            <label for="editSexo" class="form-label">Sexo</label>
+                                            <select class="form-select" id="editSexo" name="sexo" required>
+                                                <option value="">Seleccione Sexo</option>
+                                                <option value="Masculino">Masculino</option>
+                                                <option value="Femenino">Femenino</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Ingrese el Sexo.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="editTelefono" class="form-label">Teléfono</label>
+                                            <input type="text" class="form-control" id="editTelefono" name="telefono" required placeholder="Ej: 04141234567" pattern="\d{11}" maxlength="11" style="max-width: 220px;">
+                                            <div class="invalid-feedback">
+                                                Ingrese un teléfono válido.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="row g-2 align-items-start">
+                                        <div class="col-md-6">
+                                            <label for="editFechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                            <input type="date" class="form-control" id="editFechaNacimiento" name="fecha_nacimiento" required placeholder="Ej: 2000-01-01">
+                                            <div class="invalid-feedback">
+                                                Fecha Invalida.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="editEdad" class="form-label">Edad</label>
+                                            <input type="text" class="form-control" id="editEdad" name="edad" readonly placeholder="Edad" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editCondicion" class="form-label">Condición</label>
+                                    <select class="form-select" id="editCondicion" name="condicion" required>
+                                        <option value="">Seleccione Condición</option>
+                                        <option value="Regular">Regular</option>
+                                        <option value="Per (Repitencia)">Repitencia</option>
+                                        <option value="Congelado">Congelado</option>
+                                        <option value="Reingreso">Reingreso</option>
                                     </select>
                                     <div class="invalid-feedback">
-                                        Ingrese el PNF.
+                                        Ingrese la condición.
                                     </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="editEmail" name="email" required placeholder="Ej: angel@email.com">
+                                    <div class="invalid-feedback">
+                                        El campo no puede estar vacío.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editDireccion" class="form-label">Dirección Permanente</label>
+                                    <input type="text" class="form-control" id="editDireccion" name="direccion" required placeholder="Ej: Calle 123, Ciudad">
+                                    <div class="invalid-feedback">
+                                        La dirección no puede estar vacía.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editProcedencia" class="form-label">Procedencia</label>
+                                    <input type="text" class="form-control" id="editProcedencia" name="procedencia" required placeholder="Ej: Agua Blanca, Acarigua">
+                                    <div class="invalid-feedback">
+                                        La procedencia no puede estar vacía.
+                                    </div>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="editForaneo" name="foraneo">
+                                    <label class="form-check-label" for="editForaneo">¿Es Foráneo?</label>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="editPatria" name="patria">
+                                    <label class="form-check-label" for="editPatria">¿Está registrado en patria?</label>
+                                </div>
+                                
+                                <!--  Campos extra de foraneo -->
+                                <div id="editPatriaExtraFields" style="display: none; overflow: hidden; max-height: 0; transition: max-height 0.4s ease;">
+                                    <div class="mb-3">
+                                        <label for="editDireccionTemporal" class="form-label">Dirección Temporal</label>
+                                        <input type="text" class="form-control" id="editDireccionTemporal" name="direccion_temporal" placeholder="Ej: Calle 456, Ciudad" maxlength="150">
+                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                            La dirección temporal no puede estar vacía.
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">¿Pagas residencia?</label>
+                                        <div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="edit_paga_residencia" id="editPagaResidenciaSi" value="si">
+                                                <label class="form-check-label" for="editPagaResidenciaSi">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="edit_paga_residencia" id="editPagaResidenciaNo" value="no">
+                                                <label class="form-check-label" for="editPagaResidenciaNo">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                            Seleccione una opción.
+                                        </div>
+                                    </div>
+                                    <div class="mb-3" id="editCuantoPagasResidenciaDiv">
+                                        <label for="editCuantoPagasResidencia" class="form-label">¿Cuánto pagas?</label>
+                                        <input type="number" class="form-control" id="editCuantoPagasResidencia" name="cuanto_pagas_residencia" min="0" placeholder="Monto en Bs.">
+                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                            Ingrese un monto válido.
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">¿Viajas a diario a clases?</label>
+                                        <div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="edit_viaja_diario" id="editViajaDiarioSi" value="si">
+                                                <label class="form-check-label" for="editViajaDiarioSi">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="edit_viaja_diario" id="editViajaDiarioNo" value="no">
+                                                <label class="form-check-label" for="editViajaDiarioNo">No</label>
+                                            </div>
+                                            <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                Seleccione una opción.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3" id="editVecesSemanaDiv">
+                                        <label for="editVecesSemana" class="form-label">¿Cuántas veces a la semana?</label>
+                                        <input type="number" class="form-control" id="editVecesSemana" name="veces_semana" min="0" max="9" maxlength="1" required placeholder="Ej: 5">
+                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                            El campo es obligatorio y debe ser un solo dígito entre 1 y 7.
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">¿Cuánto tiempo inviertes en el viaje?</label>
+                                        <div class="row g-2">
+                                            <div class="col">
+                                                <input type="number" class="form-control" id="editTiempoViajeHoras" name="tiempo_viaje_horas" min="0" max="24" placeholder="Horas">
+                                                <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                    El campo no puede estar vacío.
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <input type="number" class="form-control" id="editTiempoViajeMinutos" name="tiempo_viaje_minutos" min="0" max="59" placeholder="Minutos">
+                                                <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                    El campo no puede estar vacío.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editGastoDiarioPasaje" class="form-label">Gasto diario en pasaje</label>
+                                        <input type="text" class="form-control" id="editGastoDiarioPasaje" name="gasto_diario_pasaje" min="0" placeholder="Monto en Bs.">
+                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                            Ingrese un monto válido.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
+                                        <img src="{{ asset('icons/close.svg') }}" alt="Icono de cancelar" class="icon-close">
+                                        Cancelar
+                                    </button>
+                                    <button type="submit" class="btn-minimal btn-save">
+                                        <img src="{{ asset('icons/save_green.svg') }}" alt="Icono de guardar" class="icon-save">
+                                        Actualizar
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
-                            <img src="{{ asset('icons/close.svg') }}" alt="Icono de cancelar" class="icon-close">
-                            Cancelar
-                        </button>
-                        <button type="submit" class="btn-minimal btn-save">
-                            <img src="{{ asset('icons/save_green.svg') }}" alt="Icono de guardar" class="icon-save">
-                            Actualizar
-                        </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+    // Validación para el campo ¿Cuántas veces a la semana?
+    document.addEventListener('DOMContentLoaded', function () {
+        var vecesSemana = document.getElementById('editVecesSemana');
+        if (vecesSemana) {
+            vecesSemana.addEventListener('input', function() {
+                // Solo permitir un dígito entre 1 y 7
+                this.value = this.value.replace(/[^0-9]/g, '').slice(0, 1);
+                this.classList.remove('is-invalid');
+            });
+        }
+    });
+    </script>
+    <script>
+        // Mostrar la edad automáticamente al cambiar la fecha de nacimiento en el modal de editar
+        document.addEventListener('DOMContentLoaded', function () {
+            var fechaInput = document.getElementById('editFechaNacimiento');
+            var edadInput = document.getElementById('editEdad');
+            if (fechaInput && edadInput) {
+                fechaInput.addEventListener('input', function() {
+                    const fecha = this.value;
+                    if (fecha) {
+                        const hoy = new Date();
+                        const nacimiento = new Date(fecha);
+                        let edad = hoy.getFullYear() - nacimiento.getFullYear();
+                        const m = hoy.getMonth() - nacimiento.getMonth();
+                        if (m < 0 || (m === 0 && hoy.getDate() < nacimiento.getDate())) {
+                            edad--;
+                        }
+                        edadInput.value = edad >= 0 ? edad : '';
+                    } else {
+                        edadInput.value = '';
+                    }
+                });
+            }
+        });
+    </script>
+    <script>
+    // Mostrar/ocultar campos extra de foráneo en editar estudiante
+    document.addEventListener('DOMContentLoaded', function () {
+        const foraneoCheckbox = document.getElementById('editForaneo');
+        const extraFields = document.getElementById('editPatriaExtraFields');
+        foraneoCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                extraFields.style.display = 'block';
+                extraFields.style.maxHeight = '0';
+                setTimeout(() => {
+                    extraFields.style.maxHeight = extraFields.scrollHeight + 'px';
+                }, 10);
+            } else {
+                extraFields.style.maxHeight = '0';
+                setTimeout(() => {
+                    extraFields.style.display = 'none';
+                }, 400);
+                // Limpiar los campos al ocultar
+                document.getElementById('editDireccionTemporal').value = '';
+                document.getElementById('editCuantoPagasResidencia').value = '';
+                document.getElementById('editVecesSemana').value = '';
+                document.getElementById('editTiempoViajeHoras').value = '';
+                document.getElementById('editTiempoViajeMinutos').value = '';
+                document.getElementById('editGastoDiarioPasaje').value = '';
+                document.getElementsByName('edit_paga_residencia').forEach(r => r.checked = false);
+                document.getElementsByName('edit_viaja_diario').forEach(r => r.checked = false);
+            }
+        });
+
+        // Al cargar la página, deshabilitar los inputs dependientes
+        document.getElementById('editCuantoPagasResidencia').setAttribute('disabled', true);
+        document.getElementById('editVecesSemana').setAttribute('disabled', true);
+
+        // Habilitar/deshabilitar el input de "¿Cuánto pagas?" según "¿Pagas residencia?"
+        document.getElementsByName('edit_paga_residencia').forEach(function(radio) {
+            radio.addEventListener('change', function() {
+            const cuantoInput = document.getElementById('editCuantoPagasResidencia');
+            if (this.value === 'si') {
+                cuantoInput.removeAttribute('disabled');
+            } else {
+                cuantoInput.setAttribute('disabled', true);
+            }
+            });
+        });
+
+        // Habilitar/deshabilitar el input de "¿Cuántas veces a la semana?" según "¿Viajas a diario a clases?"
+        document.getElementsByName('edit_viaja_diario').forEach(function(radio) {
+            radio.addEventListener('change', function() {
+            const vecesInput = document.getElementById('editVecesSemana');
+            if (this.value === 'si') {
+                vecesInput.removeAttribute('disabled');
+            } else {
+                vecesInput.setAttribute('disabled', true);
+            }
+            });
+        });
+
+        
+    });
+    </script>
     <!-- Modal de detalles del estudiante -->
     <div class="modal fade" id="detailsStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detailsStudentModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-lg" style="max-width: 450px;">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="detailsStudentModalLabel">Detalles del Estudiante</h1>
@@ -515,71 +907,101 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <!-- Primera fila: 4 inputs -->
-                        <div class="col-md-3">
+                        <div class="col-12">
                             <div class="mb-3">
                                 <label class="form-label">Cédula:</label>
-                                <input type="text" class="form-control" id="detailsCedula" value="12345678" readonly>
+                                <input type="text" class="form-control" id="detailsCedula" readonly>
                             </div>
-                        </div>
-                        <div class="col-md-3">
                             <div class="mb-3">
-                                <label class="form-label">Nombre:</label>
-                                <input type="text" class="form-control" id="detailsPrimerNombre" value="Angel" readonly>
+                                <label class="form-label">Primer Nombre:</label>
+                                <input type="text" class="form-control" id="detailsPrimerNombre" readonly>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="mb-3">
-                                <label class="form-label">Apellido:</label>
-                                <input type="text" class="form-control" id="detailsPrimerApellido" value="Hernandez" readonly>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
                             <div class="mb-3">
                                 <label class="form-label">Lapso Académico:</label>
-                                <input type="text" class="form-control" id="detailsLapso" value="2023-2" readonly>
+                                <input type="text" class="form-control" id="detailsLapso" readonly>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- Segunda fila: 3 inputs -->
-                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Primer Apellido:</label>
+                                <input type="text" class="form-control" id="detailsPrimerApellido" readonly>
+                            </div>
                             <div class="mb-3">
                                 <label class="form-label">PNF:</label>
-                                <input type="text" class="form-control" id="detailsPNF" value="Informatica" readonly>
+                                <input type="text" class="form-control" id="detailsPNF" readonly>
                             </div>
-                        </div>
-                        <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Sexo:</label>
-                                <input type="text" class="form-control" id="detailsSexo" value="Masculino" readonly>
+                                <input type="text" class="form-control" id="detailsSexo" readonly>
                             </div>
-                        </div>
-                        <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Email:</label>
-                                <input type="email" class="form-control" id="detailsEmail" value="angel@email.com" readonly>
+                                <input type="email" class="form-control" id="detailsEmail" readonly>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- Tercera fila: 3 inputs -->
-                        <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Sede:</label>
-                                <input type="text" class="form-control" id="detailsSede" value="Sede Central" readonly>
+                                <input type="text" class="form-control" id="detailsSede" readonly>
                             </div>
-                        </div>
-                        <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Condición:</label>
-                                <input type="text" class="form-control" id="detailsCondicion" value="Regular" readonly>
+                                <input type="text" class="form-control" id="detailsCondicion" readonly>
                             </div>
-                        </div>
-                        <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Fecha de Nacimiento:</label>
-                                <input type="date" class="form-control" id="detailsFechaNacimiento" value="2000-01-01" readonly>
+                                <input type="date" class="form-control" id="detailsFechaNacimiento" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Edad:</label>
+                                <input type="text" class="form-control" id="detailsEdad" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Teléfono:</label>
+                                <input type="text" class="form-control" id="detailsTelefono" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Dirección Permanente:</label>
+                                <input type="text" class="form-control" id="detailsDireccion" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Procedencia:</label>
+                                <input type="text" class="form-control" id="detailsProcedencia" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">¿Es Foráneo?</label>
+                                <input type="text" class="form-control" id="detailsForaneo" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">¿Registrado en Patria?</label>
+                                <input type="text" class="form-control" id="detailsPatria" readonly>
+                            </div>
+                            <!-- Campos solo para foráneo -->
+                            <div id="foraneoExtraFields" style="display: none;">
+                                <div class="mb-3">
+                                    <label class="form-label">Dirección Temporal:</label>
+                                    <input type="text" class="form-control" id="detailsDireccionTemporal" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">¿Pagas residencia?</label>
+                                    <input type="text" class="form-control" id="detailsPagaResidencia" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">¿Cuánto pagas?</label>
+                                    <input type="text" class="form-control" id="detailsCuantoPagasResidencia" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">¿Viajas a diario?</label>
+                                    <input type="text" class="form-control" id="detailsViajaDiario" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">¿Cuántas veces a la semana?</label>
+                                    <input type="text" class="form-control" id="detailsVecesSemana" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tiempo de viaje:</label>
+                                    <input type="text" class="form-control" id="detailsTiempoViaje" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Gasto diario en pasaje:</label>
+                                    <input type="text" class="form-control" id="detailsGastoDiarioPasaje" readonly>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -593,6 +1015,60 @@
             </div>
         </div>
     </div>
+    <script>
+    // Script para llenar el modal de detalles con los datos de la fila
+    document.querySelectorAll('.btn-details[data-bs-target="#detailsStudentModal"]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const row = btn.closest('tr');
+            // Tomar datos de la fila
+            document.getElementById('detailsCedula').value = row.cells[0]?.textContent.trim() || '-';
+            document.getElementById('detailsPrimerNombre').value = row.cells[1]?.textContent.trim() || '-';
+            document.getElementById('detailsPrimerApellido').value = row.cells[2]?.textContent.trim() || '-';
+
+            // Datos que no están en la tabla: poner valores de ejemplo o por defecto
+            document.getElementById('detailsLapso').value = '2023-2';
+            document.getElementById('detailsPNF').value = 'Informatica';
+            document.getElementById('detailsSexo').value = 'Masculino';
+            document.getElementById('detailsEmail').value = 'angel@email.com';
+            document.getElementById('detailsSede').value = 'Sede Central';
+            document.getElementById('detailsCondicion').value = 'Regular';
+            document.getElementById('detailsFechaNacimiento').value = '2000-01-01';
+            document.getElementById('detailsEdad').value = '23';
+            document.getElementById('detailsTelefono').value = '04141234567';
+            document.getElementById('detailsDireccion').value = 'Calle 123, Ciudad';
+            document.getElementById('detailsProcedencia').value = 'Agua Blanca, Acarigua';
+            // Foráneo y patria
+            // Simulación: algunos estudiantes son foráneos según la cédula (ejemplo)
+            const cedula = row.cells[0]?.textContent.trim() || '';
+            // Por ejemplo, si la cédula termina en 2, 8 o 9, es foráneo
+            const esForaneo = ['2', '8', '9'].includes(cedula.slice(-1));
+            document.getElementById('detailsForaneo').value = esForaneo ? 'Sí' : 'No';
+            document.getElementById('detailsPatria').value = 'Sí';
+
+            // Mostrar/ocultar campos extra de foráneo
+            const foraneoExtraFields = document.getElementById('foraneoExtraFields');
+            if (esForaneo) {
+                foraneoExtraFields.style.display = 'block';
+                document.getElementById('detailsDireccionTemporal').value = 'Calle 456, Ciudad';
+                document.getElementById('detailsPagaResidencia').value = 'Sí';
+                document.getElementById('detailsCuantoPagasResidencia').value = '100 Bs.';
+                document.getElementById('detailsViajaDiario').value = 'Sí';
+                document.getElementById('detailsVecesSemana').value = '5';
+                document.getElementById('detailsTiempoViaje').value = '1h 30m';
+                document.getElementById('detailsGastoDiarioPasaje').value = '10 Bs.';
+            } else {
+                foraneoExtraFields.style.display = 'none';
+                document.getElementById('detailsDireccionTemporal').value = '';
+                document.getElementById('detailsPagaResidencia').value = '';
+                document.getElementById('detailsCuantoPagasResidencia').value = '';
+                document.getElementById('detailsViajaDiario').value = '';
+                document.getElementById('detailsVecesSemana').value = '';
+                document.getElementById('detailsTiempoViaje').value = '';
+                document.getElementById('detailsGastoDiarioPasaje').value = '';
+            }
+        });
+    });
+    </script>
 
     <!-- Modal de registro de estudiante -->
     <div class="modal fade" id="registerStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="registerStudentModalLabel" aria-hidden="true">
@@ -772,6 +1248,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
+                                                <!-- QUITAR disabled aquí para permitir llenar minutos -->
                                                 <input type="number" class="form-control" id="tiempoViajeMinutos" name="tiempo_viaje_minutos" min="0" max="59" placeholder="Minutos" required>
                                                 <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
                                                     El campo no puede estar vacío.

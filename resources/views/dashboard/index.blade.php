@@ -1,8 +1,8 @@
 @extends('layouts.layoutDash')
-@section('title', 'Dashboard')
+@section('title', 'Pagina Principal')
 @section('content')
-    @section('titulo', 'Dashboard')
+    @section('titulo', 'Pagina Principal')
     <div class="contenedor">
-        <h2>Bienvenido a la página de control</h2>
+        <h2>Bienvenido a la página principal</h2>
     </div>
 @endsection

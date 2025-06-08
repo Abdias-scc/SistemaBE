@@ -46,7 +46,7 @@
                         </td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Central">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Informatica">
                                 <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
                                     Activo
                                 </label>
@@ -67,7 +67,7 @@
                         </td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeNorteSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Norte">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeNorteSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Veterinaria">
                                 <label class="form-check-label ms-2" for="sedeNorteSwitch" style="user-select: none;">
                                     Activo
                                 </label>
@@ -88,7 +88,7 @@
                         </td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeSurSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Sur">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeSurSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Administracion">
                                 <label class="form-check-label ms-2" for="sedeSurSwitch" style="user-select: none;">
                                     Activo
                                 </label>
@@ -109,7 +109,7 @@
                         </td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeEsteSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Este">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeEsteSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Mecanica">
                                 <label class="form-check-label ms-2" for="sedeEsteSwitch" style="user-select: none;">
                                     Activo
                                 </label>
@@ -130,7 +130,7 @@
                         </td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeOesteSwitch" style="width: 2.5em; height: 1.3em;" data-sede="Sede Oeste">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeOesteSwitch" style="width: 2.5em; height: 1.3em;" data-sede="Quimica">
                                 <label class="form-check-label ms-2" for="sedeOesteSwitch" style="user-select: none;">
                                     Activo
                                 </label>
@@ -151,7 +151,7 @@
                         </td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeAndesSwitch" style="width: 2.5em; height: 1.3em;" data-sede="Sede Los Andes">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeAndesSwitch" style="width: 2.5em; height: 1.3em;" data-sede="Electronica">
                                 <label class="form-check-label ms-2" for="sedeAndesSwitch" style="user-select: none;">
                                     Activo
                                 </label>
@@ -172,7 +172,7 @@
                         </td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeMaracaySwitch" style="width: 2.5em; height: 1.3em;" data-sede="Sede Maracay">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeMaracaySwitch" style="width: 2.5em; height: 1.3em;" data-sede="Construccion Civil">
                                 <label class="form-check-label ms-2" for="sedeMaracaySwitch" style="user-select: none;">
                                     Activo
                                 </label>
@@ -193,7 +193,7 @@
                         </td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeBarinasSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Barinas">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeBarinasSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Agroalimentaria">
                                 <label class="form-check-label ms-2" for="sedeBarinasSwitch" style="user-select: none;">
                                     Activo
                                 </label>
