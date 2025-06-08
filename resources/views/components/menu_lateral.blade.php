@@ -41,7 +41,7 @@
                         <a href="{{ route('servicio') }}" class="nav-link dropdown-link">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('lapso') }}" class="nav-link dropdown-link">Lapso Academico</a>
+                        <a href="{{ route('lapso') }}" class="nav-link dropdown-link">Lapso</a>
                     </li>
                 </ul>
             </li>
