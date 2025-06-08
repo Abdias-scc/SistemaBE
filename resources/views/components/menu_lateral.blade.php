@@ -32,9 +32,6 @@
                         <a href="{{ route('estudiantes') }}" class="nav-link dropdown-link">Estudiantes</a> 
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('becados') }}" class="nav-link dropdown-link">Becados</a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('pnf') }}" class="nav-link dropdown-link">PNF</a>
                     </li>
                     <li class="nav-item">
@@ -44,7 +41,7 @@
                         <a href="{{ route('servicio') }}" class="nav-link dropdown-link">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('lapso') }}" class="nav-link dropdown-link">Lapso Academicos</a>
+                        <a href="{{ route('lapso') }}" class="nav-link dropdown-link">Lapso Academico Academicos</a>
                     </li>
                 </ul>
             </li>
