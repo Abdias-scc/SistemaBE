@@ -31,6 +31,7 @@
                         <th scope="col" onclick="sortTable(3)">PNF ↑</th>
                         <th scope="col" onclick="sortTable(4)">Lapso Académico ↑</th>
                         <th scope="col" style="width: 1%; white-space: nowrap;">Acciones</th>
+                        <th scope="col">Condicion</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,160 +40,7 @@
                         <td>Angel</td>
                         <td>Hernandez</td>
                         <td>Informatica</td>
-                        <td>2023-2</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>87654321</td>
-                        <td>Jose</td>
-                        <td>zinga</td>
-                        <td>Electricidad</td>
-                        <td>2022-1</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>12387498</td>
-                        <td>Angel</td>
-                        <td>Hernandez</td>
-                        <td>Veterinaria</td>
-                        <td>2023-1</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>34387622</td>
-                        <td>Pablo</td>
-                        <td>Gimenez</td>
-                        <td>Informatica</td>
-                        <td>2022-2</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>23456789</td>
-                        <td>Maria</td>
-                        <td>Lopez</td>
-                        <td>Ing.Mecanica</td>
-                        <td>2021-2</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>98765432</td>
-                        <td>Carlos</td>
-                        <td>Ramirez</td>
-                        <td>Electricidad</td>
-                        <td>2023-2</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>45678901</td>
-                        <td>Lucia</td>
-                        <td>Fernandez</td>
-                        <td>Veterinaria</td>
-                        <td>2022-1</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>56789012</td>
-                        <td>Andrea</td>
-                        <td>Martinez</td>
-                        <td>Informatica</td>
-                        <td>2023-1</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>56789012</td>
-                        <td>Andrea</td>
-                        <td>Martinez</td>
-                        <td>Informatica</td>
-                        <td>2023-1</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>56789012</td>
-                        <td>Andrea</td>
-                        <td>Martinez</td>
-                        <td>Informatica</td>
-                        <td>2023-1</td>
+                        <td>2023-II</td>
                         <td>
                             <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -206,6 +54,276 @@
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Central">
+                                <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>87654321</td>
+                        <td>Jose</td>
+                        <td>zinga</td>
+                        <td>Electricidad</td>
+                        <td>2022-I</td>
+                        <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Central">
+                                <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12387498</td>
+                        <td>Angel</td>
+                        <td>Hernandez</td>
+                        <td>Veterinaria</td>
+                        <td>2023-I</td>
+                        <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Central">
+                                <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>34387622</td>
+                        <td>Pablo</td>
+                        <td>Gimenez</td>
+                        <td>Informatica</td>
+                        <td>2022-II</td>
+                        <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Central">
+                                <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>23456789</td>
+                        <td>Maria</td>
+                        <td>Lopez</td>
+                        <td>Ing.Mecanica</td>
+                        <td>2021-II</td>
+                        <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Central">
+                                <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>98765432</td>
+                        <td>Carlos</td>
+                        <td>Ramirez</td>
+                        <td>Electricidad</td>
+                        <td>2023-II</td>
+                        <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Central">
+                                <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>45678901</td>
+                        <td>Lucia</td>
+                        <td>Fernandez</td>
+                        <td>Veterinaria</td>
+                        <td>2022-I</td>
+                        <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Central">
+                                <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>56789012</td>
+                        <td>Andrea</td>
+                        <td>Martinez</td>
+                        <td>Informatica</td>
+                        <td>2023-I</td>
+                        <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                            
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Central">
+                                <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>56789012</td>
+                        <td>Andrea</td>
+                        <td>Martinez</td>
+                        <td>Informatica</td>
+                        <td>2023-I</td>
+                        <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Central">
+                                <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>56789012</td>
+                        <td>Andrea</td>
+                        <td>Martinez</td>
+                        <td>Informatica</td>
+                        <td>2023-I</td>
+                        <td>
+                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Ver Detalles
+                            </button>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Central">
+                                <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -231,6 +349,51 @@
         </nav>
     
     <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.sede-switch').forEach(function(switchInput) {
+            switchInput.addEventListener('change', function(e) {
+                const label = switchInput.nextElementSibling;
+                // Obtener el nombre del lapso desde la fila
+                const row = switchInput.closest('tr');
+                const lapso = row ? row.cells[0].textContent.trim() : '';
+                const checked = switchInput.checked;
+
+                // Revertir el cambio hasta que el usuario confirme
+                switchInput.checked = !checked;
+
+                Swal.fire({
+                title: checked
+                    ? `¿Desea activar el lapso "${lapso}"?`
+                    : `¿Desea inactivar el lapso "${lapso}"?`,
+                text: checked
+                    ? `El lapso "${lapso}" será marcado como activo.`
+                    : `El lapso "${lapso}" será marcado como inactivo.`,
+                icon: checked ? 'question' : 'warning',
+                showCancelButton: true,
+                confirmButtonText: checked ? 'Activar' : 'Inactivar',
+                cancelButtonText: 'Cancelar',
+                reverseButtons: true
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    switchInput.checked = checked;
+                    label.textContent = checked ? 'Activo' : 'Inactivo';
+                    Swal.fire({
+                    title: checked
+                        ? `¡Lapso "${lapso}" activado!`
+                        : `¡Lapso "${lapso}" inactivado!`,
+                    text: checked
+                        ? `El lapso "${lapso}" ha sido activado.`
+                        : `El lapso "${lapso}" ha sido inactivado.`,
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                    });
+                    // Aquí puedes agregar la lógica para activar/inactivar el lapso en el backend
+                }
+                });
+            });
+            });
+        });
         //*Script para el inputt de buscar
         document.getElementById('searchButton').addEventListener('click', function() {
             const input = document.getElementById('searchInput');
@@ -564,23 +727,29 @@
                         </div>
                     </div>
                     <div class="row">
-                        <!-- Segunda fila: 3 inputs -->
-                        <div class="col-md-4">
+                        <!-- Segunda fila: 4 inputs (agregada Edad) -->
+                        <div class="col-md-3">
                             <div class="mb-3">
                                 <label class="form-label">PNF:</label>
                                 <input type="text" class="form-control" id="detailsPNF" value="Informatica" readonly>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="mb-3">
                                 <label class="form-label">Sexo:</label>
                                 <input type="text" class="form-control" id="detailsSexo" value="Masculino" readonly>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="mb-3">
                                 <label class="form-label">Email:</label>
                                 <input type="email" class="form-control" id="detailsEmail" value="angel@email.com" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">Edad:</label>
+                                <input type="text" class="form-control" id="detailsEdad" value="19" readonly>
                             </div>
                         </div>
                     </div>
@@ -657,20 +826,20 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="mb-3">
-                                            <label for="regSexo" class="form-label">Sexo</label>
+                                            <label for="regSexo" class="form-label">Genero</label>
                                             <select class="form-select" id="regSexo" name="sexo" required>
-                                                <option value="">Seleccione Sexo</option>
+                                                <option value="">Seleccione el genero</option>
                                                 <option value="Masculino">Masculino</option>
                                                 <option value="Femenino">Femenino</option>
                                             </select>
                                             <div class="invalid-feedback">
-                                                Ingrese el Sexo.
+                                                Ingrese el genero.
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <!-- Segunda fila: 4 columnas (agregado Teléfono) -->
+                                    <!-- Segunda fila: 4 columnas -->
                                     <div class="col-md-3">
                                         <div class="mb-3">
                                             <label for="regFechaNacimiento" class="form-label">Fecha de Nacimiento</label>
@@ -721,8 +890,26 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <!-- Tercera fila: 3 columnas -->
-                                    <div class="col-md-4">
+                                    <!-- Tercera fila: 4 columnas -->
+                                    <div class="col-md-3">
+                                        <div class="mb-3">
+                                            <label for="regEdad" class="form-label">Edad</label>
+                                            <input type="text" class="form-control" id="regEdad" name="edad" required pattern="\d{1,3}" placeholder="Ej: 19">
+                                            <div class="invalid-feedback">
+                                                Solo números, máximo 3 dígitos.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="mb-3">
+                                            <label for="regTelefono" class="form-label">Teléfono</label>
+                                            <input type="text" class="form-control" id="regTelefono" name="telefono" required placeholder="Ej: 04141234567" pattern="\d{11}">
+                                            <div class="invalid-feedback">
+                                                Ingrese un teléfono válido (11 dígitos).
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
                                         <div class="mb-3">
                                             <label for="regEmail" class="form-label">Email</label>
                                             <input type="email" class="form-control" id="regEmail" name="email" required placeholder="Ej: angel@email.com">
@@ -731,7 +918,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="mb-3">
                                             <label for="regSede" class="form-label">Sede</label>
                                             <select class="form-select" id="regSede" name="sede" required>
@@ -742,16 +929,6 @@
                                             </select>
                                             <div class="invalid-feedback">
                                                 Ingrese la sede.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <div class="mb-3">
-                                            <label for="regTelefono" class="form-label">Teléfono</label>
-                                            <input type="text" class="form-control" id="regTelefono" name="telefono" required placeholder="Ej: 04141234567" pattern="\d{11}">
-                                            <div class="invalid-feedback">
-                                                Ingrese un teléfono válido (11 dígitos).
                                             </div>
                                         </div>
                                     </div>
