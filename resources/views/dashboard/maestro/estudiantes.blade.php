@@ -28,8 +28,6 @@
                         <th scope="col" onclick="sortTable(0)">Cedula ↑</th>
                         <th scope="col" onclick="sortTable(1)">Nombre ↑</th>
                         <th scope="col" onclick="sortTable(2)">Apellido ↑</th>
-                        <th scope="col" onclick="sortTable(3)">PNF ↑</th>
-                        <th scope="col" onclick="sortTable(4)">Lapso Académico ↑</th>
                         <th scope="col" style="width: 1%; white-space: nowrap;">Acciones</th>
                         <th scope="col">Condicion</th>
                     </tr>
@@ -40,7 +38,7 @@
                         <td>Angel</td>
                         <td>Hernandez</td>
                         <td>Informatica</td>
-                        <td>2023-II</td>
+                        <td>2023-2</td>
                         <td>
                             <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -69,7 +67,7 @@
                         <td>Jose</td>
                         <td>zinga</td>
                         <td>Electricidad</td>
-                        <td>2022-I</td>
+                        <td>2022-1</td>
                         <td>
                             <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -98,7 +96,7 @@
                         <td>Angel</td>
                         <td>Hernandez</td>
                         <td>Veterinaria</td>
-                        <td>2023-I</td>
+                        <td>2023-1</td>
                         <td>
                             <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -127,7 +125,7 @@
                         <td>Pablo</td>
                         <td>Gimenez</td>
                         <td>Informatica</td>
-                        <td>2022-II</td>
+                        <td>2022-2</td>
                         <td>
                             <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -156,7 +154,7 @@
                         <td>Maria</td>
                         <td>Lopez</td>
                         <td>Ing.Mecanica</td>
-                        <td>2021-II</td>
+                        <td>2021-2</td>
                         <td>
                             <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -185,7 +183,7 @@
                         <td>Carlos</td>
                         <td>Ramirez</td>
                         <td>Electricidad</td>
-                        <td>2023-II</td>
+                        <td>2023-2</td>
                         <td>
                             <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -214,7 +212,7 @@
                         <td>Lucia</td>
                         <td>Fernandez</td>
                         <td>Veterinaria</td>
-                        <td>2022-I</td>
+                        <td>2022-1</td>
                         <td>
                             <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -243,7 +241,7 @@
                         <td>Andrea</td>
                         <td>Martinez</td>
                         <td>Informatica</td>
-                        <td>2023-I</td>
+                        <td>2023-1</td>
                         <td>
                             <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -273,7 +271,7 @@
                         <td>Andrea</td>
                         <td>Martinez</td>
                         <td>Informatica</td>
-                        <td>2023-I</td>
+                        <td>2023-1</td>
                         <td>
                             <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -302,7 +300,7 @@
                         <td>Andrea</td>
                         <td>Martinez</td>
                         <td>Informatica</td>
-                        <td>2023-I</td>
+                        <td>2023-1</td>
                         <td>
                             <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -826,7 +824,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="mb-3">
-                                            <label for="regSexo" class="form-label">Genero</label>
+                                            <label for="regSexo" class="form-label">Sexo</label>
                                             <select class="form-select" id="regSexo" name="sexo" required>
                                                 <option value="">Seleccione el genero</option>
                                                 <option value="Masculino">Masculino</option>
@@ -839,13 +837,13 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <!-- Segunda fila: 4 columnas -->
+                                    <!-- Segunda fila: 4 columnas (agregado Teléfono) -->
                                     <div class="col-md-3">
                                         <div class="mb-3">
                                             <label for="regFechaNacimiento" class="form-label">Fecha de Nacimiento</label>
                                             <input type="date" class="form-control" id="regFechaNacimiento" name="fecha_nacimiento" required placeholder="Ej: 2000-01-01">
                                             <div class="invalid-feedback">
-                                                Ingrese la fecha de nacimiento.
+                                                Fecha Invalida.
                                             </div>
                                         </div>
                                     </div>
@@ -890,26 +888,8 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <!-- Tercera fila: 4 columnas -->
-                                    <div class="col-md-3">
-                                        <div class="mb-3">
-                                            <label for="regEdad" class="form-label">Edad</label>
-                                            <input type="text" class="form-control" id="regEdad" name="edad" required pattern="\d{1,3}" placeholder="Ej: 19">
-                                            <div class="invalid-feedback">
-                                                Solo números, máximo 3 dígitos.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="mb-3">
-                                            <label for="regTelefono" class="form-label">Teléfono</label>
-                                            <input type="text" class="form-control" id="regTelefono" name="telefono" required placeholder="Ej: 04141234567" pattern="\d{11}">
-                                            <div class="invalid-feedback">
-                                                Ingrese un teléfono válido (11 dígitos).
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
+                                    <!-- Tercera fila: 3 columnas -->
+                                    <div class="col-md-4">
                                         <div class="mb-3">
                                             <label for="regEmail" class="form-label">Email</label>
                                             <input type="email" class="form-control" id="regEmail" name="email" required placeholder="Ej: angel@email.com">
@@ -918,7 +898,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="mb-3">
                                             <label for="regSede" class="form-label">Sede</label>
                                             <select class="form-select" id="regSede" name="sede" required>
@@ -929,6 +909,16 @@
                                             </select>
                                             <div class="invalid-feedback">
                                                 Ingrese la sede.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="mb-3">
+                                            <label for="regTelefono" class="form-label">Teléfono</label>
+                                            <input type="text" class="form-control" id="regTelefono" name="telefono" required placeholder="Ej: 04141234567" pattern="\d{11}">
+                                            <div class="invalid-feedback">
+                                                Ingrese un teléfono válido (11 dígitos).
                                             </div>
                                         </div>
                                     </div>
@@ -951,7 +941,7 @@
 
             <script>
             document.addEventListener('DOMContentLoaded', function () {
-                // Solo números y máximo 8 dígitos para cédula
+               // Solo números y máximo 8 dígitos para cédula
                 document.getElementById('regCedula').addEventListener('input', function() {
                     this.value = this.value.replace(/\D/g, '').slice(0, 8);
                 });
