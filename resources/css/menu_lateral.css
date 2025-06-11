@@ -115,6 +115,7 @@ a{
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
     padding-bottom: 5rem;
+    overflow: hidden;
 }
 
 .sidebar-nav .primary-nav:hover{

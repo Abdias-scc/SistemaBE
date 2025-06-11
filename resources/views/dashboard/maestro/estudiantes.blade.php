@@ -1175,23 +1175,23 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="regForaneo" name="foraneo">
-                                    <label class="form-check-label" for="regForaneo">¿Es Foráneo?</label>
-                                </div>
-                                <div class="mb-3 form-check">
                                     <input type="checkbox" class="form-check-input" id="regPatria" name="patria">
                                     <label class="form-check-label" for="regPatria">¿Está registrado en patria?</label>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="regForaneo" name="foraneo">
+                                    <label class="form-check-label" for="regForaneo">¿Es Foráneo?</label>
                                 </div>
                                 
                                 <!--  Campos extra de foraneo -->
                                 <div id="patriaExtraFields" style="display: none; overflow: hidden; max-height: 0; transition: max-height 0.4s ease;">
-                                    <div class="mb-3">
+                                    {{-- <div class="mb-3">
                                         <label for="regDireccionTemporal" class="form-label">Dirección Temporal</label>
                                         <input type="text" class="form-control" id="regDireccionTemporal" name="direccion_temporal" placeholder="Ej: Calle 456, Ciudad" maxlength="150">
                                         <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
                                             La dirección temporal no puede estar vacía.
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="mb-3">
                                         <label class="form-label">¿Pagas residencia?</label>
                                         <div>
@@ -1208,11 +1208,20 @@
                                             Seleccione una opción.
                                         </div>
                                     </div>
-                                    <div class="mb-3" id="cuantoPagasResidenciaDiv">
-                                        <label for="cuantoPagasResidencia" class="form-label">¿Cuánto pagas?</label>
-                                        <input type="number" class="form-control" id="cuantoPagasResidencia" name="cuanto_pagas_residencia" min="0" placeholder="Monto en Bs." disabled>
-                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                            Ingrese un monto válido.
+                                    <div class="mb-3 pb-2 " id="direccionTemporalDiv" style="display: none;overflow: hidden; max-height: 0; transition: max-height 0.4s ease;">
+                                        <div class="mb-3">
+                                            <label for="direccionTemporal" class="form-label">Dirección Temporal</label>
+                                            <input type="text" class="form-control" id="direccionTemporal" name="direccion_temporal" placeholder="Ej: Calle 456, Ciudad" maxlength="150">
+                                            <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                La dirección temporal no puede estar vacía.
+                                            </div>
+                                        </div>
+                                        <div class="mb-3" id="cuantoPagasResidenciaDiv">
+                                            <label for="cuantoPagasResidencia" class="form-label">¿Cuánto pagas?</label>
+                                            <input type="number" class="form-control" id="cuantoPagasResidencia" name="cuanto_pagas_residencia" min="0" placeholder="Monto en Bs." >
+                                            <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                Ingrese un monto válido.
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="mb-3">
@@ -1231,38 +1240,41 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mb-3" id="vecesSemanaDiv">
-                                        <label for="vecesSemana" class="form-label">¿Cuántas veces a la semana?</label>
-                                        <input type="number" class="form-control" id="vecesSemana" name="veces_semana" min="1" max="7" placeholder="Ej: 5" disabled>
-                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                            El campo no puede estar vacío.
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">¿Cuánto tiempo inviertes en el viaje?</label>
-                                        <div class="row g-2">
-                                            <div class="col">
-                                                <input type="number" class="form-control" id="tiempoViajeHoras" name="tiempo_viaje_horas" min="0" max="24" placeholder="Horas" required>
-                                                <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                                    El campo no puede estar vacío.
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <!-- QUITAR disabled aquí para permitir llenar minutos -->
-                                                <input type="number" class="form-control" id="tiempoViajeMinutos" name="tiempo_viaje_minutos" min="0" max="59" placeholder="Minutos" required>
-                                                <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                                    El campo no puede estar vacío.
-                                                </div>
+                                    <div class="mb-3" id="viajesDiarioDiv" >
+                                        <div class="mb-3" id="vecesSemanaDiv" >
+                                            <label for="vecesSemana" class="form-label">¿Cuántas veces a la semana?</label>
+                                            <input type="number" class="form-control" id="vecesSemana" name="veces_semana" min="1" max="7" placeholder="Ej: 5" disabled>
+                                            <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                El campo no puede estar vacío.
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="gastoDiarioPasaje" class="form-label">Gasto diario en pasaje</label>
-                                        <input type="text" class="form-control" id="gastoDiarioPasaje" name="gasto_diario_pasaje" min="0" placeholder="Monto en Bs." required>
-                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                            Ingrese un monto válido.
+                                        <div class="mb-3">
+                                            <label class="form-label">¿Cuánto tiempo inviertes en el viaje?</label>
+                                            <div class="row g-2">
+                                                <div class="col">
+                                                    <input type="number" class="form-control" id="tiempoViajeHoras" name="tiempo_viaje_horas" min="0" max="24" placeholder="Horas" required>
+                                                    <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                        El campo no puede estar vacío.
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <!-- QUITAR disabled aquí para permitir llenar minutos -->
+                                                    <input type="number" class="form-control" id="tiempoViajeMinutos" name="tiempo_viaje_minutos" min="0" max="59" placeholder="Minutos" required>
+                                                    <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                        El campo no puede estar vacío.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="gastoDiarioPasaje" class="form-label">Gasto diario en pasaje</label>
+                                            <input type="text" class="form-control" id="gastoDiarioPasaje" name="gasto_diario_pasaje" min="0" placeholder="Monto en Bs." required>
+                                            <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                Ingrese un monto válido.
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
@@ -1282,6 +1294,9 @@
         </div>
     </div>
             <script>
+            const extraFields = document.getElementById('patriaExtraFields');
+
+
             document.addEventListener('DOMContentLoaded', function () {
                 // Solo números y máximo 8 dígitos para cédula
                 document.getElementById('regCedula').addEventListener('input', function() {
@@ -1311,9 +1326,9 @@
                     }
                 });
 
+
                 // Animación y mostrar/ocultar campos extra de patria
                 const foraneoCheckbox = document.getElementById('regForaneo');
-                const extraFields = document.getElementById('patriaExtraFields');
                 foraneoCheckbox.addEventListener('change', function() {
                     if (this.checked) {
                         extraFields.style.display = 'block';
@@ -1327,9 +1342,6 @@
                         setTimeout(() => {
                             extraFields.style.display = 'none';
                         }, 400);
-                        // Limpiar los campos al ocultar
-                        document.getElementById('regPatriaCarnet').value = '';
-                        document.getElementById('regPatriaSerial').value = '';
                     }
                 });
                 /* Script para mostrar la edad del estudiante*/
@@ -1350,19 +1362,6 @@
                     }
                 });
 
-                //Habiliar los input en pagas residencia y cuanto viajas a diario a clases
-                // Habilitar/deshabilitar el input de "¿Cuánto pagas?" según "¿Pagas residencia?"
-                document.getElementsByName('paga_residencia').forEach(function(radio) {
-                    radio.addEventListener('change', function() {
-                        const cuantoDiv = document.getElementById('cuantoPagasResidenciaDiv');
-                        const cuantoInput = document.getElementById('cuantoPagasResidencia');
-                        if (this.value === 'si') {
-                            cuantoInput.removeAttribute('disabled');
-                        } else {
-                            cuantoInput.setAttribute('disabled', true);
-                        }
-                    });
-                });
 
                 // Habilitar/deshabilitar el input de "¿Cuántas veces a la semana?" según "¿Viajas a diario a clases?"
                 document.getElementsByName('viaja_diario').forEach(function(radio) {
@@ -1415,6 +1414,7 @@
                 // Función para validar campos requeridos
 
                 function validarInputVacio(input) {
+                    if (!input) return false;
                     if (input.value.trim() === '') {
                         input.classList.add('is-invalid');
                         return false;
@@ -1520,7 +1520,7 @@
 
                     //ajusar el tamaño de la modal cuando se haga un summit 
                     if (foraneoCheckbox.checked) {
-                        extraFields.style.maxHeight = extraFields.scrollHeight + 'px';
+                        extraFields.style.maxHeight = extraFields.scrollHeight+ 50 + 'px';
                     }
 
                     if (!valid) return;
@@ -1600,103 +1600,6 @@
                         });
                     }
 
-                });
-            });
-            </script>
-
-            <script>
-            document.addEventListener('DOMContentLoaded', function () {
-               // Solo números y máximo 8 dígitos para cédula
-                document.getElementById('regCedula').addEventListener('input', function() {
-                    this.value = this.value.replace(/\D/g, '').slice(0, 8);
-                });
-
-                // Validación y envío del formulario de registro
-                document.getElementById('registerStudentForm').addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    let form = this;
-                    let valid = true;
-
-                    // Validar cédula
-                    const cedula = form.regCedula.value.trim();
-                    if (!/^\d{8}$/.test(cedula)) {
-                        form.regCedula.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regCedula.classList.remove('is-invalid');
-                    }
-
-                    // Validar nombre
-                    if (form.regNombre.value.trim() === '') {
-                        form.regNombre.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regNombre.classList.remove('is-invalid');
-                    }
-
-                    // Validar apellido
-                    if (form.regApellido.value.trim() === '') {
-                        form.regApellido.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regApellido.classList.remove('is-invalid');
-                    }
-
-                    // Validar PNF
-                    if (form.regPNF.value === '') {
-                        form.regPNF.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regPNF.classList.remove('is-invalid');
-                    }
-
-                    // Validar sede
-                    if (form.regSede.value === '') {
-                        form.regSede.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regSede.classList.remove('is-invalid');
-                    }
-
-                    // Validar condicion
-                    if (form.regCondicion.value === '') {
-                        form.regCondicion.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regCondicion.classList.remove('is-invalid');
-                    }
-
-                    if (!valid) return;
-
-                    // Confirmación con SweetAlert
-                    Swal.fire({
-                        title: '¿Registrar estudiante?',
-                        text: 'Verifique los datos antes de confirmar.',
-                        icon: 'question',
-                        confirmButtonText: 'Registrar',
-                        showCancelButton: true,
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire({
-                                title: '¡Registrado!',
-                                text: 'El estudiante ha sido registrado.',
-                                icon: 'success',
-                                confirmButtonText: 'Aceptar',
-                            });
-                            // Cerrar modal
-                            var modal = bootstrap.Modal.getInstance(document.getElementById('registerStudentModal'));
-                            modal.hide();
-                            form.reset();
-                            // Aquí puedes agregar la lógica para enviar los datos al backend
-                        }
-                    });
-                });
-
-                // Quitar la clase is-invalid al escribir
-                ['regCedula', 'regNombre', 'regApellido', 'regPNF', 'regSede', 'regCondicion'].forEach(function(id) {
-                    document.getElementById(id).addEventListener('input', function() {
-                        this.classList.remove('is-invalid');
-                    });
                 });
             });
             </script>

@@ -41,7 +41,7 @@
                         <a href="{{ route('servicio') }}" class="nav-link dropdown-link">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('lapso') }}" class="nav-link dropdown-link">Lapso Academico</a>
+                        <a href="{{ route('lapso') }}" class="nav-link dropdown-link">Lapso Academico Academicos</a>
                     </li>
                 </ul>
             </li>
@@ -90,10 +90,6 @@
                     </li>
                 </ul>
             </li>
-        </ul>
-        
-        <!-- Secondary botton nav-->
-        <ul class="nav-list secondary-nav">
             <li class="nav-item">
                 <a href="{{ route('config') }}" class="nav-link">
                     <img src="{{ asset('icons/settings.svg') }}" alt="Icono de configuracion" class="nav-icon">
@@ -117,6 +113,7 @@
                 </ul>
             </li>
         </ul>
+        
     </nav>
 </aside>
 @include('components.menu_superior_dashboard')
