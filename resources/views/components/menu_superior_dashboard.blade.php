@@ -30,7 +30,7 @@
                     <li><a class="dropdown-item" href="{{ route('pnf') }}">PNF</a></li>
                     <li><a class="dropdown-item" href="{{ route('sede') }}">Sede/Extensiones</a></li>
                     <li><a class="dropdown-item" href="{{ route('servicio') }}">Servicios</a></li>
-                    <li><a class="dropdown-item" href="{{ route('servicio') }}">Lapso Academico</a></li>
+                    <li><a class="dropdown-item" href="{{ route('lapso') }}">Lapso Academico</a></li>
                 </ul>
             </li>
             <!-- Movimientos Dropdown -->
