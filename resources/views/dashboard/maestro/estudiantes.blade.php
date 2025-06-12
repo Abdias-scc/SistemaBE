@@ -1185,13 +1185,6 @@
                                 
                                 <!--  Campos extra de foraneo -->
                                 <div id="patriaExtraFields" style="display: none; overflow: hidden; max-height: 0; transition: max-height 0.4s ease;">
-                                    {{-- <div class="mb-3">
-                                        <label for="regDireccionTemporal" class="form-label">Dirección Temporal</label>
-                                        <input type="text" class="form-control" id="regDireccionTemporal" name="direccion_temporal" placeholder="Ej: Calle 456, Ciudad" maxlength="150">
-                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                            La dirección temporal no puede estar vacía.
-                                        </div>
-                                    </div> --}}
                                     <div class="mb-3">
                                         <label class="form-label">¿Pagas residencia?</label>
                                         <div>
@@ -1208,40 +1201,32 @@
                                             Seleccione una opción.
                                         </div>
                                     </div>
-                                    <div class="mb-3 pb-2 " id="direccionTemporalDiv" style="display: none;overflow: hidden; max-height: 0; transition: max-height 0.4s ease;">
+                                    <div class="mb-3" id="direccionTemporalDiv" style="display: none;">
+                                        <label for="regDireccionTemporal" class="form-label">Dirección Temporal</label>
+                                        <input type="text" class="form-control" id="regDireccionTemporal" name="direccion_temporal" placeholder="Ej: Calle 456, Ciudad" maxlength="150">
+                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                            La dirección temporal no puede estar vacía.
+                                        </div>
+                                    </div>
+
+                                    <div id="foraneoNoFields" style="display: none;">
                                         <div class="mb-3">
-                                            <label for="direccionTemporal" class="form-label">Dirección Temporal</label>
-                                            <input type="text" class="form-control" id="direccionTemporal" name="direccion_temporal" placeholder="Ej: Calle 456, Ciudad" maxlength="150">
-                                            <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                                La dirección temporal no puede estar vacía.
+                                            <label class="form-label">¿Viajas a diario a clases?</label>
+                                            <div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="viaja_diario" id="viajaDiarioSi" value="si" required>
+                                                    <label class="form-check-label" for="viajaDiarioSi">Sí</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="viaja_diario" id="viajaDiarioNo" value="no">
+                                                    <label class="form-check-label" for="viajaDiarioNo">No</label>
+                                                </div>
+                                                <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                    Seleccione una opción.
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="mb-3" id="cuantoPagasResidenciaDiv">
-                                            <label for="cuantoPagasResidencia" class="form-label">¿Cuánto pagas?</label>
-                                            <input type="number" class="form-control" id="cuantoPagasResidencia" name="cuanto_pagas_residencia" min="0" placeholder="Monto en Bs." >
-                                            <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                                Ingrese un monto válido.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">¿Viajas a diario a clases?</label>
-                                        <div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="viaja_diario" id="viajaDiarioSi" value="si" required>
-                                                <label class="form-check-label" for="viajaDiarioSi">Sí</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="viaja_diario" id="viajaDiarioNo" value="no" required>
-                                                <label class="form-check-label" for="viajaDiarioNo">No</label>
-                                            </div>
-                                            <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                                Seleccione una opción.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3" id="viajesDiarioDiv" >
-                                        <div class="mb-3" id="vecesSemanaDiv" >
+                                        <div class="mb-3" id="vecesSemanaDiv">
                                             <label for="vecesSemana" class="form-label">¿Cuántas veces a la semana?</label>
                                             <input type="number" class="form-control" id="vecesSemana" name="veces_semana" min="1" max="7" placeholder="Ej: 5" disabled>
                                             <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
@@ -1252,14 +1237,13 @@
                                             <label class="form-label">¿Cuánto tiempo inviertes en el viaje?</label>
                                             <div class="row g-2">
                                                 <div class="col">
-                                                    <input type="number" class="form-control" id="tiempoViajeHoras" name="tiempo_viaje_horas" min="0" max="24" placeholder="Horas" required>
+                                                    <input type="number" class="form-control" id="tiempoViajeHoras" name="tiempo_viaje_horas" min="0" max="24" placeholder="Horas" disabled>
                                                     <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
                                                         El campo no puede estar vacío.
                                                     </div>
                                                 </div>
                                                 <div class="col">
-                                                    <!-- QUITAR disabled aquí para permitir llenar minutos -->
-                                                    <input type="number" class="form-control" id="tiempoViajeMinutos" name="tiempo_viaje_minutos" min="0" max="59" placeholder="Minutos" required>
+                                                    <input type="number" class="form-control" id="tiempoViajeMinutos" name="tiempo_viaje_minutos" min="0" max="59" placeholder="Minutos" disabled>
                                                     <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
                                                         El campo no puede estar vacío.
                                                     </div>
@@ -1268,12 +1252,104 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="gastoDiarioPasaje" class="form-label">Gasto diario en pasaje</label>
-                                            <input type="text" class="form-control" id="gastoDiarioPasaje" name="gasto_diario_pasaje" min="0" placeholder="Monto en Bs." required>
+                                            <input type="text" class="form-control" id="gastoDiarioPasaje" name="gasto_diario_pasaje" min="0" placeholder="Monto en Bs." disabled>
                                             <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
                                                 Ingrese un monto válido.
                                             </div>
                                         </div>
                                     </div>
+                                    <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        const viajaDiarioSi = document.getElementById('viajaDiarioSi');
+                                        const viajaDiarioNo = document.getElementById('viajaDiarioNo');
+                                        const vecesSemana = document.getElementById('vecesSemana');
+                                        const tiempoViajeHoras = document.getElementById('tiempoViajeHoras');
+                                        const tiempoViajeMinutos = document.getElementById('tiempoViajeMinutos');
+                                        const gastoDiarioPasaje = document.getElementById('gastoDiarioPasaje');
+
+                                        function toggleViajaDiarioFields() {
+                                            if (viajaDiarioSi.checked) {
+                                                vecesSemana.removeAttribute('disabled');
+                                                tiempoViajeHoras.removeAttribute('disabled');
+                                                tiempoViajeMinutos.removeAttribute('disabled');
+                                                gastoDiarioPasaje.removeAttribute('disabled');
+                                            } else {
+                                                vecesSemana.setAttribute('disabled', true);
+                                                tiempoViajeHoras.setAttribute('disabled', true);
+                                                tiempoViajeMinutos.setAttribute('disabled', true);
+                                                gastoDiarioPasaje.setAttribute('disabled', true);
+                                                vecesSemana.value = '';
+                                                tiempoViajeHoras.value = '';
+                                                tiempoViajeMinutos.value = '';
+                                                gastoDiarioPasaje.value = '';
+                                            }
+                                        }
+
+                                        viajaDiarioSi.addEventListener('change', toggleViajaDiarioFields);
+                                        viajaDiarioNo.addEventListener('change', toggleViajaDiarioFields);
+
+                                        // Inicializar estado al cargar
+                                        toggleViajaDiarioFields();
+                                    });
+                                    </script>
+
+                                    <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        const pagaResidenciaSi = document.getElementById('pagaResidenciaSi');
+                                        const pagaResidenciaNo = document.getElementById('pagaResidenciaNo');
+                                        const direccionTemporalDiv = document.getElementById('direccionTemporalDiv');
+                                        const foraneoNoFields = document.getElementById('foraneoNoFields');
+                                        const regForaneo = document.getElementById('regForaneo');
+                                        const extraFields = document.getElementById('patriaExtraFields');
+
+                                        function updateForaneoFields() {
+                                            if (regForaneo.checked) {
+                                                extraFields.style.display = 'block';
+                                                // Expandir el contenedor para mostrar todo el contenido
+                                                extraFields.style.maxHeight = extraFields.scrollHeight + 'px';
+
+                                                // Mostrar solo Dirección Temporal si "Sí" en ¿Pagas residencia?
+                                                if (pagaResidenciaSi.checked) {
+                                                    direccionTemporalDiv.style.display = 'block';
+                                                    foraneoNoFields.style.display = 'none';
+                                                } else if (pagaResidenciaNo.checked) {
+                                                    direccionTemporalDiv.style.display = 'none';
+                                                    foraneoNoFields.style.display = 'block';
+                                                } else {
+                                                    direccionTemporalDiv.style.display = 'none';
+                                                    foraneoNoFields.style.display = 'none';
+                                                }
+
+                                                // Ajustar maxHeight después de mostrar los campos internos
+                                                setTimeout(() => {
+                                                    extraFields.style.maxHeight = extraFields.scrollHeight + 'px';
+                                                }, 50);
+                                            } else {
+                                                extraFields.style.maxHeight = '0';
+                                                setTimeout(() => {
+                                                    extraFields.style.display = 'none';
+                                                    direccionTemporalDiv.style.display = 'none';
+                                                    foraneoNoFields.style.display = 'none';
+                                                }, 400);
+                                            }
+                                        }
+
+                                        pagaResidenciaSi.addEventListener('change', updateForaneoFields);
+                                        pagaResidenciaNo.addEventListener('change', updateForaneoFields);
+                                        regForaneo.addEventListener('change', function() {
+                                            // Limpiar radios y campos al desmarcar foráneo
+                                            if (!this.checked) {
+                                                pagaResidenciaSi.checked = false;
+                                                pagaResidenciaNo.checked = false;
+                                                document.getElementById('regDireccionTemporal').value = '';
+                                            }
+                                            updateForaneoFields();
+                                        });
+
+                                        // Inicializar al cargar
+                                        updateForaneoFields();
+                                    });
+                                    </script>
 
                                 </div>
                                 <div class="modal-footer">
@@ -1468,55 +1544,7 @@
 
                     // Validar los campos necesarios si esta chek el foraneo 
 
-                    if(foraneoCheckbox.checked){
-                        // Validar dirección temporal
-                        valid = validarInputVacio(form.regDireccionTemporal) && valid;
-
-                        // Validar si paga residencia
-                        const pagaResidenciaGroup = form.pagaResidenciaSi.closest('.mb-3');
-                        const pagaResidenciaFeedback = pagaResidenciaGroup.querySelector('.invalid-feedback');
-                        if (!form.pagaResidenciaSi.checked && !form.pagaResidenciaNo.checked) {
-                            pagaResidenciaFeedback.style.display = 'block';
-                            valid = false;
-                        } else {
-                            pagaResidenciaFeedback.style.display = 'none';
-                        }
-
-                        //validar el input residencia si el usuario selecciono si
-                        if(form.pagaResidenciaSi.checked){
-                            const cuantoPagasResidencia = form.cuantoPagasResidencia.value;
-                            valid = validarInputVacio(form.cuantoPagasResidencia) && valid;
-                        }
-
-                        // Validar si viajas a diario a clases
-                        const viajaDiarioGroup = form.viajaDiarioSi.closest('.mb-3');
-                        const viajaDiarioFeedback = viajaDiarioGroup.querySelector('.invalid-feedback');
-                        if (!form.viajaDiarioSi.checked && !form.viajaDiarioNo.checked) {
-                            viajaDiarioFeedback.style.display = 'block';
-                            valid = false;
-                        } else {
-                            viajaDiarioFeedback.style.display = 'none';
-                        }
-
-                        //validar el input viaja diario si el usuario selecciono si
-                        if(form.viajaDiarioSi.checked){
-                            const vecesSemana = form.vecesSemana.value;
-                            valid = validarInputVacio(form.vecesSemana) && valid;
-                        }
-
-                        // Validar tiempo de viaje
-                        if(form.tiempoViajeHoras.value === '' && form.tiempoViajeMinutos.value === ''){
-                            form.tiempoViajeHoras.classList.add('is-invalid');
-                            form.tiempoViajeMinutos.classList.add('is-invalid');
-                            valid = false;
-                        }else{
-                            form.tiempoViajeHoras.classList.remove('is-invalid');
-                            form.tiempoViajeMinutos.classList.remove('is-invalid');
-                        }
-
-                        // Validar gasto diario en pasaje
-                        valid = validarInputVacio(form.gastoDiarioPasaje) && valid;
-                    }
+                    // Ya no es necesario validar los campos extra de foráneo, pueden enviarse vacíos
 
                     //ajusar el tamaño de la modal cuando se haga un summit 
                     if (foraneoCheckbox.checked) {
