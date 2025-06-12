@@ -26,7 +26,6 @@
                 </a>
                 <ul class="dropdown-menu custom-dropdown-bg" aria-labelledby="maestrosDropdown">
                     <li><a class="dropdown-item" href="{{ route('estudiantes') }}">Estudiantes</a></li>
-                    <li><a class="dropdown-item" href="{{ route('becados') }}">Becados</a></li>
                     <li><a class="dropdown-item" href="{{ route('pnf') }}">PNF</a></li>
                     <li><a class="dropdown-item" href="{{ route('sede') }}">Sede/Extensiones</a></li>
                     <li><a class="dropdown-item" href="{{ route('servicio') }}">Servicios</a></li>
