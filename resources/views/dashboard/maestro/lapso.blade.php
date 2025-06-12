@@ -465,26 +465,13 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="regLapso" class="form-label">Lapso</label>
-                                            <input type="text" class="form-control" id="regLapso" name="lapso" required>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12">
+                                        <div class="mb-3 text-center">
+                                            <label for="regLapso" class="form-label w-100" style="display: block; font-weight: bold;">Lapso</label>
+                                            <input type="text" class="form-control mx-auto" id="regLapso" name="lapso" required style="width: 90%;">0¿
                                             <div class="invalid-feedback">
                                                 El lapso no puede estar vacío.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="regEstatus" class="form-label">Estatus</label>
-                                            <select class="form-select" id="regEstatus" name="estatus" required>
-                                                <option value="">Seleccione un Estatus</option>
-                                                <option value="estatusActivo">Activo</option>
-                                                <option value="estatusInactivo">Inactivo</option>
-                                            </select>
-                                            <div class="invalid-feedback">
-                                                Ingrese el Estatus.
                                             </div>
                                         </div>
                                     </div>
