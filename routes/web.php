@@ -8,6 +8,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\RegisterController;
+
+use App\Http\Controllers\PersonaController;
 // Sección para las vistas estáticas de la página
 Route::view('/', 'index')->name('index');
 Route::view('/sobre_nosotros', 'aboutUs')->name('aboutUs');
@@ -19,7 +21,11 @@ Route::view('/dashboard', 'dashboard.index')->name('dashboard');
 
 #Seccionen donde se mostran las vistas de las secciones de la dashboard
 //Maestros
-Route::view('/dashboard/estudiantes', 'dashboard.maestro.estudiantes')->name('estudiantes');
+
+//Metodos en la seccion de estudiantes
+Route::get('/dashboard/estudiantes', [PersonaController::class, 'info'])->name('estudiantes');
+Route::delete('/dashboard/estudiantes/{cedula}', [PersonaController::class, 'deleteEstudiante']);
+
 Route::view('/dashboard/administradores', 'dashboard.maestro.admin')->name('admin');
 Route::view('/dashboard/becados', 'dashboard.maestro.becados')->name('becados');
 Route::view('/dashboard/sede', 'dashboard.maestro.sede')->name('sede');
