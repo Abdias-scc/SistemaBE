@@ -2,10 +2,12 @@
 @section('title', 'Estudiantes')
 @section('links')
     <a href="{{ route('estudiantes') }}" class="navbar-brand nav-link">Estudiantes/</a>
+    
 @endsection
 
 @section('content')
     @section('titulo', 'Estudiantes')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="contenedor">
         <div class="d-flex justify-content-end my-4" style="max-width: 400px; margin-left: auto; flex-direction: column;">
             <div class="input-group">
@@ -22,7 +24,13 @@
         </div>
 
         <div class="table-container ">
-            <table class="table table-striped table-bordered my-2" id="sortable-table">
+            @if ($estudiantes->isEmpty())
+                {{-- Si no hay estudiantes, mostrar mensaje --}}
+                <div class="alert alert-info text-center" role="alert">
+                    No hay estudiantes registrados.
+                </div>
+            @else
+                <table class="table table-striped table-bordered my-2" id="sortable-table">
                 <thead>
                     <tr>
                         <th scope="col" onclick="sortTable(0)">Cedula ↑</th>
@@ -32,10 +40,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($estudiantes as $estudiante)
                     <tr>
-                        <td>12345678</td>
-                        <td>Angel</td>
-                        <td>Hernandez</td>
+                        <td>{{ $estudiante->cedula_persona }}</td>
+                        <td>{{ $estudiante->nombre_persona }}</td>
+                        <td>{{ $estudiante->apellido_persona }}</td>
                         <td>
                             <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -45,202 +54,53 @@
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
                                 Editar
                             </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
+                            <button class="btn-minimal btn-delete" id="deleteButton" data-cedula="{{ $estudiante->cedula_persona }}">
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>87654321</td>
-                        <td>Jose</td>
-                        <td>zinga</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>12387498</td>
-                        <td>Angel</td>
-                        <td>Hernandez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>34387622</td>
-                        <td>Pablo</td>
-                        <td>Gimenez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>23456789</td>
-                        <td>Maria</td>
-                        <td>Lopez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>98765432</td>
-                        <td>Carlos</td>
-                        <td>Ramirez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>45678901</td>
-                        <td>Lucia</td>
-                        <td>Fernandez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>56789012</td>
-                        <td>Andrea</td>
-                        <td>Martinez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>56789012</td>
-                        <td>Andrea</td>
-                        <td>Martinez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>56789012</td>
-                        <td>Andrea</td>
-                        <td>Martinez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
+            @endif
         </div>
         </div>
+        
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
+                {{-- Botón Anterior --}}
+                @if ($estudiantes->onFirstPage())
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-hidden="true">&laquo;</span>
+                    </li>
+                @else
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $estudiantes->previousPageUrl() }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                @endif
+
+                {{-- Enlaces de páginas --}}
+                @foreach ($estudiantes->getUrlRange(1, $estudiantes->lastPage()) as $page => $url)
+                    <li class="page-item {{ $estudiantes->currentPage() == $page ? 'active' : '' }}">
+                        <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                    </li>
+                @endforeach
+
+                {{-- Botón Siguiente --}}
+                @if ($estudiantes->hasMorePages())
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $estudiantes->nextPageUrl() }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                @else
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-hidden="true">&raquo;</span>
+                    </li>
+                @endif
             </ul>
         </nav>
     
@@ -262,6 +122,15 @@
             } else {
                 input.classList.remove('is-invalid');
                 // Aquí puedes agregar la lógica de búsqueda
+                const searchValue = input.value.trim().toLowerCase();
+                window.location.href = `/dashboard/estudiantes?search=${encodeURIComponent(searchValue)}`;
+            }
+        });
+        //Hacer que el botón de búsqueda se active al presionar Enter
+        document.getElementById('searchInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                document.getElementById('searchButton').click();
             }
         });
 
@@ -560,7 +429,9 @@
         //Guardar los datos del estudiante a eliminar en variables
         const nombre = row.cells[1].textContent.trim();
         const apellido = row.cells[2].textContent.trim();
-
+        //Agarramos la id del estudiante
+        const id = btn.getAttribute('data-cedula');
+        const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
         btn.addEventListener('click', function(e) {
             //Mostrar el modal de confirmación con los datos del estudiante a eliminar
@@ -572,21 +443,42 @@
                 confirmButtonText: 'Eliminar',
                 reverseButtons: true
             })
-            .then((result)=>{
+            .then((result) => {
                 //Si el usuario confirma la eliminación, enviar la solicitud a eliminar al backend
-
                 if (result.isConfirmed) {
-                    Swal.fire({
-                        title: '¡Eliminado!',
-                        text: 'El estudiante ha sido eliminado',
-                        icon: 'success',
-                        confirmButtonText: 'Aceptar',
+                    fetch(`/dashboard/estudiantes/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': token,
+                            'Accept': 'application/json',
+                        },
                     })
+                    .then(function(response) {
+                        if (!response.ok) throw new Error('Error al eliminar el estudiante');
+                        return response.json();
+                    })
+                    .then(data => {
+                        //Proceso de eliminar estudiante
+                        row.remove();
+                        Swal.fire({
+                            title: '¡Eliminado!',
+                            text: `El estudiante ${nombre} ${apellido} ha sido eliminado.`,
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar',
+                        });
+                    })
+                    .catch(error => {
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'No se pudo eliminar el estudiante. Inténtalo de nuevo más tarde.',
+                            icon: 'error',
+                            confirmButtonText: 'Aceptar',
+                        });
+                    });
                 }
-
-            })
-
-        })
+            });
+        });
     });
     </script>
 
