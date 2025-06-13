@@ -17,10 +17,13 @@ class DatabaseSeeder extends Seeder
             //Tablas sin relaciones
             EstatusSeeder::class,
             EstadoSeeder::class,
+            //Tablas con relaciones (NO QUITAR EL ORDEN DE LOS SEEDERS)
             SedeSeeder::class,
-            //Tablas con relaciones
+            MunicipioSeeder::class,
+            PnfSeeder::class,
             PerfilSeeder::class,
             PersonaSeeder::class,
+            DireccionSeeder::class,
         ]);
     }
 }

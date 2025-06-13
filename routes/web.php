@@ -31,7 +31,7 @@ Route::prefix('/dashboard/estudiantes')->group(function () {
         ->where('cedula', '[0-9]+')
         ->name('deleteEstudiante');
     // Ruta para mostrar el detalle de un estudiante por su cédula
-    Route::get('/{cedula/detalle', [PersonaController::class, 'detalleEstudiante'])
+    Route::get('/{cedula}/detalle', [PersonaController::class, 'detalleEstudiante'])
         ->where('cedula', '[0-9]+');
 });
 

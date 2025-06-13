@@ -11,7 +11,10 @@
             <a href="{{ route('dashboard') }}" class="navbar-brand ms-5 nav-link">Panel de control/</a>
             @yield('links')
         </div>
-        <span class="navbar-text" id="hora"></span><br>
+        <div id="hora">
+            <span class="navbar-text" id="spanHora" style="color: white"></span><br>
+            <strong>Bienvenido</strong>
+        </div>
     </div>
 </nav>
 <!-- Secondary nav -->
