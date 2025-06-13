@@ -284,7 +284,7 @@
         </div>
     
     <script>
-        //*Script para el inputt de buscar
+        // Script para el input de buscar
         document.getElementById('searchButton').addEventListener('click', function() {
             const input = document.getElementById('searchInput');
             // Elimina cualquier mensaje de error existente
@@ -323,196 +323,164 @@
                 this.parentNode.appendChild(newFeedback);
             }
         });
-        //Script para el ordenado de la tabla
-    function sortTable(columnIndex) {
-        const table = document.getElementById('sortable-table');
-        const tbody = table.querySelector('tbody');
-        const rows = Array.from(tbody.querySelectorAll('tr'));
-        let direction = 'asc';
 
-        // Verificar si ya está ordenado por esta columna
-        if (table.getAttribute('data-sort-column') == columnIndex) {
-            direction = table.getAttribute('data-sort-direction') === 'asc' ? 'desc' : 'asc';
+        // Script para el ordenado de la tabla
+        function sortTable(columnIndex) {
+            const table = document.getElementById('sortable-table');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            let direction = 'asc';
+
+            // Verificar si ya está ordenado por esta columna
+            if (table.getAttribute('data-sort-column') == columnIndex) {
+                direction = table.getAttribute('data-sort-direction') === 'asc' ? 'desc' : 'asc';
+            }
+
+            // Ordenar las filas
+            rows.sort((a, b) => {
+                const aValue = a.cells[columnIndex].textContent.trim().toLowerCase();
+                const bValue = b.cells[columnIndex].textContent.trim().toLowerCase();
+
+                // Ordenar siempre como string, de la A a la Z o Z a A, sin importar si es número
+                if (direction === 'asc') {
+                    return aValue.localeCompare(bValue, 'es', { numeric: false });
+                } else {
+                    return bValue.localeCompare(aValue, 'es', { numeric: false });
+                }
+            });
+
+            // Reconstruir la tabla
+            tbody.innerHTML = '';
+            rows.forEach(row => tbody.appendChild(row));
+
+            // Actualizar indicadores visuales (solo una flecha)
+            const headers = table.querySelectorAll('th');
+            headers.forEach((header, index) => {
+                // Limpiar todas las flechas primero
+                header.innerHTML = header.textContent.replace(/ ↑| ↓/g, '');
+
+                // Agregar flecha solo a la columna actualmente ordenada
+                if (index === columnIndex) {
+                    header.innerHTML += direction === 'asc' ? ' ↑' : ' ↓';
+                }
+            });
+
+            // Guardar estado de ordenamiento
+            table.setAttribute('data-sort-column', columnIndex);
+            table.setAttribute('data-sort-direction', direction);
         }
 
-        // Ordenar las filas
-        rows.sort((a, b) => {
-            const aValue = a.cells[columnIndex].textContent.trim().toLowerCase();
-            const bValue = b.cells[columnIndex].textContent.trim().toLowerCase();
-
-            // Ordenar siempre como string, de la A a la Z o Z a A, sin importar si es número
-            if (direction === 'asc') {
-            return aValue.localeCompare(bValue, 'es', { numeric: false });
-            } else {
-            return bValue.localeCompare(aValue, 'es', { numeric: false });
-            }
-        });
-
-        // Reconstruir la tabla
-        tbody.innerHTML = '';
-        rows.forEach(row => tbody.appendChild(row));
-
-        // Actualizar indicadores visuales (solo una flecha)
-        const headers = table.querySelectorAll('th');
-        headers.forEach((header, index) => {
-            // Limpiar todas las flechas primero
-            header.innerHTML = header.textContent.replace(/ ↑| ↓/g, '');
-
-            // Agregar flecha solo a la columna actualmente ordenada
-            if (index === columnIndex) {
-                header.innerHTML += direction === 'asc' ? ' ↑' : ' ↓';
-            }
-        });
-
-        // Guardar estado de ordenamiento
-        table.setAttribute('data-sort-column', columnIndex);
-        table.setAttribute('data-sort-direction', direction);
-    }
-
-    /* Script para la edición de sedes */
-    document.addEventListener('DOMContentLoaded', function () {
-        // Delegación para todos los botones Editar
-        document.querySelectorAll('button[data-bs-target="#staticBackdrop"]').forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                const row = btn.closest('tr');
-                if (row) {
-                    document.getElementById('editNombre').value = row.cells[0].textContent.trim();
-                    document.getElementById('regEstatus').value = row.cells[1].textContent.trim() === 'Activo' ? 'estatusActivo' : 'estatusInactivo';
-                }
-            });
-        });
-
-        document.getElementById('editStudentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            let form = this;
-            let valid = true;
-
-            // Validar nombre
-            if (form.editNombre.value.trim() === '') {
-                form.editNombre.classList.add('is-invalid');
-                valid = false;
-            } else {
-                form.editNombre.classList.remove('is-invalid');
-            }
-
-            // Validar estatus
-            if (form.regEstatus.value === '') {
-                form.regEstatus.classList.add('is-invalid');
-                valid = false;
-            } else {
-                form.regEstatus.classList.remove('is-invalid');
-            }
-
-            if (!valid) {
-                Swal.fire({
-                    title: 'Campos vacíos',
-                    text: 'Por favor complete todos los campos obligatorios.',
-                    icon: 'error',
-                    confirmButtonText: 'Aceptar'
+        // Script para la edición de sedes
+        document.addEventListener('DOMContentLoaded', function () {
+            // Delegación para todos los botones Editar
+            document.querySelectorAll('button[data-bs-target="#staticBackdrop"]').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    const row = btn.closest('tr');
+                    if (row) {
+                        document.getElementById('editSedeNombre').value = row.cells[0].textContent.trim();
+                    }
                 });
-                return;
-            }
-
-            //Mensaje de confirmación
-            Swal.fire({
-                title: '¿Estas seguro que quieres actualizar los datos?',
-                text: 'Comprueba los datos antes de confirmar.',
-                icon: 'warning',
-                confirmButtonText: 'Aceptar',
-                showCancelButton: true,
-            })
-            .then((result)=>{
-                if (result.isConfirmed) {
-                    Swal.fire({
-                        title: '¡Actualizado!',
-                        text: 'Los datos han sido actualizados',
-                        icon: 'success',
-                        confirmButtonText: 'Aceptar',
-                    })
-                    
-                    // Cierra el modal después de actualizar
-                    var modal = bootstrap.Modal.getInstance(document.getElementById('staticBackdrop'));
-                    modal.hide();
-                }
             });
 
-        });
+            document.getElementById('editSedeForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                let form = this;
+                let valid = true;
 
-        // Quitar la clase is-invalid al escribir
-        ['editNombre', 'regEstatus'].forEach(function(id) {
-            document.getElementById(id).addEventListener('input', function() {
+                // Validar nombre
+                if (form.editSedeNombre.value.trim() === '') {
+                    form.editSedeNombre.classList.add('is-invalid');
+                    valid = false;
+                } else {
+                    form.editSedeNombre.classList.remove('is-invalid');
+                }
+
+                if (!valid) {
+                    Swal.fire({
+                        title: 'Campos vacíos',
+                        text: 'Por favor complete todos los campos obligatorios.',
+                        icon: 'error',
+                        confirmButtonText: 'Aceptar'
+                    });
+                    return;
+                }
+
+                // Mensaje de confirmación
+                Swal.fire({
+                    title: '¿Estas seguro que quieres actualizar los datos?',
+                    text: 'Comprueba los datos antes de confirmar.',
+                    icon: 'warning',
+                    confirmButtonText: 'Aceptar',
+                    showCancelButton: true,
+                })
+                .then((result)=>{
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: '¡Actualizado!',
+                            text: 'Los datos han sido actualizados',
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar',
+                        }).then(() => {
+                            // Cierra el modal después de actualizar
+                            var modal = bootstrap.Modal.getInstance(document.getElementById('staticBackdrop'));
+                            modal.hide();
+                        });
+                    }
+                });
+
+            });
+
+            // Quitar la clase is-invalid al escribir
+            document.getElementById('editSedeNombre').addEventListener('input', function() {
                 this.classList.remove('is-invalid');
             });
         });
-    });
-    /*Script para el boton de eliminar*/
-    document.querySelectorAll('button[id="deleteButton"]').forEach(function(btn) {
-        //Recoger el nombre y el apellido del estudiante a eliminar en la fila que esta en el boton
-        const row = btn.closest('tr');
 
-        //Guardar los datos del estudiante a eliminar en variables
-        const nombre = row.cells[0].textContent.trim();
-        const apellido = row.cells[1].textContent.trim();
+        // Script para el botón de eliminar
+        document.querySelectorAll('button[id="deleteButton"]').forEach(function(btn) {
+            const row = btn.closest('tr');
+            const nombre = row.cells[0].textContent.trim();
 
-
-        btn.addEventListener('click', function(e) {
-            //Mostrar el modal de confirmación con los datos del estudiante a eliminar
-            Swal.fire({
-                title: `¿Estás seguro que quieres inactivar a ${nombre}`,
-                text: 'Esta acción no se puede deshacer',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Inactivar',
-                reverseButtons: true
+            btn.addEventListener('click', function(e) {
+                Swal.fire({
+                    title: `¿Estás seguro que quieres eliminar a ${nombre}?`,
+                    text: 'Esta acción no se puede deshacer',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Eliminar',
+                    reverseButtons: true
+                })
+                .then((result)=>{
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: '¡Eliminado!',
+                            text: 'El estudiante ha sido eliminado',
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar',
+                        })
+                    }
+                })
             })
-            .then((result)=>{
-                //Si el usuario confirma la eliminación, enviar la solicitud a eliminar al backend
-
-                if (result.isConfirmed) {
-                    Swal.fire({
-                        title: '¡Eliminado!',
-                        text: 'El estudiante ha sido eliminado',
-                        icon: 'success',
-                        confirmButtonText: 'Aceptar',
-                    })
-                }
-
-            })
-
-        })
-    });
+        });
     </script>
 
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form id="editStudentForm" novalidate>
+                <form id="editSedeForm" novalidate>
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Datos del Estudiante</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Datos de la Sede</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="editNombre" class="form-label">Primer Nombre</label>
-                                    <input type="text" class="form-control" id="editNombre" name="nombre" required>
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                                <div class="mb-3 text-center">
+                                    <label for="editSedeNombre" class="form-label w-100" style="display: block; font-weight: bold;">Sede</label>
+                                    <input type="text" class="form-control mx-auto" id="editSedeNombre" name="editSedeNombre" required style="width: 90%;">
                                     <div class="invalid-feedback">
-                                        El nombre no puede estar vacío.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="regEstatus" class="form-label">Estatus</label>
-                                    <select class="form-select" id="regEstatus" name="estatus" required>
-                                        <option value="">Seleccione un Estatus</option>
-                                        <option value="estatusActivo">Activo</option>
-                                        <option value="estatusInactivo">Inactivo</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Ingrese el Estatus.
+                                        El nombre de la sede no puede estar vacío.
                                     </div>
                                 </div>
                             </div>
@@ -534,7 +502,7 @@
     </div>
 
 
-    <!-- Modal de registro de estudiante -->
+    <!-- Modal de registro de SEDE -->
             <div class="modal fade" id="registerStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="registerStudentModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -544,26 +512,13 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="regSede" class="form-label">Sede</label>
-                                            <input type="text" class="form-control" id="regSede" name="sede" required>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12">
+                                        <div class="mb-3 text-center">
+                                            <label for="regSede" class="form-label w-100" style="display: block; font-weight: bold;">Sede</label>
+                                            <input type="text" class="form-control mx-auto" id="regSede" name="regSede" required style="width: 90%;">
                                             <div class="invalid-feedback">
-                                                La Sede no puede estar vacía.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="regEstatus" class="form-label">Estatus</label>
-                                            <select class="form-select" id="regEstatus" name="estatus" required>
-                                                <option value="">Seleccione un Estatus</option>
-                                                <option value="estatusActivo">Activo</option>
-                                                <option value="estatusInactivo">Inactivo</option>
-                                            </select>
-                                            <div class="invalid-feedback">
-                                                Ingrese el Estatus.
+                                                El nombre de la sede no puede estar vacío.
                                             </div>
                                         </div>
                                     </div>
@@ -598,14 +553,6 @@
                         valid = false;
                     } else {
                         form.regSede.classList.remove('is-invalid');
-                    }
-
-                    // Validar estatus
-                    if (form.regEstatus.value === '') {
-                        form.regEstatus.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regEstatus.classList.remove('is-invalid');
                     }
 
                     if (!valid) {
@@ -644,7 +591,7 @@
                 });
 
                 // Quitar la clase is-invalid al escribir
-                ['regSede', 'regEstatus'].forEach(function(id) {
+                ['regSede'].forEach(function(id) {
                     document.getElementById(id).addEventListener('input', function() {
                         this.classList.remove('is-invalid');
                     });
