@@ -614,7 +614,6 @@ document.addEventListener('DOMContentLoaded', function () {
         validarInputVacio1(this, true);
     });
 
-
     // Animación y mostrar/ocultar campos extra de patria
     const foraneoCheckbox = document.getElementById('regForaneo');
     foraneoCheckbox.addEventListener('change', function() {
@@ -635,7 +634,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /* Script para mostrar la edad del estudiante*/
     mostrarFecha('regFechaNacimiento', 'regEdad');
-
 
     // Habilitar/deshabilitar el input de "¿Cuántas veces a la semana?" según "¿Viajas a diario a clases?"
     document.getElementsByName('viaja_diario').forEach(function(radio) {
@@ -679,9 +677,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    
-
-
     // Validación y envío del formulario de registro del estudiante
     document.getElementById('registerStudentForm').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -703,6 +698,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Validar email
         if (email.trim() === '') {
             form.regEmail.classList.add('is-invalid');
+            valid = false;
         } else if (!emailRegex.test(email)) {
             form.regEmail.classList.add('is-invalid');
             form.regEmail.nextElementSibling.textContent = 'Ingrese un email válido.';
@@ -711,7 +707,6 @@ document.addEventListener('DOMContentLoaded', function () {
             form.regEmail.classList.remove('is-invalid');
             form.regEmail.nextElementSibling.textContent = 'El campo no puede estar vacío.';
         }
-
 
         //Validar los campos requeridos
         valid = validarInputVacio(form.regNombre) && valid;
@@ -723,13 +718,7 @@ document.addEventListener('DOMContentLoaded', function () {
         valid = validarInputVacio(form.regDireccion) && valid;
         valid = validarInputVacio(form.regProcedencia) && valid;
 
-
-        // Validar los campos necesarios si esta chek el foraneo 
-
-        //ajusar el tamaño de la modal cuando se haga un summit 
-        if (foraneoCheckbox.checked) {
-            extraFields.style.maxHeight = extraFields.scrollHeight+ 50 + 'px';
-        }
+        // No validar campos extra de foráneo, ya que no son obligatorios
 
         if (!valid) return;
 
