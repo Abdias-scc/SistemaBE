@@ -56,7 +56,10 @@ class PersonaController extends Controller
                 ], 404);
             }
             //Eliminar el estudiante
-            $estudiante->delete();
+            $estudiante
+            ->where('cedula_persona', $cedula)
+            ->delete();
+            
             //Retornar una respuesta exitosa
             return response()->json([
                 'status' => 'success',
@@ -69,6 +72,7 @@ class PersonaController extends Controller
             ], 500);
         }
     }
+    
     //La funcion showDetail recibe una cédula y retorna la datos detallados del estudiante
     public function detalleEstudiante($cedula)
     {
@@ -77,7 +81,7 @@ class PersonaController extends Controller
         }
         // Buscar el estudiante por su cédula
         try{
-            $estudiante = Persona::where('cedula_persona', $cedula)->first();
+            $estudiante = Persona::where('cedula_persona', $cedula)->with(['personaPnfs.pnf'])->first();
             // Si no se encuentra el estudiante, retornar un error
             if (!$estudiante) {
                 return response()->json([
@@ -86,9 +90,22 @@ class PersonaController extends Controller
                 ], 404);
             }
             // Retornar los detalles del estudiante
+            $response = [
+                'cedula' => $estudiante->cedula_persona,
+                'nombre' => $estudiante->nombre_persona,
+                'apellido' => $estudiante->apellido_persona,
+                'telefono'=> $estudiante->telefono_persona,
+                'genero' => $estudiante->genero_persona,
+                'fecha_nacimiento' => $estudiante->fecha_nacimiento_persona,
+                'patria'=> $estudiante->regis_patria,
+                'email'=> $estudiante->email_persona,
+                'edad'=> $estudiante->edad_persona,
+                'pnf'=> $estudiante
+            ];
+
             return response()->json([
                 'status' => 'success',
-                'data' => $estudiante
+                'data' => $response
             ], 200);
 
 
