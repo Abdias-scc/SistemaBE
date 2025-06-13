@@ -26,6 +26,7 @@ class PersonaFactory extends Factory
             'edad_persona' => rand(18, 60),
             'fecha_nacimiento_persona' => now()->subYears(rand(18, 60))->format('Y-m-d'),
             'email_persona' => Str::random(10) . '@example.com',
+            'regis_patria' => random_int(0,1),
             'id_perfil' => 1, // Assuming a profile with ID 1 exists
             'id_sede' => 1, // Assuming a sede with ID 1 exists
         ];
