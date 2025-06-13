@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('beca_pregunta', function (Blueprint $table) {
             $table->id('id_beca_pregunta');
+            $table->float('promedio');
             $table->text('pregunta_beca');
             $table->foreignId('id_beca_soli')->references('id_beca_soli')->on('beca_soli')->onDelete('cascade');
             $table->timestamps();
