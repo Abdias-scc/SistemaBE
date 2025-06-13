@@ -2,10 +2,12 @@
 @section('title', 'Estudiantes')
 @section('links')
     <a href="{{ route('estudiantes') }}" class="navbar-brand nav-link">Estudiantes/</a>
+    
 @endsection
 
 @section('content')
     @section('titulo', 'Estudiantes')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="contenedor">
         <div class="d-flex justify-content-end my-4" style="max-width: 400px; margin-left: auto; flex-direction: column;">
             <div class="input-group">
@@ -22,7 +24,13 @@
         </div>
 
         <div class="table-container ">
-            <table class="table table-striped table-bordered my-2" id="sortable-table">
+            @if ($estudiantes->isEmpty())
+                {{-- Si no hay estudiantes, mostrar mensaje --}}
+                <div class="alert alert-info text-center" role="alert">
+                    No hay estudiantes registrados.
+                </div>
+            @else
+                <table class="table table-striped table-bordered my-2" id="sortable-table">
                 <thead>
                     <tr>
                         <th scope="col" onclick="sortTable(0)">Cedula ↑</th>
@@ -32,10 +40,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($estudiantes as $estudiante)
                     <tr>
-                        <td>12345678</td>
-                        <td>Angel</td>
-                        <td>Hernandez</td>
+                        <td>{{ $estudiante->cedula_persona }}</td>
+                        <td>{{ $estudiante->nombre_persona }}</td>
+                        <td>{{ $estudiante->apellido_persona }}</td>
                         <td>
                             <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -45,202 +54,53 @@
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
                                 Editar
                             </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
+                            <button class="btn-minimal btn-delete" id="deleteButton" data-cedula="{{ $estudiante->cedula_persona }}">
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>87654321</td>
-                        <td>Jose</td>
-                        <td>zinga</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>12387498</td>
-                        <td>Angel</td>
-                        <td>Hernandez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>34387622</td>
-                        <td>Pablo</td>
-                        <td>Gimenez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>23456789</td>
-                        <td>Maria</td>
-                        <td>Lopez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>98765432</td>
-                        <td>Carlos</td>
-                        <td>Ramirez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>45678901</td>
-                        <td>Lucia</td>
-                        <td>Fernandez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>56789012</td>
-                        <td>Andrea</td>
-                        <td>Martinez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>56789012</td>
-                        <td>Andrea</td>
-                        <td>Martinez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>56789012</td>
-                        <td>Andrea</td>
-                        <td>Martinez</td>
-                        <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
-                                <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Ver Detalles
-                            </button>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
+            @endif
         </div>
         </div>
+        
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
+                {{-- Botón Anterior --}}
+                @if ($estudiantes->onFirstPage())
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-hidden="true">&laquo;</span>
+                    </li>
+                @else
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $estudiantes->previousPageUrl() }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                @endif
+
+                {{-- Enlaces de páginas --}}
+                @foreach ($estudiantes->getUrlRange(1, $estudiantes->lastPage()) as $page => $url)
+                    <li class="page-item {{ $estudiantes->currentPage() == $page ? 'active' : '' }}">
+                        <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                    </li>
+                @endforeach
+
+                {{-- Botón Siguiente --}}
+                @if ($estudiantes->hasMorePages())
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $estudiantes->nextPageUrl() }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                @else
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-hidden="true">&raquo;</span>
+                    </li>
+                @endif
             </ul>
         </nav>
     
@@ -262,6 +122,15 @@
             } else {
                 input.classList.remove('is-invalid');
                 // Aquí puedes agregar la lógica de búsqueda
+                const searchValue = input.value.trim().toLowerCase();
+                window.location.href = `/dashboard/estudiantes?search=${encodeURIComponent(searchValue)}`;
+            }
+        });
+        //Hacer que el botón de búsqueda se active al presionar Enter
+        document.getElementById('searchInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                document.getElementById('searchButton').click();
             }
         });
 
@@ -560,7 +429,9 @@
         //Guardar los datos del estudiante a eliminar en variables
         const nombre = row.cells[1].textContent.trim();
         const apellido = row.cells[2].textContent.trim();
-
+        //Agarramos la id del estudiante
+        const id = btn.getAttribute('data-cedula');
+        const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
         btn.addEventListener('click', function(e) {
             //Mostrar el modal de confirmación con los datos del estudiante a eliminar
@@ -572,21 +443,42 @@
                 confirmButtonText: 'Eliminar',
                 reverseButtons: true
             })
-            .then((result)=>{
+            .then((result) => {
                 //Si el usuario confirma la eliminación, enviar la solicitud a eliminar al backend
-
                 if (result.isConfirmed) {
-                    Swal.fire({
-                        title: '¡Eliminado!',
-                        text: 'El estudiante ha sido eliminado',
-                        icon: 'success',
-                        confirmButtonText: 'Aceptar',
+                    fetch(`/dashboard/estudiantes/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': token,
+                            'Accept': 'application/json',
+                        },
                     })
+                    .then(function(response) {
+                        if (!response.ok) throw new Error('Error al eliminar el estudiante');
+                        return response.json();
+                    })
+                    .then(data => {
+                        //Proceso de eliminar estudiante
+                        row.remove();
+                        Swal.fire({
+                            title: '¡Eliminado!',
+                            text: `El estudiante ${nombre} ${apellido} ha sido eliminado.`,
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar',
+                        });
+                    })
+                    .catch(error => {
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'No se pudo eliminar el estudiante. Inténtalo de nuevo más tarde.',
+                            icon: 'error',
+                            confirmButtonText: 'Aceptar',
+                        });
+                    });
                 }
-
-            })
-
-        })
+            });
+        });
     });
     </script>
 
@@ -1175,23 +1067,16 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="regForaneo" name="foraneo">
-                                    <label class="form-check-label" for="regForaneo">¿Es Foráneo?</label>
-                                </div>
-                                <div class="mb-3 form-check">
                                     <input type="checkbox" class="form-check-input" id="regPatria" name="patria">
                                     <label class="form-check-label" for="regPatria">¿Está registrado en patria?</label>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="regForaneo" name="foraneo">
+                                    <label class="form-check-label" for="regForaneo">¿Es Foráneo?</label>
                                 </div>
                                 
                                 <!--  Campos extra de foraneo -->
                                 <div id="patriaExtraFields" style="display: none; overflow: hidden; max-height: 0; transition: max-height 0.4s ease;">
-                                    <div class="mb-3">
-                                        <label for="regDireccionTemporal" class="form-label">Dirección Temporal</label>
-                                        <input type="text" class="form-control" id="regDireccionTemporal" name="direccion_temporal" placeholder="Ej: Calle 456, Ciudad" maxlength="150">
-                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                            La dirección temporal no puede estar vacía.
-                                        </div>
-                                    </div>
                                     <div class="mb-3">
                                         <label class="form-label">¿Pagas residencia?</label>
                                         <div>
@@ -1208,61 +1093,156 @@
                                             Seleccione una opción.
                                         </div>
                                     </div>
-                                    <div class="mb-3" id="cuantoPagasResidenciaDiv">
-                                        <label for="cuantoPagasResidencia" class="form-label">¿Cuánto pagas?</label>
-                                        <input type="number" class="form-control" id="cuantoPagasResidencia" name="cuanto_pagas_residencia" min="0" placeholder="Monto en Bs." disabled>
+                                    <div class="mb-3" id="direccionTemporalDiv" style="display: none;">
+                                        <label for="regDireccionTemporal" class="form-label">Dirección Temporal</label>
+                                        <input type="text" class="form-control" id="regDireccionTemporal" name="direccion_temporal" placeholder="Ej: Calle 456, Ciudad" maxlength="150">
                                         <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                            Ingrese un monto válido.
+                                            La dirección temporal no puede estar vacía.
                                         </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">¿Viajas a diario a clases?</label>
-                                        <div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="viaja_diario" id="viajaDiarioSi" value="si" required>
-                                                <label class="form-check-label" for="viajaDiarioSi">Sí</label>
+
+                                    <div id="foraneoNoFields" style="display: none;">
+                                        <div class="mb-3">
+                                            <label class="form-label">¿Viajas a diario a clases?</label>
+                                            <div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="viaja_diario" id="viajaDiarioSi" value="si" required>
+                                                    <label class="form-check-label" for="viajaDiarioSi">Sí</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="viaja_diario" id="viajaDiarioNo" value="no">
+                                                    <label class="form-check-label" for="viajaDiarioNo">No</label>
+                                                </div>
+                                                <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                    Seleccione una opción.
+                                                </div>
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="viaja_diario" id="viajaDiarioNo" value="no" required>
-                                                <label class="form-check-label" for="viajaDiarioNo">No</label>
-                                            </div>
+                                        </div>
+                                        <div class="mb-3" id="vecesSemanaDiv">
+                                            <label for="vecesSemana" class="form-label">¿Cuántas veces a la semana?</label>
+                                            <input type="number" class="form-control" id="vecesSemana" name="veces_semana" min="1" max="7" placeholder="Ej: 5" disabled>
                                             <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                                Seleccione una opción.
+                                                El campo no puede estar vacío.
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="mb-3" id="vecesSemanaDiv">
-                                        <label for="vecesSemana" class="form-label">¿Cuántas veces a la semana?</label>
-                                        <input type="number" class="form-control" id="vecesSemana" name="veces_semana" min="1" max="7" placeholder="Ej: 5" disabled>
-                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                            El campo no puede estar vacío.
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">¿Cuánto tiempo inviertes en el viaje?</label>
-                                        <div class="row g-2">
-                                            <div class="col">
-                                                <input type="number" class="form-control" id="tiempoViajeHoras" name="tiempo_viaje_horas" min="0" max="24" placeholder="Horas" required>
-                                                <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                                    El campo no puede estar vacío.
+                                        <div class="mb-3">
+                                            <label class="form-label">¿Cuánto tiempo inviertes en el viaje?</label>
+                                            <div class="row g-2">
+                                                <div class="col">
+                                                    <input type="number" class="form-control" id="tiempoViajeHoras" name="tiempo_viaje_horas" min="0" max="24" placeholder="Horas" disabled>
+                                                    <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                        El campo no puede estar vacío.
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col">
-                                                <!-- QUITAR disabled aquí para permitir llenar minutos -->
-                                                <input type="number" class="form-control" id="tiempoViajeMinutos" name="tiempo_viaje_minutos" min="0" max="59" placeholder="Minutos" required>
-                                                <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                                    El campo no puede estar vacío.
+                                                <div class="col">
+                                                    <input type="number" class="form-control" id="tiempoViajeMinutos" name="tiempo_viaje_minutos" min="0" max="59" placeholder="Minutos" disabled>
+                                                    <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                        El campo no puede estar vacío.
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="gastoDiarioPasaje" class="form-label">Gasto diario en pasaje</label>
-                                        <input type="text" class="form-control" id="gastoDiarioPasaje" name="gasto_diario_pasaje" min="0" placeholder="Monto en Bs." required>
-                                        <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
-                                            Ingrese un monto válido.
+                                        <div class="mb-3">
+                                            <label for="gastoDiarioPasaje" class="form-label">Gasto diario en pasaje</label>
+                                            <input type="text" class="form-control" id="gastoDiarioPasaje" name="gasto_diario_pasaje" min="0" placeholder="Monto en Bs." disabled>
+                                            <div class="invalid-feedback" style="white-space: normal; word-break: break-word;">
+                                                Ingrese un monto válido.
+                                            </div>
                                         </div>
                                     </div>
+                                    <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        const viajaDiarioSi = document.getElementById('viajaDiarioSi');
+                                        const viajaDiarioNo = document.getElementById('viajaDiarioNo');
+                                        const vecesSemana = document.getElementById('vecesSemana');
+                                        const tiempoViajeHoras = document.getElementById('tiempoViajeHoras');
+                                        const tiempoViajeMinutos = document.getElementById('tiempoViajeMinutos');
+                                        const gastoDiarioPasaje = document.getElementById('gastoDiarioPasaje');
+
+                                        function toggleViajaDiarioFields() {
+                                            if (viajaDiarioSi.checked) {
+                                                vecesSemana.removeAttribute('disabled');
+                                                tiempoViajeHoras.removeAttribute('disabled');
+                                                tiempoViajeMinutos.removeAttribute('disabled');
+                                                gastoDiarioPasaje.removeAttribute('disabled');
+                                            } else {
+                                                vecesSemana.setAttribute('disabled', true);
+                                                tiempoViajeHoras.setAttribute('disabled', true);
+                                                tiempoViajeMinutos.setAttribute('disabled', true);
+                                                gastoDiarioPasaje.setAttribute('disabled', true);
+                                                vecesSemana.value = '';
+                                                tiempoViajeHoras.value = '';
+                                                tiempoViajeMinutos.value = '';
+                                                gastoDiarioPasaje.value = '';
+                                            }
+                                        }
+
+                                        viajaDiarioSi.addEventListener('change', toggleViajaDiarioFields);
+                                        viajaDiarioNo.addEventListener('change', toggleViajaDiarioFields);
+
+                                        // Inicializar estado al cargar
+                                        toggleViajaDiarioFields();
+                                    });
+                                    </script>
+
+                                    <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        const pagaResidenciaSi = document.getElementById('pagaResidenciaSi');
+                                        const pagaResidenciaNo = document.getElementById('pagaResidenciaNo');
+                                        const direccionTemporalDiv = document.getElementById('direccionTemporalDiv');
+                                        const foraneoNoFields = document.getElementById('foraneoNoFields');
+                                        const regForaneo = document.getElementById('regForaneo');
+                                        const extraFields = document.getElementById('patriaExtraFields');
+
+                                        function updateForaneoFields() {
+                                            if (regForaneo.checked) {
+                                                extraFields.style.display = 'block';
+                                                // Expandir el contenedor para mostrar todo el contenido
+                                                extraFields.style.maxHeight = extraFields.scrollHeight + 'px';
+
+                                                // Mostrar solo Dirección Temporal si "Sí" en ¿Pagas residencia?
+                                                if (pagaResidenciaSi.checked) {
+                                                    direccionTemporalDiv.style.display = 'block';
+                                                    foraneoNoFields.style.display = 'none';
+                                                } else if (pagaResidenciaNo.checked) {
+                                                    direccionTemporalDiv.style.display = 'none';
+                                                    foraneoNoFields.style.display = 'block';
+                                                } else {
+                                                    direccionTemporalDiv.style.display = 'none';
+                                                    foraneoNoFields.style.display = 'none';
+                                                }
+
+                                                // Ajustar maxHeight después de mostrar los campos internos
+                                                setTimeout(() => {
+                                                    extraFields.style.maxHeight = extraFields.scrollHeight + 'px';
+                                                }, 50);
+                                            } else {
+                                                extraFields.style.maxHeight = '0';
+                                                setTimeout(() => {
+                                                    extraFields.style.display = 'none';
+                                                    direccionTemporalDiv.style.display = 'none';
+                                                    foraneoNoFields.style.display = 'none';
+                                                }, 400);
+                                            }
+                                        }
+
+                                        pagaResidenciaSi.addEventListener('change', updateForaneoFields);
+                                        pagaResidenciaNo.addEventListener('change', updateForaneoFields);
+                                        regForaneo.addEventListener('change', function() {
+                                            // Limpiar radios y campos al desmarcar foráneo
+                                            if (!this.checked) {
+                                                pagaResidenciaSi.checked = false;
+                                                pagaResidenciaNo.checked = false;
+                                                document.getElementById('regDireccionTemporal').value = '';
+                                            }
+                                            updateForaneoFields();
+                                        });
+
+                                        // Inicializar al cargar
+                                        updateForaneoFields();
+                                    });
+                                    </script>
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
@@ -1282,6 +1262,9 @@
         </div>
     </div>
             <script>
+            const extraFields = document.getElementById('patriaExtraFields');
+
+
             document.addEventListener('DOMContentLoaded', function () {
                 // Solo números y máximo 8 dígitos para cédula
                 document.getElementById('regCedula').addEventListener('input', function() {
@@ -1311,9 +1294,9 @@
                     }
                 });
 
+
                 // Animación y mostrar/ocultar campos extra de patria
                 const foraneoCheckbox = document.getElementById('regForaneo');
-                const extraFields = document.getElementById('patriaExtraFields');
                 foraneoCheckbox.addEventListener('change', function() {
                     if (this.checked) {
                         extraFields.style.display = 'block';
@@ -1327,9 +1310,6 @@
                         setTimeout(() => {
                             extraFields.style.display = 'none';
                         }, 400);
-                        // Limpiar los campos al ocultar
-                        document.getElementById('regPatriaCarnet').value = '';
-                        document.getElementById('regPatriaSerial').value = '';
                     }
                 });
                 /* Script para mostrar la edad del estudiante*/
@@ -1350,19 +1330,6 @@
                     }
                 });
 
-                //Habiliar los input en pagas residencia y cuanto viajas a diario a clases
-                // Habilitar/deshabilitar el input de "¿Cuánto pagas?" según "¿Pagas residencia?"
-                document.getElementsByName('paga_residencia').forEach(function(radio) {
-                    radio.addEventListener('change', function() {
-                        const cuantoDiv = document.getElementById('cuantoPagasResidenciaDiv');
-                        const cuantoInput = document.getElementById('cuantoPagasResidencia');
-                        if (this.value === 'si') {
-                            cuantoInput.removeAttribute('disabled');
-                        } else {
-                            cuantoInput.setAttribute('disabled', true);
-                        }
-                    });
-                });
 
                 // Habilitar/deshabilitar el input de "¿Cuántas veces a la semana?" según "¿Viajas a diario a clases?"
                 document.getElementsByName('viaja_diario').forEach(function(radio) {
@@ -1415,6 +1382,7 @@
                 // Función para validar campos requeridos
 
                 function validarInputVacio(input) {
+                    if (!input) return false;
                     if (input.value.trim() === '') {
                         input.classList.add('is-invalid');
                         return false;
@@ -1468,59 +1436,11 @@
 
                     // Validar los campos necesarios si esta chek el foraneo 
 
-                    if(foraneoCheckbox.checked){
-                        // Validar dirección temporal
-                        valid = validarInputVacio(form.regDireccionTemporal) && valid;
-
-                        // Validar si paga residencia
-                        const pagaResidenciaGroup = form.pagaResidenciaSi.closest('.mb-3');
-                        const pagaResidenciaFeedback = pagaResidenciaGroup.querySelector('.invalid-feedback');
-                        if (!form.pagaResidenciaSi.checked && !form.pagaResidenciaNo.checked) {
-                            pagaResidenciaFeedback.style.display = 'block';
-                            valid = false;
-                        } else {
-                            pagaResidenciaFeedback.style.display = 'none';
-                        }
-
-                        //validar el input residencia si el usuario selecciono si
-                        if(form.pagaResidenciaSi.checked){
-                            const cuantoPagasResidencia = form.cuantoPagasResidencia.value;
-                            valid = validarInputVacio(form.cuantoPagasResidencia) && valid;
-                        }
-
-                        // Validar si viajas a diario a clases
-                        const viajaDiarioGroup = form.viajaDiarioSi.closest('.mb-3');
-                        const viajaDiarioFeedback = viajaDiarioGroup.querySelector('.invalid-feedback');
-                        if (!form.viajaDiarioSi.checked && !form.viajaDiarioNo.checked) {
-                            viajaDiarioFeedback.style.display = 'block';
-                            valid = false;
-                        } else {
-                            viajaDiarioFeedback.style.display = 'none';
-                        }
-
-                        //validar el input viaja diario si el usuario selecciono si
-                        if(form.viajaDiarioSi.checked){
-                            const vecesSemana = form.vecesSemana.value;
-                            valid = validarInputVacio(form.vecesSemana) && valid;
-                        }
-
-                        // Validar tiempo de viaje
-                        if(form.tiempoViajeHoras.value === '' && form.tiempoViajeMinutos.value === ''){
-                            form.tiempoViajeHoras.classList.add('is-invalid');
-                            form.tiempoViajeMinutos.classList.add('is-invalid');
-                            valid = false;
-                        }else{
-                            form.tiempoViajeHoras.classList.remove('is-invalid');
-                            form.tiempoViajeMinutos.classList.remove('is-invalid');
-                        }
-
-                        // Validar gasto diario en pasaje
-                        valid = validarInputVacio(form.gastoDiarioPasaje) && valid;
-                    }
+                    // Ya no es necesario validar los campos extra de foráneo, pueden enviarse vacíos
 
                     //ajusar el tamaño de la modal cuando se haga un summit 
                     if (foraneoCheckbox.checked) {
-                        extraFields.style.maxHeight = extraFields.scrollHeight + 'px';
+                        extraFields.style.maxHeight = extraFields.scrollHeight+ 50 + 'px';
                     }
 
                     if (!valid) return;
@@ -1600,103 +1520,6 @@
                         });
                     }
 
-                });
-            });
-            </script>
-
-            <script>
-            document.addEventListener('DOMContentLoaded', function () {
-               // Solo números y máximo 8 dígitos para cédula
-                document.getElementById('regCedula').addEventListener('input', function() {
-                    this.value = this.value.replace(/\D/g, '').slice(0, 8);
-                });
-
-                // Validación y envío del formulario de registro
-                document.getElementById('registerStudentForm').addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    let form = this;
-                    let valid = true;
-
-                    // Validar cédula
-                    const cedula = form.regCedula.value.trim();
-                    if (!/^\d{8}$/.test(cedula)) {
-                        form.regCedula.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regCedula.classList.remove('is-invalid');
-                    }
-
-                    // Validar nombre
-                    if (form.regNombre.value.trim() === '') {
-                        form.regNombre.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regNombre.classList.remove('is-invalid');
-                    }
-
-                    // Validar apellido
-                    if (form.regApellido.value.trim() === '') {
-                        form.regApellido.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regApellido.classList.remove('is-invalid');
-                    }
-
-                    // Validar PNF
-                    if (form.regPNF.value === '') {
-                        form.regPNF.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regPNF.classList.remove('is-invalid');
-                    }
-
-                    // Validar sede
-                    if (form.regSede.value === '') {
-                        form.regSede.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regSede.classList.remove('is-invalid');
-                    }
-
-                    // Validar condicion
-                    if (form.regCondicion.value === '') {
-                        form.regCondicion.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regCondicion.classList.remove('is-invalid');
-                    }
-
-                    if (!valid) return;
-
-                    // Confirmación con SweetAlert
-                    Swal.fire({
-                        title: '¿Registrar estudiante?',
-                        text: 'Verifique los datos antes de confirmar.',
-                        icon: 'question',
-                        confirmButtonText: 'Registrar',
-                        showCancelButton: true,
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire({
-                                title: '¡Registrado!',
-                                text: 'El estudiante ha sido registrado.',
-                                icon: 'success',
-                                confirmButtonText: 'Aceptar',
-                            });
-                            // Cerrar modal
-                            var modal = bootstrap.Modal.getInstance(document.getElementById('registerStudentModal'));
-                            modal.hide();
-                            form.reset();
-                            // Aquí puedes agregar la lógica para enviar los datos al backend
-                        }
-                    });
-                });
-
-                // Quitar la clase is-invalid al escribir
-                ['regCedula', 'regNombre', 'regApellido', 'regPNF', 'regSede', 'regCondicion'].forEach(function(id) {
-                    document.getElementById(id).addEventListener('input', function() {
-                        this.classList.remove('is-invalid');
-                    });
                 });
             });
             </script>
