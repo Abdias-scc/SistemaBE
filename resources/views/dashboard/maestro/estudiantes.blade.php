@@ -47,7 +47,7 @@
                         <td>{{ $estudiante->nombre_persona }}</td>
                         <td>{{ $estudiante->apellido_persona }}</td>
                         <td>
-                            <button class="btn-minimal btn-details" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
+                            <button class="btn-minimal btn-details" id="detailsButton" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
                                 Ver Detalles
                             </button>
@@ -65,6 +65,7 @@
                 </tbody>
             </table>
             @endif
+            {{-- SECCION DE BOTONES DE PRIMERA Y ULTIMA PAGINA --}}
             <div class="d-flex justify-content-between align-items-center my-4">
                 <div>
                     <span>Mostrando {{ $estudiantes->count() }} de {{ $estudiantes->total() }} estudiantes</span>
@@ -93,6 +94,7 @@
             </div>
         </div>
         </div>
+        {{-- Paginación --}}
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 {{-- Botón Anterior --}}
@@ -484,7 +486,52 @@
             </div>
         </div>
     </div>
+    <script>
+        //recuperar todos los input de detalles en una variables
+        const detailsCedula = document.getElementById('detailsCedula');
+        const detailsNombre = document.getElementById('detailsNombre');
+        const detailsApellido = document.getElementById('detailsApellido');
+        const detailsSexo = document.getElementById('detailsSexo');
+        const detailsTelefono = document.getElementById('detailsTelefono');
+        const detailsFechaNacimiento = document.getElementById('detailsFechaNacimiento');
+        const detailsEdad = document.getElementById('detailsEdad');
+        const detailsCondicion = document.getElementById('detailsCondicion');
+        const detailsEmail = document.getElementById('detailsEmail');
 
+
+        //recuperar todos los botones de detalles
+        document.querySelectorAll("button[id='detailsButton']").forEach(function(btn) {
+            btn.addEventListener('click', ()=>{
+                const row = btn.closest('tr');
+                //recuperar los datos del estudiante de la fila
+                const cedula = row.cells[0].textContent.trim();
+                //Hacer un fetch a la ruta
+                fetch(`/dashboard/estudiantes/${cedula}/detalle`)
+                .then(response =>{
+                    //si la respuesa no es ok
+                    if (!response.ok) throw new Error('Error al obtener los detalles del estudiante');
+
+                    return response.json();
+                })
+                .then(estudiante =>{
+                    const detallesEstudiante = estudiante.data;
+                    console.log(detallesEstudiante);
+                    //Aqui comienza la magia 
+                    detailsCedula.value = detallesEstudiante.cedula_persona;
+                    detailsNombre.value = detallesEstudiante.nombre_persona;
+                    detailsApellido.value = detallesEstudiante.apellido_persona;
+                    detailsSexo.value = detallesEstudiante.genero_persona;
+                    detailsTelefono.value = detallesEstudiante.telefono_persona;
+                    detailsFechaNacimiento.value = detallesEstudiante.fecha_nacimiento_persona;
+                    detailsEdad.value = detallesEstudiante.edad_persona;
+                    detailsEmail.value = detallesEstudiante.email_persona;
+
+
+
+                })
+            })
+        });
+    </script>
     <!-- Modal de registro de estudiante -->
     <div class="modal fade" id="registerStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="registerStudentModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" style="max-width: 450px;">

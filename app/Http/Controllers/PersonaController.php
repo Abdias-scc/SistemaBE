@@ -72,6 +72,33 @@ class PersonaController extends Controller
     //La funcion showDetail recibe una cédula y retorna la datos detallados del estudiante
     public function detalleEstudiante($cedula)
     {
+        if(!is_numeric($cedula)){
+            return abort(404, 'Cédula inválida. Debe ser un número.');
+        }
+        // Buscar el estudiante por su cédula
+        try{
+            $estudiante = Persona::where('cedula_persona', $cedula)->first();
+            // Si no se encuentra el estudiante, retornar un error
+            if (!$estudiante) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Estudiante no encontrado.'
+                ], 404);
+            }
+            // Retornar los detalles del estudiante
+            return response()->json([
+                'status' => 'success',
+                'data' => $estudiante
+            ], 200);
+
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Error al buscar el estudiante: ' . $e->getMessage()
+            ], 500);
+        }
+
 
     }
 

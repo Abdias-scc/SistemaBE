@@ -190,17 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Script para la edición de estudiantes */
 document.addEventListener('DOMContentLoaded', function () {
-    // Delegación para todos los botones Editar
-    document.querySelectorAll('button[data-bs-target="#staticBackdrop"]').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            const row = btn.closest('tr');
-            if (row) {
-                document.getElementById('editCedula').value = row.cells[0].textContent.trim();
-                document.getElementById('editNombre').value = row.cells[1].textContent.trim();
-                document.getElementById('editApellido').value = row.cells[2].textContent.trim();
-            }
-        });
-    });
+
 
     // Validación personalizada
     //Formulario de validacion de edicion

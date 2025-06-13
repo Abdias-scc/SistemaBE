@@ -36,6 +36,12 @@ class LoginController extends Controller
         if (Auth::attempt($request->only('cedula', 'password'))) {
             $request->session()->regenerate();
             $this->clearLoginAttempts($request);
+            //Recoger los datos del usuario autenticado
+            $user = Auth::user();
+            session([
+                "cedula" => $user->cedula,
+            ]);
+
             return redirect()->intended('/dashboard');
         }
 

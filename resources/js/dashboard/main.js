@@ -17,4 +17,4 @@ const hora = now.toLocaleTimeString("es-VE", {
 });
 
 
-document.querySelector("#hora").innerHTML = ` ${fechaHora}, ${hora}`;
+document.querySelector("#spanHora").innerHTML = ` ${fechaHora}, ${hora}`;

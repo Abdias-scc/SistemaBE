@@ -20,14 +20,14 @@ class PersonaFactory extends Factory
         return [
             'nombre_persona' => fake()->firstName(),
             'apellido_persona' => fake()->lastName(),
-            'cedula_persona'=> random_int(1000000000, 9999999999), // Random 10-digit number
+            'cedula_persona'=> random_int(10000000, 99999999), // Random 8-digit number
             'telefono_persona' => random_int(600000000, 699999999), // Random 9-digit number starting with 6
             'genero_persona' => 'Masculino',
             'edad_persona' => rand(18, 60),
             'fecha_nacimiento_persona' => now()->subYears(rand(18, 60))->format('Y-m-d'),
             'email_persona' => Str::random(10) . '@example.com',
             'id_perfil' => 1, // Assuming a profile with ID 1 exists
-            'id_sede' => 2, // Assuming a sede with ID 1 exists
+            'id_sede' => 1, // Assuming a sede with ID 1 exists
         ];
     }
 }
