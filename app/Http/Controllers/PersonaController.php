@@ -34,18 +34,17 @@ class PersonaController extends Controller
                 'cedula_persona'
             )->paginate(10);
         }
-
-        // $estudiantes = Persona::query()->select(
-        //     'id_persona',
-        //     'nombre_persona',
-        //     'apellido_persona',
-        //     'cedula_persona'
-        // )->paginate(10);
+        // Retornar la vista con los estudiantes
         return view('dashboard.maestro.estudiantes', compact('estudiantes'));
     }
     //la función borrarEstudiante recibe una cédula y elimina el estudiante correspondiente
     public function deleteEstudiante($cedula)
-    {
+    {   
+        // Validar la cédula
+        if(!is_numeric($cedula)){
+            return abort(404, 'Cédula inválida. Debe ser un número.');
+        }
+
         try{    
             //Recuperar el estudiante por su cédula
             $estudiante = Persona::where('cedula_persona', $cedula)->first();
@@ -62,14 +61,18 @@ class PersonaController extends Controller
             return response()->json([
                 'status' => 'success',
                 'message' => 'Estudiante eliminado correctamente.'
-            ]);
-            // Mensaje de error en caso de que ocurra una excepción
+            ], 200);
         } catch (\Exception $e) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'Error al eliminar el estudiante: ' . $e->getMessage()
-            ]);
+            ], 500);
         }
+    }
+    //La funcion showDetail recibe una cédula y retorna la datos detallados del estudiante
+    public function detalleEstudiante($cedula)
+    {
+
     }
 
     public function serachEstudent(){

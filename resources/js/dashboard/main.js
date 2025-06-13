@@ -16,5 +16,5 @@ const hora = now.toLocaleTimeString("es-VE", {
     hour12: true // Cambiado a formato 12 horas
 });
 
-const usuario = "Angel Hernandez";
-document.querySelector("#hora").innerHTML = ` ${fechaHora}, ${hora}<br><strong>¡Bienvenido usuario ${usuario}!</strong>`;
+
+document.querySelector("#hora").innerHTML = ` ${fechaHora}, ${hora}`;

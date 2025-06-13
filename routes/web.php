@@ -23,8 +23,18 @@ Route::view('/dashboard', 'dashboard.index')->name('dashboard');
 //Maestros
 
 //Metodos en la seccion de estudiantes
-Route::get('/dashboard/estudiantes', [PersonaController::class, 'info'])->name('estudiantes');
-Route::delete('/dashboard/estudiantes/{cedula}', [PersonaController::class, 'deleteEstudiante']);
+Route::prefix('/dashboard/estudiantes')->group(function () {
+    // Ruta para mostrar los estudiantes en la tabla
+    Route::get('/', [PersonaController::class, 'info'])->name('estudiantes');
+    // Ruta para eliminar un estudiante por su cédula
+    Route::delete('/{cedula}', [PersonaController::class, 'deleteEstudiante'])
+        ->where('cedula', '[0-9]+')
+        ->name('deleteEstudiante');
+    // Ruta para mostrar el detalle de un estudiante por su cédula
+    Route::get('/{cedula/detalle', [PersonaController::class, 'detalleEstudiante'])
+        ->where('cedula', '[0-9]+');
+});
+
 
 Route::view('/dashboard/administradores', 'dashboard.maestro.admin')->name('admin');
 Route::view('/dashboard/becados', 'dashboard.maestro.becados')->name('becados');

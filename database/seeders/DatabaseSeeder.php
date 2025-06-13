@@ -14,8 +14,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            //Tablas sin relaciones
+            EstatusSeeder::class,
             EstadoSeeder::class,
             SedeSeeder::class,
+            //Tablas con relaciones
             PerfilSeeder::class,
             PersonaSeeder::class,
         ]);
