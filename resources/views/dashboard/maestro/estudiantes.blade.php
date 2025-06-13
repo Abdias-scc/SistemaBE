@@ -497,6 +497,7 @@
         const detailsEdad = document.getElementById('detailsEdad');
         const detailsCondicion = document.getElementById('detailsCondicion');
         const detailsEmail = document.getElementById('detailsEmail');
+        const detailsPatria = document.getElementById('detailsPatria');
 
 
         //recuperar todos los botones de detalles
@@ -517,15 +518,20 @@
                     const detallesEstudiante = estudiante.data;
                     console.log(detallesEstudiante);
                     //Aqui comienza la magia 
-                    detailsCedula.value = detallesEstudiante.cedula_persona;
-                    detailsNombre.value = detallesEstudiante.nombre_persona;
-                    detailsApellido.value = detallesEstudiante.apellido_persona;
-                    detailsSexo.value = detallesEstudiante.genero_persona;
-                    detailsTelefono.value = detallesEstudiante.telefono_persona;
-                    detailsFechaNacimiento.value = detallesEstudiante.fecha_nacimiento_persona;
-                    detailsEdad.value = detallesEstudiante.edad_persona;
-                    detailsEmail.value = detallesEstudiante.email_persona;
+                    detailsCedula.value = detallesEstudiante.cedula;
+                    detailsNombre.value = detallesEstudiante.nombre;
+                    detailsApellido.value = detallesEstudiante.apellido;
+                    detailsSexo.value = detallesEstudiante.genero;
+                    detailsTelefono.value = detallesEstudiante.telefono;
+                    detailsFechaNacimiento.value = detallesEstudiante.fecha_nacimiento;
+                    detailsEdad.value = detallesEstudiante.edad;
+                    detailsEmail.value = detallesEstudiante.email;
 
+                    if(detallesEstudiante.regis_patria === 1){
+                        detailsPatria.checked = true;
+                    } else {
+                        detailsPatria.checked = false;
+                    }
 
 
                 })

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('edad_persona');
             $table->date('fecha_nacimiento_persona');
             $table->string('email_persona');
-            $table->string('regis_patria');
+            $table->boolean('regis_patria');
             $table->foreignId('id_perfil')->references('id_perfil')->on('perfil')->onDelete('cascade');
             $table->foreignId('id_sede')->references('id_sede')->on('sede')->onDelete('cascade');
         });

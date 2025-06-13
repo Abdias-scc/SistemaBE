@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             PnfSeeder::class,
             PerfilSeeder::class,
             PersonaSeeder::class,
+            PersonaPnfSeeder::class,
             DireccionSeeder::class,
         ]);
     }
