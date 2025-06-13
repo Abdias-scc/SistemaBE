@@ -14,10 +14,14 @@ class EstatusSeeder extends Seeder
     public function run(): void
     {
         DB::table('estatus')->insert([
-            ['id' => 1, 'nombre' => 'Activo'],
-            ['id' => 2, 'nombre' => 'Inactivo'],
-            ['id' => 3, 'nombre' => 'Suspendido'],
-            ['id' => 4, 'nombre' => 'Eliminado'],
+            'nombre_estatus' => 'Activo',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('estatus')->insert([
+            'nombre_estatus' => 'Inactivo',
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }

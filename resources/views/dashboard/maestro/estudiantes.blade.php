@@ -65,9 +65,34 @@
                 </tbody>
             </table>
             @endif
+            <div class="d-flex justify-content-between align-items-center my-4">
+                <div>
+                    <span>Mostrando {{ $estudiantes->count() }} de {{ $estudiantes->total() }} estudiantes</span>
+                </div>
+                <div>
+                    <span>Página {{ $estudiantes->currentPage() }} de {{ $estudiantes->lastPage() }}</span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between my-2 gap-2">
+                @if ($estudiantes->onFirstPage() && $estudiantes->lastPage() > 1)
+                    <a href="{{ $estudiantes->url($estudiantes->lastPage()) }}" class="btn btn-outline-primary">
+                        Ir a última página
+                    </a>
+                @elseif ($estudiantes->currentPage() == $estudiantes->lastPage() && $estudiantes->lastPage() > 1)
+                    <a href="{{ $estudiantes->url(1) }}" class="btn btn-outline-primary">
+                        Ir a primera página
+                    </a>
+                @elseif ($estudiantes->lastPage() > 1)
+                    <a href="{{ $estudiantes->url(1) }}" class="btn btn-outline-primary">
+                        Ir a primera página
+                    </a>
+                    <a href="{{ $estudiantes->url($estudiantes->lastPage()) }}" class="btn btn-outline-primary">
+                        Ir a última página
+                    </a>
+                @endif
+            </div>
         </div>
         </div>
-        
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 {{-- Botón Anterior --}}
@@ -107,6 +132,7 @@
     
     <script>
         // Script para el botón de eliminar
+        const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         document.querySelectorAll('button[id="deleteButton"]').forEach(function(btn) {
             //Recoger el nombre y el apellido del estudiante a eliminar en la fila que esta en el boton
             const row = btn.closest('tr');
@@ -116,7 +142,6 @@
             const apellido = row.cells[2].textContent.trim();
             //Agarramos la id del estudiante
             const id = btn.getAttribute('data-cedula');
-            const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
             btn.addEventListener('click', function(e) {
                 //Mostrar el modal de confirmación con los datos del estudiante a eliminar
@@ -388,108 +413,73 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="mb-3">
-                                <label class="form-label">Cédula:</label>
+                                <label for="detailsCedula" class="form-label">Cédula</label>
                                 <input type="text" class="form-control" id="detailsCedula" readonly>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Primer Nombre:</label>
-                                <input type="text" class="form-control" id="detailsPrimerNombre" readonly>
+                                <label for="detailsNombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="detailsNombre" readonly>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Lapso Académico:</label>
-                                <input type="text" class="form-control" id="detailsLapso" readonly>
+                                <label for="detailsApellido" class="form-label">Apellido</label>
+                                <input type="text" class="form-control" id="detailsApellido" readonly>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Primer Apellido:</label>
-                                <input type="text" class="form-control" id="detailsPrimerApellido" readonly>
+                                <div class="row g-2 align-items-end">
+                                    <div class="col-md-6">
+                                        <label for="detailsSexo" class="form-label">Sexo</label>
+                                        <input type="text" class="form-control" id="detailsSexo" readonly>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="detailsTelefono" class="form-label">Teléfono</label>
+                                        <input type="text" class="form-control" id="detailsTelefono" readonly>
+                                    </div>
+                                </div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">PNF:</label>
-                                <input type="text" class="form-control" id="detailsPNF" readonly>
+                                <div class="row g-2 align-items-start">
+                                    <div class="col-md-6">
+                                        <label for="detailsFechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                        <input type="date" class="form-control" id="detailsFechaNacimiento" readonly>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="detailsEdad" class="form-label">Edad</label>
+                                        <input type="text" class="form-control" id="detailsEdad" readonly>
+                                    </div>
+                                </div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Sexo:</label>
-                                <input type="text" class="form-control" id="detailsSexo" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Email:</label>
-                                <input type="email" class="form-control" id="detailsEmail" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Sede:</label>
-                                <input type="text" class="form-control" id="detailsSede" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Condición:</label>
+                                <label for="detailsCondicion" class="form-label">Condición</label>
                                 <input type="text" class="form-control" id="detailsCondicion" readonly>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Fecha de Nacimiento:</label>
-                                <input type="date" class="form-control" id="detailsFechaNacimiento" readonly>
+                                <label for="detailsEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="detailsEmail" readonly>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Edad:</label>
-                                <input type="text" class="form-control" id="detailsEdad" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Teléfono:</label>
-                                <input type="text" class="form-control" id="detailsTelefono" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Dirección Permanente:</label>
+                                <label for="detailsDireccion" class="form-label">Dirección Permanente</label>
                                 <input type="text" class="form-control" id="detailsDireccion" readonly>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Procedencia:</label>
+                                <label for="detailsProcedencia" class="form-label">Procedencia</label>
                                 <input type="text" class="form-control" id="detailsProcedencia" readonly>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">¿Es Foráneo?</label>
-                                <input type="text" class="form-control" id="detailsForaneo" readonly>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="detailsForaneo" disabled>
+                                <label class="form-check-label" for="detailsForaneo">¿Es Foráneo?</label>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">¿Registrado en Patria?</label>
-                                <input type="text" class="form-control" id="detailsPatria" readonly>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="detailsPatria" disabled>
+                                <label class="form-check-label" for="detailsPatria">¿Está registrado en patria?</label>
                             </div>
-                            <!-- Campos solo para foráneo -->
-                            <div id="foraneoExtraFields" style="display: none;">
-                                <div class="mb-3">
-                                    <label class="form-label">Dirección Temporal:</label>
-                                    <input type="text" class="form-control" id="detailsDireccionTemporal" readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">¿Pagas residencia?</label>
-                                    <input type="text" class="form-control" id="detailsPagaResidencia" readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">¿Cuánto pagas?</label>
-                                    <input type="text" class="form-control" id="detailsCuantoPagasResidencia" readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">¿Viajas a diario?</label>
-                                    <input type="text" class="form-control" id="detailsViajaDiario" readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">¿Cuántas veces a la semana?</label>
-                                    <input type="text" class="form-control" id="detailsVecesSemana" readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Tiempo de viaje:</label>
-                                    <input type="text" class="form-control" id="detailsTiempoViaje" readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Gasto diario en pasaje:</label>
-                                    <input type="text" class="form-control" id="detailsGastoDiarioPasaje" readonly>
-                                </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
+                                    <img src="{{ asset('icons/close.svg') }}" alt="Icono de cancelar" class="icon-close">
+                                    Cerrar
+                                </button>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
-                        <img src="{{ asset('icons/close.svg') }}" alt="Icono de cancelar" class="icon-close">
-                        Cerrar
-                    </button>
                 </div>
             </div>
         </div>
