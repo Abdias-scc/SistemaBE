@@ -12,7 +12,7 @@ class Persona extends Model
 
     //funcion de union de tablas
 
-    public function personaPnfs()
+    public function personaPnf()
     {
         return $this->belongsToMany(PersonaPnf::class, 'persona_pnf', 'id_persona', 'id_persona_pnf');
     }
