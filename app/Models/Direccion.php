@@ -12,19 +12,11 @@ class Direccion extends Model
 
     public $timestamps = false; // Se activa si se necesita manejar created_at y updated_at
     protected $fillable = [
-        'id_persona',
         'sector',
         'calle',
         'id_persona',
         'id_municipio'
     ];
 
-    public function persona()
-    {
-        return $this->belongsTo(Persona::class, 'id_persona');
-    }
-    public function municipio()
-    {
-        return $this->belongsTo(Municipio::class, 'id_municipio');
-    }
+  
 }

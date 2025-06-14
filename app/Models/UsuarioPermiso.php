@@ -18,13 +18,5 @@ class UsuarioPermiso extends Model
         'id_permiso',
     ];
 
-    public function usuario()
-    {
-        return $this->belongsTo(User::class, 'id_usuario');
-    }
-
-    public function permiso()
-    {
-        return $this->belongsTo(Permiso::class, 'id_permiso');
-    }
+   
 }

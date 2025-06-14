@@ -17,8 +17,5 @@ class Sede extends Model
         'id_estado_ve',
     ];
 
-    public function estadoVe()
-    {
-        return $this->belongsTo(EstadoVe::class, 'id_estado_ve');
-    }
+  
 }

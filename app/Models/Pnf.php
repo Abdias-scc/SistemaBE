@@ -14,8 +14,8 @@ class Pnf extends Model
         'nombre_pnf',
         'id_estatus'
     ];
-    public function estatus()
+    public function personaPnf()
     {
-        return $this->belongsTo(Estatus::class, 'id_estatus');
+        return $this->hasMany(PersonaPnf::class, 'id_pnf', 'id_pnf');
     }
 }

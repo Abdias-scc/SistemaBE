@@ -15,12 +15,6 @@ class RegisDiarioComedor extends Model
     public $timestamps = false; // Disable timestamps if not needed
     protected $guarded = ['id_regis_diario_comedor']; // only block the id_regis_diario_comedor
 
-    public function persona()
-    {
-        return $this->belongsTo(Persona::class, 'id_persona');
-    }
-    public function servicioComedor()
-    {
-        return $this->belongsTo(ServicioCo::class, 'id_servicio_comedor');
-    }
+
+  
 }

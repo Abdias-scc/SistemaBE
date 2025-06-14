@@ -23,5 +23,14 @@ class Estatus extends Model
         return $this->hasMany(User::class, 'id_estatus');
     }
 
+    public function pnf()
+    {
+        return $this->hasMany(Pnf::class, 'id_estatus');
+    }
+    public function beServicio()
+    {
+        return $this->hasMany(BeServicio::class, 'id_estatus');
+    }
+
     
 }

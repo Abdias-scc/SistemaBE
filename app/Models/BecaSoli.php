@@ -15,15 +15,7 @@ class BecaSoli extends Model
     public $timestamps = false; // Enable timestamps if needed
     protected $guarded = ['id_beca_soli']; // only block the id_beca_soli
 
-    public function jornadaBeca()
-    {
-        return $this->hasMany(JornadaBeca::class, 'id_jornada_beca');
-    }
 
-    public function persona()
-    {
-        return $this->belongsTo(Persona::class, 'id_persona');
-    }
 
     public function becaPregunta()
     {

@@ -14,9 +14,8 @@ class BecaPregunta extends Model
 
     public $timestamps = false; // Disable timestamps if not needed
     protected $guarded = ['id_beca_pregunta']; // only block the id_beca_pregunta
-
-    public function becaSoli()
+    public function becaRespuesta()
     {
-        return $this->belongsTo(BecaSoli::class, 'id_beca_soli');
+        return $this->hasMany(BecaRespuesta::class, 'id_beca_pregunta');
     }
 }
