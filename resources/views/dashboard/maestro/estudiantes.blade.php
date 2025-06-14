@@ -451,6 +451,10 @@
                                 </div>
                             </div>
                             <div class="mb-3">
+                                <label for="detailsPnf" class="form-label">Pnf</label>
+                                <input type="email" class="form-control" id="detailsPnf" readonly>
+                            </div>
+                            <div class="mb-3">
                                 <label for="detailsCondicion" class="form-label">Condición</label>
                                 <input type="text" class="form-control" id="detailsCondicion" readonly>
                             </div>
@@ -497,6 +501,7 @@
         const detailsEdad = document.getElementById('detailsEdad');
         const detailsCondicion = document.getElementById('detailsCondicion');
         const detailsEmail = document.getElementById('detailsEmail');
+        const detailsPnf = document.getElementById('detailsPnf')
         const detailsPatria = document.getElementById('detailsPatria');
 
 
@@ -526,6 +531,7 @@
                     detailsFechaNacimiento.value = detallesEstudiante.fecha_nacimiento;
                     detailsEdad.value = detallesEstudiante.edad;
                     detailsEmail.value = detallesEstudiante.email;
+                    detailsPnf.value = detallesEstudiante.pnf
 
                     if(detallesEstudiante.regis_patria === 1){
                         detailsPatria.checked = true;
