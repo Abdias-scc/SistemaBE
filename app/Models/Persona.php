@@ -10,26 +10,31 @@ class Persona extends Model
 {
     use HasFactory;
 
-    //funcion de union de tablas
-
-    public function personaPnfs()
-    {
-        return $this->belongsToMany(PersonaPnf::class, 'persona_pnf', 'id_persona', 'id_persona_pnf');
-    }
 
     public $timestamps = false; // Disable timestamps if not needed
     protected $table = "persona";
     //Definir clave primaria
     protected $primaryKey = "id_persona";
-    protected $fillable = [
-        'id_persona',
-        'nombre_persona',
-        'apellido_persona',
-        'cedula_persona',
-        'telefono_persona',
-        'email_persona',
-        'fecha_nacimiento_persona',
-        'regis_patria'
-    ];
+    
+    protected $guarded = ['id_persona']; // solo bloquea el id_persona
 
+    public function personaPnfs()
+    {
+        return $this->hasMany(PersonaPnf::class, 'id_persona');
+    }
+
+    public function personaForanea()
+    {
+        return $this->hasOne(PersonaForanea::class, 'id_persona');
+    }
+
+    public function becaSoli()
+    {
+        return $this->hasMany(BecaSoli::class, 'id_persona');
+    }
+
+    public function direccion()
+    {
+        return $this->hasMany(Direccion::class, 'id_persona');
+    }
 }

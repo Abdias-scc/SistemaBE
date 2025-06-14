@@ -4,25 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-class PersonaPnf extends Model
+class PersonaForanea extends Model
 {
     use HasFactory;
 
-    protected $table = 'persona_pnf';
-    protected $primaryKey = 'id_persona_pnf';
+    protected $table = 'persona_foranea';
+    protected $primaryKey = 'id_persona_foranea';
 
     public $timestamps = false; // Se desactiva si se necesita manejar created_at y updated_at
-    protected $fillable = [
-        'id_persona',
-        'id_pnf',
-    ];
-
+    protected $guarded = ['id_persona_foranea']; // solo bloquea el id_persona_foranea
     public function persona()
     {
         return $this->belongsTo(Persona::class, 'id_persona');
-    }
-    public function pnf()
-    {
-        return $this->belongsTo(Pnf::class, 'id_pnf');
     }
 }
