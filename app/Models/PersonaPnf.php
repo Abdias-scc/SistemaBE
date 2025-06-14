@@ -17,4 +17,8 @@ class PersonaPnf extends Model
         'id_pnf',
     ];
 
+    public function pnf()
+    {
+        return $this->hasOne(Pnf::class, 'id_pnf');
+    }
 }
