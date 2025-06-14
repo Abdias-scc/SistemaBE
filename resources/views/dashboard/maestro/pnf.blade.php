@@ -482,26 +482,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="editPNF" class="form-label">PNF</label>
-                                    <input type="text" class="form-control" id="editPNF" name="pnf" required>
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                                <div class="mb-3 text-center">
+                                    <label for="editPNF" class="form-label w-100" style="display: block; font-weight: bold;">PNF</label>
+                                    <input type="text" class="form-control mx-auto" id="editPNF" name="pnf" required style="width: 90%;">
                                     <div class="invalid-feedback">
                                         El PNF no puede estar vacío.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="regEstatus" class="form-label">Estatus</label>
-                                    <select class="form-select" id="regEstatus" name="estatus" required>
-                                        <option value="">Seleccione un Estatus</option>
-                                        <option value="estatusActivo">Activo</option>
-                                        <option value="estatusInactivo">Inactivo</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Ingrese el Estatus.
                                     </div>
                                 </div>
                             </div>
@@ -524,127 +511,97 @@
 
 
     <!-- Modal de registro de PNF -->
-            <div class="modal fade" id="registerStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="registerStudentModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <form id="registerStudentForm" novalidate>
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="registerStudentModalLabel">Registrar Nuevo PNF</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="regPNF" class="form-label">PNF</label>
-                                            <input type="text" class="form-control" id="regPNF" name="pnf" required>
-                                            <div class="invalid-feedback">
-                                                El PNF no puede estar vacío.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="regEstatus" class="form-label">Estatus</label>
-                                            <select class="form-select" id="regEstatus" name="estatus" required>
-                                                <option value="">Seleccione un Estatus</option>
-                                                <option value="estatusActivo">Activo</option>
-                                                <option value="estatusInactivo">Inactivo</option>
-                                            </select>
-                                            <div class="invalid-feedback">
-                                                Ingrese el Estatus.
-                                            </div>
-                                        </div>
+    <div class="modal fade" id="registerStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="registerStudentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form id="registerStudentForm" novalidate>
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="registerStudentModalLabel">Registrar Nuevo PNF</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                                <div class="mb-3 text-center">
+                                    <label for="regPNF" class="form-label w-100" style="display: block; font-weight: bold;">PNF</label>
+                                    <input type="text" class="form-control mx-auto" id="regPNF" name="regPNF" required style="width: 90%;">
+                                    <div class="invalid-feedback">
+                                        El PNF no puede estar vacío.
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
-                                    <img src="{{ asset('icons/close.svg') }}" alt="Icono de cancelar" class="icon-close">
-                                    Cancelar
-                                </button>
-                                <button type="submit" class="btn-minimal btn-save">
-                                    <img src="{{ asset('icons/save_green.svg') }}" alt="Icono de guardar" class="icon-save">
-                                    Registrar
-                                </button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
+                            <img src="{{ asset('icons/close.svg') }}" alt="Icono de cancelar" class="icon-close">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn-minimal btn-save">
+                            <img src="{{ asset('icons/save_green.svg') }}" alt="Icono de guardar" class="icon-save">
+                            Registrar
+                        </button>
+                    </div>
+                </form>
             </div>
+        </div>
+    </div>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Validación y envío del formulario de registro
+        document.getElementById('registerStudentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let form = this;
+            let valid = true;
 
+            // Validar PNF
+            if (form.regPNF.value.trim() === '') {
+                form.regPNF.classList.add('is-invalid');
+                valid = false;
+            } else {
+                form.regPNF.classList.remove('is-invalid');
+            }
 
-            {{-- Copia y pega este script bien exactamente aqui en las demas vistas y cambia  o agrega los nombres de regPNF por los que estan en esa vista
-            
-            ejemplo: regPNF lo vas a cambiar por regCedula en la vistade estudiante y asi con todas
-            --}}
+            if (!valid) {
+                Swal.fire({
+                    title: 'Campos vacíos',
+                    text: 'Por favor complete todos los campos obligatorios.',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+                return;
+            }
 
-            <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                // Validación y envío del formulario de registro
-                document.getElementById('registerStudentForm').addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    let form = this;
-                    let valid = true;
-
-                    // Validar Sede
-                    if (form.regPNF.value.trim() === '') {
-                        form.regPNF.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regPNF.classList.remove('is-invalid');
-                    }
-
-                    // Validar estatus
-                    if (form.regEstatus.value === '') {
-                        form.regEstatus.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regEstatus.classList.remove('is-invalid');
-                    }
-
-                    if (!valid) {
-                        Swal.fire({
-                            title: 'Campos vacíos',
-                            text: 'Por favor complete todos los campos obligatorios.',
-                            icon: 'error',
-                            confirmButtonText: 'Aceptar'
-                        });
-                        return;
-                    }
-
-                    // Confirmación con SweetAlert
+            // Confirmación con SweetAlert
+            Swal.fire({
+                title: '¿Registrar PNF?',
+                text: 'Verifique los datos antes de confirmar.',
+                icon: 'question',
+                confirmButtonText: 'Registrar',
+                showCancelButton: true,
+            }).then((result) => {
+                if (result.isConfirmed) {
                     Swal.fire({
-                        title: '¿Registrar PNF?',
-                        text: 'Verifique los datos antes de confirmar.',
-                        icon: 'question',
-                        confirmButtonText: 'Registrar',
-                        showCancelButton: true,
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire({
-                                title: '¡Registrado!',
-                                text: 'El PNF ha sido registrado.',
-                                icon: 'success',
-                                confirmButtonText: 'Aceptar',
-                            }).then(() => {
-                                // Cerrar modal y limpiar formulario después de aceptar
-                                var modal = bootstrap.Modal.getInstance(document.getElementById('registerStudentModal'));
-                                modal.hide();
-                                form.reset();
-                            });
-                            // Aquí puedes agregar la lógica para enviar los datos al backend
-                        }
+                        title: '¡Registrado!',
+                        text: 'El PNF ha sido registrado.',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar',
+                    }).then(() => {
+                        // Cerrar modal y limpiar formulario después de aceptar
+                        var modal = bootstrap.Modal.getInstance(document.getElementById('registerStudentModal'));
+                        modal.hide();
+                        form.reset();
                     });
-                });
-
-                // Quitar la clase is-invalid al escribir
-                ['regPNF', 'regEstatus'].forEach(function(id) {
-                    document.getElementById(id).addEventListener('input', function() {
-                        this.classList.remove('is-invalid');
-                    });
-                });
+                    // Aquí puedes agregar la lógica para enviar los datos al backend
+                }
             });
-            </script>
-@endsection
+        });
+
+        // Quitar la clase is-invalid al escribir
+        document.getElementById('regPNF').addEventListener('input', function() {
+            this.classList.remove('is-invalid');
+        });
+    });
+    </script>
+    @endsection

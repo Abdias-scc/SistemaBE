@@ -25,13 +25,23 @@
                 <thead>
                     <tr>
                         <th scope="col" onclick="sortTable(0)">Servicios ↑</th>
-                        <th scope="col">Condición</th>
                         <th scope="col">Acciones</th>
+                        <th scope="col">Condición</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Comedor</td>
+                        <td>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
                                 <input class="form-check-input sede-switch" type="checkbox" id="servicioComedorSwitch" checked style="width: 2.5em; height: 1.3em;" data-servicio="Comedor">
@@ -40,6 +50,9 @@
                                 </label>
                             </div>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>Transporte</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -50,9 +63,6 @@
                                 Eliminar
                             </button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>Transporte</td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
                                 <input class="form-check-input sede-switch" type="checkbox" id="servicioTransporteSwitch" checked style="width: 2.5em; height: 1.3em;" data-servicio="Transporte">
@@ -61,6 +71,9 @@
                                 </label>
                             </div>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>Atencion Social</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -71,9 +84,6 @@
                                 Eliminar
                             </button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>Atencion Social</td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
                                 <input class="form-check-input sede-switch" type="checkbox" id="servicioAtencionSwitch" checked style="width: 2.5em; height: 1.3em;" data-servicio="Atencion Social">
@@ -82,6 +92,9 @@
                                 </label>
                             </div>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>Servicio Medico</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -92,9 +105,6 @@
                                 Eliminar
                             </button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>Servicio Medico</td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
                                 <input class="form-check-input sede-switch" type="checkbox" id="servicioMedicoSwitch" checked style="width: 2.5em; height: 1.3em;" data-servicio="Servicio Medico">
@@ -103,6 +113,9 @@
                                 </label>
                             </div>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>Deporte</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -113,9 +126,6 @@
                                 Eliminar
                             </button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>Deporte</td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
                                 <input class="form-check-input sede-switch" type="checkbox" id="servicioDeporteSwitch" checked style="width: 2.5em; height: 1.3em;" data-servicio="Deporte">
@@ -124,6 +134,9 @@
                                 </label>
                             </div>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>Cultura</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -134,9 +147,6 @@
                                 Eliminar
                             </button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>Cultura</td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
                                 <input class="form-check-input sede-switch" type="checkbox" id="servicioCulturaSwitch" checked style="width: 2.5em; height: 1.3em;" data-servicio="Cultura">
@@ -144,16 +154,6 @@
                                     Activo
                                 </label>
                             </div>
-                        </td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
                         </td>
                     </tr>
                 </tbody>
@@ -409,26 +409,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="editServicio" class="form-label">Servicio</label>
-                                    <input type="text" class="form-control" id="editServicio" name="servicio" required>
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                                <div class="mb-3 text-center">
+                                    <label for="editServicio" class="form-label w-100" style="display: block; font-weight: bold;">Servicio</label>
+                                    <input type="text" class="form-control mx-auto" id="editServicio" name="servicio" required style="width: 90%;">
                                     <div class="invalid-feedback">
                                         El servicio no puede estar vacío.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="editEstatus" class="form-label">Estatus</label>
-                                    <select class="form-select" id="editEstatus" name="estatus" required>
-                                        <option value="">Seleccione un Estatus</option>
-                                        <option value="estatusActivo">Activo</option>
-                                        <option value="estatusInactivo">Inactivo</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Ingrese el Estatus.
                                     </div>
                                 </div>
                             </div>
@@ -448,6 +435,66 @@
             </div>
         </div>
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Llenar el campo del modal al hacer click en editar
+        document.querySelectorAll('button[data-bs-target="#staticBackdrop"]').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                const row = btn.closest('tr');
+                if (row) {
+                    document.getElementById('editServicio').value = row.cells[0].textContent.trim();
+                }
+            });
+        });
+
+        // Validación y envío del formulario de edición (sin estatus)
+        const editServiceForm = document.getElementById('editServiceForm');
+        if (editServiceForm) {
+            editServiceForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                let form = this;
+                let valid = true;
+
+                // Validar servicio
+                if (form.editServicio.value.trim() === '') {
+                    form.editServicio.classList.add('is-invalid');
+                    valid = false;
+                } else {
+                    form.editServicio.classList.remove('is-invalid');
+                }
+
+                if (!valid) return;
+
+                // Confirmación con SweetAlert
+                Swal.fire({
+                    title: '¿Actualizar servicio?',
+                    text: 'Verifique los datos antes de confirmar.',
+                    icon: 'question',
+                    confirmButtonText: 'Actualizar',
+                    showCancelButton: true,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: '¡Actualizado!',
+                            text: 'El servicio ha sido actualizado.',
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar',
+                        });
+                        // Cerrar modal
+                        var modal = bootstrap.Modal.getInstance(document.getElementById('staticBackdrop'));
+                        modal.hide();
+                        // Aquí puedes agregar la lógica para enviar los datos al backend
+                    }
+                });
+            });
+
+            // Quitar la clase is-invalid al escribir
+            document.getElementById('editServicio').addEventListener('input', function() {
+                this.classList.remove('is-invalid');
+            });
+        }
+    });
+    </script>
 
 
     <!-- Modal de registro de estudiante -->
@@ -460,26 +507,13 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="regServicio" class="form-label">Servicio</label>
-                                            <input type="text" class="form-control" id="regServicio" name="servicio" required>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12">
+                                        <div class="mb-3 text-center">
+                                            <label for="regServicio" class="form-label w-100" style="display: block; font-weight: bold;">Servicio</label>
+                                            <input type="text" class="form-control mx-auto" id="regServicio" name="servicio" required style="width: 90%;">
                                             <div class="invalid-feedback">
                                                 El servicio no puede estar vacío.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="regEstatus" class="form-label">Estatus</label>
-                                            <select class="form-select" id="regEstatus" name="estatus" required>
-                                                <option value="">Seleccione un Estatus</option>
-                                                <option value="estatusActivo">Activo</option>
-                                                <option value="estatusInactivo">Inactivo</option>
-                                            </select>
-                                            <div class="invalid-feedback">
-                                                Ingrese el Estatus.
                                             </div>
                                         </div>
                                     </div>
@@ -501,12 +535,8 @@
             </div>
 
             <script>
+            // Mover este bloque dentro del primer DOMContentLoaded o fuera de cualquier otro listener
             document.addEventListener('DOMContentLoaded', function () {
-                // Solo números y máximo 8 dígitos para cédula
-                document.getElementById('regCedula').addEventListener('input', function() {
-                    this.value = this.value.replace(/\D/g, '').slice(0, 8);
-                });
-
                 // Validación y envío del formulario de registro
                 document.getElementById('registerStudentForm').addEventListener('submit', function(e) {
                     e.preventDefault();
@@ -521,19 +551,11 @@
                         form.regServicio.classList.remove('is-invalid');
                     }
 
-                    // Validar estatus
-                    if (form.regEstatus.value === '') {
-                        form.regEstatus.classList.add('is-invalid');
-                        valid = false;
-                    } else {
-                        form.regEstatus.classList.remove('is-invalid');
-                    }
-
                     if (!valid) return;
 
                     // Confirmación con SweetAlert
                     Swal.fire({
-                        title: '¿Registrar estudiante?',
+                        title: '¿Registrar servicio?',
                         text: 'Verifique los datos antes de confirmar.',
                         icon: 'question',
                         confirmButtonText: 'Registrar',
@@ -542,7 +564,7 @@
                         if (result.isConfirmed) {
                             Swal.fire({
                                 title: '¡Registrado!',
-                                text: 'El estudiante ha sido registrado.',
+                                text: 'El servicio ha sido registrado.',
                                 icon: 'success',
                                 confirmButtonText: 'Aceptar',
                             });
@@ -556,7 +578,7 @@
                 });
 
                 // Quitar la clase is-invalid al escribir
-                ['regServicio', 'regEstatus'].forEach(function(id) {
+                ['regServicio'].forEach(function(id) {
                     document.getElementById(id).addEventListener('input', function() {
                         this.classList.remove('is-invalid');
                     });
