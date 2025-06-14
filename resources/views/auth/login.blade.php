@@ -13,10 +13,11 @@
 
   <div class="wrapper">
     <div class="titulo-lateral">
-      <img src="{{ asset('img/logo_nuevo2.png') }}" alt="Logo" class="img-login">
-      <h1>Gestor Administrativo del deparmento </h1>
-      <h2>Bienestar Estudiantil</h2>
-      <h2>UPTP Juan de Jesús Montilla</h2>
+      <img src="{{ asset('img/logo_nuevo2.png') }}" alt="Logo" class="img-login" style="filter: brightness(0) saturate(100%) invert(14%) sepia(99%) saturate(7481%) hue-rotate(357deg) brightness(101%) contrast(119%);">
+      <h1 style="color: rgb(255, 0, 0)">Gestor Administrativo del deparmento </h1>
+      <h2 style="color: rgb(255, 0, 0)">Bienestar Estudiantil</h2>
+      <h2 style="color: rgb(255, 0, 0)">UPTP Juan de Jesús Montilla</h2>
+      
     </div>
 
     <div class="container">
