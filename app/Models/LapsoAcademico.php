@@ -4,21 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-class PersonaPnf extends Model
+
+class LapsoAcademico extends Model
 {
     use HasFactory;
 
-    protected $table = 'persona_pnf';
-    protected $primaryKey = 'id_persona_pnf';
+    protected $table = 'lapso_academico';
+    protected $primaryKey = 'id_lapso_academico';
 
     public $timestamps = false; // Se desactiva si se necesita manejar created_at y updated_at
     protected $fillable = [
-        'id_persona',
-        'id_pnf',
+        'trayecto',
+        'fecha_inicio',
+        'fecha_fin',
     ];
 
-    public function pnf()
-    {
-        return $this->hasOne(Pnf::class, 'id_pnf');
-    }
 }

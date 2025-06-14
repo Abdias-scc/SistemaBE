@@ -81,7 +81,7 @@ class PersonaController extends Controller
         }
         // Buscar el estudiante por su cédula
         try{
-            $estudiante = Persona::where('cedula_persona', $cedula)->with(['personaPnf'])->first();
+            $estudiante = Persona::where('cedula_persona', $cedula)->with("personaPnfs.pnf")->first();
             // Si no se encuentra el estudiante, retornar un error
             if (!$estudiante) {
                 return response()->json([
@@ -100,7 +100,7 @@ class PersonaController extends Controller
                 'patria'=> $estudiante->regis_patria,
                 'email'=> $estudiante->email_persona,
                 'edad'=> $estudiante->edad_persona,
-                'pnf'=> $estudiante
+                'pnf' => $estudiante->personaPnfs[0]->pnf->nombre_pnf
             ];
 
             return response()->json([

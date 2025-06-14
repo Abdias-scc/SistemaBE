@@ -505,7 +505,7 @@
     <!-- Modal de registro de SEDE -->
             <div class="modal fade" id="registerStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="registerStudentModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
+                    <div class="modal-content" style="width:80%; margin: auto;">
                         <form id="registerStudentForm" novalidate>
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="registerStudentModalLabel">Registrar Nueva sede</h1>

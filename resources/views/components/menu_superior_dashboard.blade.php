@@ -13,7 +13,7 @@
         </div>
         <div id="hora">
             <span class="navbar-text" id="spanHora" style="color: white"></span><br>
-            <strong>Bienvenido</strong>
+            <strong>Bienvenido Usuario: Angel Linarez</strong>
         </div>
     </div>
 </nav>

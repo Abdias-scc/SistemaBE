@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('persona_pnf', function (Blueprint $table) {
             $table->id('id_persona_pnf');
-            $table->unsignedBigInteger('id_persona')
-                ->constrained('persona')
+            $table->foreignId('id_persona')
+                ->references("id_persona")->on("persona")
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('id_pnf')
-                ->constrained('pnf')
+            $table->foreignId('id_pnf')
+                ->references("id_pnf")->on("pnf")
                 ->onDelete('cascade');
             $table->date('fecha_inicio');
             $table->date('fecha_fin')->nullable();
