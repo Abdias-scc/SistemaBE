@@ -19,4 +19,9 @@ class LapsoAcademico extends Model
         'fecha_fin',
     ];
 
+    public function condicionEstudiante()
+    {
+        return $this->hasMany(CondicionEstudiante::class, 'id_lapso_academico');
+    }
+
 }

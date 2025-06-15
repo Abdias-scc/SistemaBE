@@ -16,4 +16,16 @@ class HorarioCo extends Model
     protected $guarded = ['id_horario_co']; // only block the id_horario_co
 
 
+    
+    public function servicioCo() 
+    {
+        return $this->belongsTo(ServicioCo::class, 'id_servicio_co');
+    }
+
+    public function regisDiarioComedor()
+    {
+        return $this->hasMany(RegisDiarioComedor::class, 'id_horario_co');
+    }
+
+
 }
