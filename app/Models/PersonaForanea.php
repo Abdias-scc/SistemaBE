@@ -14,4 +14,8 @@ class PersonaForanea extends Model
     public $timestamps = false; // Se desactiva si se necesita manejar created_at y updated_at
     protected $guarded = ['id_persona_foranea']; // solo bloquea el id_persona_foranea
 
+    public function persona()
+    {
+        return $this->belongsTo(Persona::class, 'id_persona');
+    }
 }

@@ -15,5 +15,19 @@ class CondicionEstudiante extends Model
     public $timestamps = false; // Disable timestamps if not needed
     protected $guarded = ['id_condicion_estudiante']; // only block the id_condicion_estudiante
 
+    public function personas()
+    { 
+        return $this->belongsTo(Persona::class, 'id_persona');
+    }
+
+    public function perfil()
+    {
+        return $this->belongsTo(Perfil::class, 'id_perfil');
+    }
+
+    public function lapsoAcademicos()
+    {
+        return $this->belongsTo(LapsoAcademico::class, 'id_lapso_academico');
+    }
    
 }

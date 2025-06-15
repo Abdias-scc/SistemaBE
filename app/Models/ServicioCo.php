@@ -15,8 +15,13 @@ class ServicioCo extends Model
     public $timestamps = true; // Disable timestamps if not needed
     protected $guarded = ['id_servicio_co']; // only block the id_servicio_co
 
+    public function beServicio()
+    {
+        return $this->belongsTo(BeServicio::class, 'id_be_servicio');
+    }
+
     public function horarioCo()
     {
-        return $this->hasMany(HorarioCo::class, 'id_servicio_co');  
+        return $this->hasMany(HorarioCo::class, 'id_servicio_co');
     }
 }

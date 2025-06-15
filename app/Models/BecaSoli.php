@@ -26,4 +26,13 @@ class BecaSoli extends Model
     {
         return $this->hasMany(BecaRespuesta::class, 'id_beca_soli');
     }
+
+    public function jornadaBeca()
+    {
+        return $this->belongsTo(JornadaBeca::class, 'id_jornada_beca');
+    }
+    public function personas()
+    {
+        return $this->belongsTo(Persona::class, 'id_persona');
+    }
 }

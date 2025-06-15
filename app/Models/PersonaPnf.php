@@ -15,10 +15,16 @@ class PersonaPnf extends Model
     protected $fillable = [
         'id_persona',
         'id_pnf',
+        'fecha_inicio',
+        'fecha_fin'
     ];
 
-    public function pnf()
+    public function persona()  
     {
-        return $this->hasOne(Pnf::class, 'id_pnf');
+        return $this->belongsTo(Persona::class, 'id_persona');
+    }
+    public function pnf()  
+    {
+        return $this->belongsTo(Pnf::class, 'id_pnf');
     }
 }

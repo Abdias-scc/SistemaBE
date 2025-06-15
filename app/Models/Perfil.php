@@ -15,8 +15,10 @@ class Perfil extends Model
     public $timestamps = false; // Se desactiva si se necesita manejar created_at y updated_at
     protected $guarded = ['id_perfil']; // solo bloquea el id_perfil
 
-    public function persona()
+    public function personas()
     {
-        return $this->belongsTo(Persona::class, 'id_perfil');
+        return $this->hasMany(Persona::class, 'id_perfil');
     }
+
+    
 }
