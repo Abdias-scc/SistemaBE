@@ -6,10 +6,11 @@
 
 @section('content')
     @section('titulo', 'PNF')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="contenedor">
         <div class="d-flex justify-content-end my-4" style="max-width: 400px; margin-left: auto; flex-direction: column;">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Buscar Persona..." id="searchInput">
+                <input type="text" class="form-control" placeholder="Buscar Pnf..." id="searchInput">
                 <button class="btn btn-primary" type="button" id="searchButton">
                     <i class="bi bi-search"></i> Buscar
                 </button>
@@ -21,8 +22,12 @@
             </div>
         </div>
         <div class="table-container">
-            
-
+            @if ($pnfs->isEmpty())
+                {{-- Si no hay estudiantes, mostrar mensaje --}}
+                <div class="alert alert-info text-center" role="alert">
+                    No hay pnfs registrados.
+                </div>
+            @else
             <table class="table table-striped table-bordered my-2" id="sortable-table">
                 <thead>
                     <tr>
@@ -32,260 +37,167 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($pnfs as $pnf)
                     <tr>
-                        <td>Informatica</td>
+                        <td>{{$pnf->nombre_pnf}}</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
                                 Editar
                             </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
+                            <button class="btn-minimal btn-delete" id="deleteButton" data-pnf-id="{{ $pnf->id_pnf }}">
                                 <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
                                 Eliminar
                             </button>
                         </td>
                         <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Informatica">
-                                <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
+                            @if($pnf->id_estatus === 1)
+                                <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                    <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Informatica" data-pnf-id="{{ $pnf->id_pnf }}">
+                                    <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
+                                        Activo
+                                    </label>
+                                </div>
+                            @else
+                                <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                    <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" style="width: 2.5em; height: 1.3em;" data-sede="Informatica" data-pnf-id="{{ $pnf->id_pnf }}">
+                                    <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
+                                        Inactivo
+                                    </label>
+                                </div>
+                            @endif
                         </td>
                     </tr>
-                    <tr>
-                        <td>Veterinaria</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeNorteSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Veterinaria">
-                                <label class="form-check-label ms-2" for="sedeNorteSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Adminstracion</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeSurSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Administracion">
-                                <label class="form-check-label ms-2" for="sedeSurSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Mecanica</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeEsteSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Mecanica">
-                                <label class="form-check-label ms-2" for="sedeEsteSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Quimica</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeOesteSwitch" style="width: 2.5em; height: 1.3em;" data-sede="Quimica">
-                                <label class="form-check-label ms-2" for="sedeOesteSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Electronica</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeAndesSwitch" style="width: 2.5em; height: 1.3em;" data-sede="Electronica">
-                                <label class="form-check-label ms-2" for="sedeAndesSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Construccion Civil</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeMaracaySwitch" style="width: 2.5em; height: 1.3em;" data-sede="Construccion Civil">
-                                <label class="form-check-label ms-2" for="sedeMaracaySwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Agroalimentaria</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeBarinasSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Agroalimentaria">
-                                <label class="form-check-label ms-2" for="sedeBarinasSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Electricidad</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedePortuguesaSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Sede Portuguesa">
-                                <label class="form-check-label ms-2" for="sedePortuguesaSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Matematicas</td>
-                        <td>
-                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                                Editar
-                            </button>
-                            <button class="btn-minimal btn-delete" id="deleteButton">
-                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                                Eliminar
-                            </button>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCaraboboSwitch" style="width: 2.5em; height: 1.3em;" data-sede="Sede Carabobo">
-                                <label class="form-check-label ms-2" for="sedeCaraboboSwitch" style="user-select: none;">
-                                    Activo
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
+                    @endforeach
+                    @endif    
                 </tbody>
-
-
-                {{-- Script para el switch de activar/inactivar sedes --}}
-                <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    document.querySelectorAll('.sede-switch').forEach(function(switchInput) {
-                        switchInput.addEventListener('change', function(e) {
-                            const label = switchInput.nextElementSibling;
-                            const sede = switchInput.getAttribute('data-sede');
-                            const checked = switchInput.checked;
-
-                            // Revert the switch until user confirms
-                            switchInput.checked = !checked;
-
-                            Swal.fire({
-                                title: checked ? `¿Desea activar la sede ${sede}?` : `¿Desea inactivar la sede ${sede}?`,
-                                text: checked ? 'La sede será marcada como activa.' : 'La sede será marcada como inactiva.',
-                                icon: checked ? 'question' : 'warning',
-                                showCancelButton: true,
-                                confirmButtonText: checked ? 'Activar' : 'Inactivar',
-                                cancelButtonText: 'Cancelar',
-                                reverseButtons: true
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    switchInput.checked = checked;
-                                    label.textContent = checked ? 'Activo' : 'Inactivo';
-                                    Swal.fire({
-                                        title: checked ? '¡Activada!' : '¡Inactivada!',
-                                        text: checked ? `La sede ${sede} ha sido activada.` : `La sede ${sede} ha sido inactivada.`,
-                                        icon: 'success',
-                                        confirmButtonText: 'Aceptar'
-                                    });
-                                    // Aquí puedes agregar la lógica para activar/inactivar la sede en el backend
-                                }
-                            });
-                        });
-                    });
-                });
-                </script>
             </table>
+            {{-- SECCION DE BOTONES DE PRIMERA Y ULTIMA PAGINA --}}
+            <div class="d-flex justify-content-between align-items-center my-4">
+                <div>
+                    <span>Mostrando {{ $pnfs->count() }} de {{ $pnfs->total() }} pnfs</span>
+                </div>
+                <div>
+                    <span>Página {{ $pnfs->currentPage() }} de {{ $pnfs->lastPage() }}</span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between my-2 gap-2">
+                @if ($pnfs->onFirstPage() && $pnfs->lastPage() > 1)
+                    <a href="{{ $pnfs->url($pnfs->lastPage()) }}" class="btn btn-outline-primary">
+                        Ir a última página
+                    </a>
+                @elseif ($pnfs->currentPage() == $pnfs->lastPage() && $pnfs->lastPage() > 1)
+                    <a href="{{ $pnfs->url(1) }}" class="btn btn-outline-primary">
+                        Ir a primera página
+                    </a>
+                @elseif ($pnfs->lastPage() > 1)
+                    <a href="{{ $pnfs->url(1) }}" class="btn btn-outline-primary">
+                        Ir a primera página
+                    </a>
+                    <a href="{{ $pnfs->url($pnfs->lastPage()) }}" class="btn btn-outline-primary">
+                        Ir a última página
+                    </a>
+                @endif
+            </div>
+        </div>
+        <div>
+            <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                {{-- Botón Anterior --}}
+                @if ($pnfs->onFirstPage())
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-hidden="true">&laquo;</span>
+                    </li>
+                @else
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $pnfs->previousPageUrl() }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                @endif
+
+                {{-- Enlaces de páginas --}}
+                @foreach ($pnfs->getUrlRange(1, $pnfs->lastPage()) as $page => $url)
+                    <li class="page-item {{ $pnfs->currentPage() == $page ? 'active' : '' }}">
+                        <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                    </li>
+                @endforeach
+
+                {{-- Botón Siguiente --}}
+                @if ($pnfs->hasMorePages())
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $pnfs->nextPageUrl() }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                @else
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-hidden="true">&raquo;</span>
+                    </li>
+                @endif
+            </ul>
+        </nav>
         </div>
     
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            document.querySelectorAll('.sede-switch').forEach(function(switchInput) {
+                switchInput.addEventListener('change', function(e) {
+                    const label = switchInput.nextElementSibling;
+                    const sede = switchInput.getAttribute('data-sede');
+                    const checked = switchInput.checked;
+                    const id = switchInput.getAttribute('data-pnf-id');
+
+                    // Revert the switch until user confirms
+                    switchInput.checked = !checked;
+
+                    Swal.fire({
+                        title: checked ? `¿Desea activar el PNF ${sede}?` : `¿Desea inactivar el PNF ${sede}?`,
+                        text: checked ? 'El PNF será marcada como activa.' : 'El PNF será marcada como inactiva.',
+                        icon: checked ? 'question' : 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: checked ? 'Activar' : 'Inactivar',
+                        cancelButtonText: 'Cancelar',
+                        reverseButtons: true
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            switchInput.checked = checked;
+                            label.textContent = checked ? 'Activo' : 'Inactivo';
+
+                            // Aquí puedes agregar la lógica para activar/inactivar la sede en el backend
+                            //Consulamos a la url para activar/desactivar el pnf-?id_estatus
+                            fetch(`/dashboard/pnf/estatus/${id}`, {
+                                method: 'GET',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': token,
+                                    'Accept': 'application/json',
+                                }
+                            })
+                            .then(response => response.json())
+                            .then(response =>{
+                                Swal.fire({
+                                    title: checked ? '¡Activada!' : '¡Inactivada!',
+                                    text: checked ? `El PNF ${sede} ha sido activada.` : `El PNF ${sede} ha sido inactivada.`,
+                                    icon: 'success',
+                                    confirmButtonText: 'Aceptar'
+                                });
+                            })
+                            .catch(error =>{
+                                Swal.fire({
+                                    title: 'Error',
+                                    text: 'No se pudo activar el PNF. Inténtalo de nuevo más tarde.'+ error,
+                                    icon: 'error',
+                                    confirmButtonText: 'Aceptar',
+                                });
+                            })
+
+                        }
+                    });
+                });
+            });
+        });
         //*Script para el inputt de buscar
         document.getElementById('searchButton').addEventListener('click', function() {
             const input = document.getElementById('searchInput');
@@ -303,6 +215,8 @@
             } else {
                 input.classList.remove('is-invalid');
                 // Aquí puedes agregar la lógica de búsqueda
+                const searchValue = input.value.trim().toLowerCase();
+                window.location.href = `/dashboard/pnf?search=${encodeURIComponent(searchValue)}`;
             }
         });
 
@@ -384,18 +298,22 @@
         });
 
 
-        document.getElementById('editStudentForm').addEventListener('submit', function(e) {
+        document.getElementById('saveEdit').addEventListener('click', function(e) {
             e.preventDefault();
-            let form = this;
+            const editPNF = document.getElementById('editPNF');
+            //recuperamos la id del pnf
+            const id = document.getElementById('sedeCentralSwitch').getAttribute('data-pnf-id');
+            const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
             let valid = true;
 
 
             // Validar cargo
-            if (form.editPNF.value === '') {
-                form.editPNF.classList.add('is-invalid');
+            if (editPNF.value === '') {
+                editPNF.classList.add('is-invalid');
                 valid = false;
             } else {
-                form.editPNF.classList.remove('is-invalid');
+                editPNF.classList.remove('is-invalid');
             }
 
             if (!valid) return;
@@ -410,16 +328,50 @@
             })
             .then((result)=>{
                 if (result.isConfirmed) {
-                    Swal.fire({
-                        title: '¡Actualizado!',
-                        text: 'Los datos han sido actualizados',
-                        icon: 'success',
-                        confirmButtonText: 'Aceptar',
+                    //Consultamos la url para el backend
+                    fetch(`/dashboard/pnf/editar/`,{
+                        method: "PUT",
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': token,
+                            'Accept': 'application/json',
+                        },
+                        body:JSON.stringify({id_pnf : id, nuevo_nombre_pnf : editPNF.value})
                     })
+                    .then(response =>{
+                        if(!response.ok){
+                            Swal.fire({
+                                title: 'Error',
+                                text: 'No se pudo actualizar el PNF. El PNF no existe.',
+                                icon: 'error',
+                                confirmButtonText: 'Aceptar',
+                            })
+                        }
+                        return response.json()
+                    })
+                    .then(response =>{
+
+                        //avisamos al usuario
+                        Swal.fire({
+                            title: '¡Actualizado!',
+                            text: 'Los datos han sido actualizados',
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar',
+                        })
                     
-                    // Cierra el modal después de actualizar
-                    var modal = bootstrap.Modal.getInstance(document.getElementById('staticBackdrop'));
-                    modal.hide();
+                        // Cierra el modal después de actualizar
+                        var modal = bootstrap.Modal.getInstance(document.getElementById('staticBackdrop'));
+                        modal.hide();
+                    })
+                    .catch( error =>{
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'No se pudo actualizar el PNF.Intentalo de nuevo más tarde.',
+                            icon: 'error',
+                            confirmButtonText: 'Aceptar',
+                        })
+                    })
+
                 }
             });
 
@@ -438,6 +390,7 @@
     document.querySelectorAll('button[id="deleteButton"]').forEach(function(btn) {
         //Recoger el nombre y el apellido del estudiante a eliminar en la fila que esta en el boton
         const row = btn.closest('tr');
+        const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
         //Guardar los datos del estudiante a eliminar en variables
         const nombre = row.cells[0].textContent.trim();
@@ -455,15 +408,38 @@
             })
             .then((result)=>{
                 //Si el usuario confirma la eliminación, enviar la solicitud a eliminar al backend
+                const id = btn.getAttribute('data-pnf-id');
 
-                if (result.isConfirmed) {
+                fetch(`/dashboard/pnf/borrar/${id}`,{
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': token,
+                        'Accept': 'application/json',
+                    }
+                })
+                .then(response => {
+                    if(!response.ok){
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'No se pudo eliminar el estudiante. Inténtalo de nuevo más tarde.',
+                            icon: 'error',
+                            confirmButtonText: 'Aceptar',
+                        });
+                    }
+                    return response.json()
+                })
+                .then(response =>{
+                    //Eliminamos el pnf de la tabla
+                    row.remove()
+                    //Imprimimos una alerta
                     Swal.fire({
                         title: '¡Eliminado!',
-                        text: 'El estudiante ha sido eliminado',
+                        text: 'El PNF ha sido eliminado',
                         icon: 'success',
                         confirmButtonText: 'Aceptar',
                     })
-                }
+                })
 
             })
 
@@ -476,35 +452,33 @@
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form id="editStudentForm" novalidate>
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Datos del PNF</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row justify-content-center">
-                            <div class="col-md-12">
-                                <div class="mb-3 text-center">
-                                    <label for="editPNF" class="form-label w-100" style="display: block; font-weight: bold;">PNF</label>
-                                    <input type="text" class="form-control mx-auto" id="editPNF" name="pnf" required style="width: 90%;">
-                                    <div class="invalid-feedback">
-                                        El PNF no puede estar vacío.
-                                    </div>
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Datos del PNF</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="mb-3 text-center">
+                                <label for="editPNF" class="form-label w-100" style="display: block; font-weight: bold;">PNF</label>
+                                <input type="text" class="form-control mx-auto" id="editPNF" name="pnf" required style="width: 90%;" placeholder="Edita el nombre del PNF">
+                                <div class="invalid-feedback">
+                                    El PNF no puede estar vacío.
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
-                            <img src="{{ asset('icons/close.svg') }}" alt="Icono de cancelar" class="icon-close">
-                            Cancelar
-                        </button>
-                        <button type="submit" class="btn-minimal btn-save">
-                            <img src="{{ asset('icons/save_green.svg') }}" alt="Icono de guardar" class="icon-save">
-                            Actualizar
-                        </button>
-                    </div>
-                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
+                        <img src="{{ asset('icons/close.svg') }}" alt="Icono de cancelar" class="icon-close">
+                        Cancelar
+                    </button>
+                    <button class="btn-minimal btn-save" id="saveEdit">
+                        <img src="{{ asset('icons/save_green.svg') }}" alt="Icono de guardar" class="icon-save">
+                        Actualizar
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -514,53 +488,80 @@
     <div class="modal fade" id="registerStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="registerStudentModalLabel" aria-hidden="true" >
         <div class="modal-dialog modal-lg" style="justify-content: center;">
             <div class="modal-content" style="width:80%; margin: auto;">
-                <form id="registerStudentForm" novalidate>
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="registerStudentModalLabel">Registrar Nuevo PNF</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row justify-content-center">
-                            <div class="col-md-12">
-                                <div class="mb-3 text-center">
-                                    <label for="regPNF" class="form-label w-100" style="display: block; font-weight: bold;">PNF</label>
-                                    <input type="text" class="form-control mx-auto" id="regPNF" name="regPNF" required style="width: 90%;">
-                                    <div class="invalid-feedback">
-                                        El PNF no puede estar vacío.
-                                    </div>
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="registerStudentModalLabel">Registrar Nuevo PNF</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="mb-3 text-center">
+                                <label for="regPNF" class="form-label w-100" style="display: block; font-weight: bold;">PNF</label>
+                                <input type="text" class="form-control mx-auto" id="regPNF" name="regPNF" required style="width: 90%;" placeholder="Escribe el nombre del nuevo PNF">
+                                <div class="invalid-feedback">
+                                    El PNF no puede estar vacío.
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
-                            <img src="{{ asset('icons/close.svg') }}" alt="Icono de cancelar" class="icon-close">
-                            Cancelar
-                        </button>
-                        <button type="submit" class="btn-minimal btn-save">
-                            <img src="{{ asset('icons/save_green.svg') }}" alt="Icono de guardar" class="icon-save">
-                            Registrar
-                        </button>
-                    </div>
-                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-minimal btn-cancel" data-bs-dismiss="modal">
+                        <img src="{{ asset('icons/close.svg') }}" alt="Icono de cancelar" class="icon-close">
+                        Cancelar
+                    </button>
+                    <button class="btn-minimal btn-save" id="registerStudent">
+                        <img src="{{ asset('icons/save_green.svg') }}" alt="Icono de guardar" class="icon-save">
+                        Registrar
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
     document.addEventListener('DOMContentLoaded', function () {
+        const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        const input = document.getElementById('regPNF');
+        const tbody = document.getElementById('sortable-table').querySelector('tbody');
+
+        function agregarFila(){
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<tr>
+                        <td>${input.value.trim()}</td>
+                        <td>
+                            <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
+                                Editar
+                            </button>
+                            <button class="btn-minimal btn-delete" id="deleteButton">
+                                <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
+                                Eliminar
+                            </button>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
+                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Informatica">
+                                <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
+                                    Activo
+                                </label>
+                            </div>
+                        </td>
+                    </tr>`;
+                    tbody.appendChild(tr);
+        }
+
         // Validación y envío del formulario de registro
-        document.getElementById('registerStudentForm').addEventListener('submit', function(e) {
+        document.getElementById('registerStudent').addEventListener('click', function(e) {
             e.preventDefault();
-            let form = this;
             let valid = true;
 
             // Validar PNF
-            if (form.regPNF.value.trim() === '') {
-                form.regPNF.classList.add('is-invalid');
+            if (input.value.trim() === '') {
+                input.classList.add('is-invalid');
                 valid = false;
             } else {
-                form.regPNF.classList.remove('is-invalid');
+                input.classList.remove('is-invalid');
             }
 
             if (!valid) {
@@ -582,18 +583,47 @@
                 showCancelButton: true,
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Swal.fire({
-                        title: '¡Registrado!',
-                        text: 'El PNF ha sido registrado.',
-                        icon: 'success',
-                        confirmButtonText: 'Aceptar',
-                    }).then(() => {
-                        // Cerrar modal y limpiar formulario después de aceptar
-                        var modal = bootstrap.Modal.getInstance(document.getElementById('registerStudentModal'));
-                        modal.hide();
-                        form.reset();
-                    });
                     // Aquí puedes agregar la lógica para enviar los datos al backend
+                    const new_pnf = input.value.trim();
+                    //Consulamos a la url para agregar pnf
+                    fetch('/dashboard/pnf/agregar',{
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': token,
+                            'Accept': 'application/json',
+                        },
+                        body: JSON.stringify({nombre_pnf: new_pnf })
+                    })
+                    .then(response =>{
+                        if(response.status === 400){
+                            Swal.fire({
+                                title: 'Error',
+                                text: 'El PNF ya existe.',
+                                icon: 'error',
+                                confirmButtonText: 'Aceptar',
+                            });
+                        }
+                    })
+                    .then(response =>{
+                        //agregamos a la tabla el nuevo pnf
+                        agregarFila()
+                        //enviamos una alerta al usuario
+                        Swal.fire({
+                            title: '¡Creado!',
+                            text: 'El PNF ha sido creado exitosamente.',
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar',
+                        })
+                    })
+                    .catch(error =>{
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'No se pudo crear el PNF. Inténtalo de nuevo más tarde.'+ error,
+                            icon: 'error',
+                            confirmButtonText: 'Aceptar',
+                        })
+                    })
                 }
             });
         });
