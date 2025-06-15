@@ -9,7 +9,9 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\RegisterController;
 
+//controladores
 use App\Http\Controllers\PersonaController;
+use App\Http\Controllers\PnfController;
 // Sección para las vistas estáticas de la página
 Route::view('/', 'index')->name('index');
 Route::view('/sobre_nosotros', 'aboutUs')->name('aboutUs');
@@ -40,6 +42,15 @@ Route::view('/dashboard/administradores', 'dashboard.maestro.admin')->name('admi
 Route::view('/dashboard/becados', 'dashboard.maestro.becados')->name('becados');
 Route::view('/dashboard/sede', 'dashboard.maestro.sede')->name('sede');
 Route::view('/dashboard/pnf', 'dashboard.maestro.pnf')->name('pnf');
+
+//Metodos en la seccion de pnf
+Route::get('/dashboard/pnf', [PnfController::class,'info'])->name('pnf');
+Route::post('/dashboard/pnf/agregar', [PnfController::class,'agregar']);
+Route::delete('/dashboard/pnf/borrar/{id}', [PnfController::class,'borrar']);
+Route::get('/dashboard/pnf/estatus/{id}', [PnfController::class,'estatus']);
+Route::put('/dashboard/pnf/editar', [PnfController::class,'editar']);
+
+
 Route::view('/dashboard/servicios', 'dashboard.maestro.servicio')->name('servicio');
 Route::view('/dashboard/lapso', 'dashboard.maestro.lapso')->name('lapso');
 
