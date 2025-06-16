@@ -27,7 +27,7 @@ class Estatus extends Model
     {
         return $this->hasMany(Pnf::class, 'id_estatus');
     }
-    public function beServicio()
+    public function beServicios()
     {
         return $this->hasMany(BeServicio::class, 'id_estatus');
     }

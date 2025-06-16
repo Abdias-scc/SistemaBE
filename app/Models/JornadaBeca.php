@@ -14,9 +14,12 @@ class JornadaBeca extends Model
     public $timestamps = true; // Disable timestamps if not needed
     protected $guarded = ['id_jornada_beca']; // only block the id_jornada_beca
  
-  
+    public function beServicio()
+    {
+        return $this->belongsTo(BeServicio::class, 'id_be_servicio');
+    }
     public function becaSoli()
     {
-        return $this->belongsTo(BecaSoli::class, 'id_jornada_beca');
+        return $this->hasMany(BecaSoli::class, 'id_jornada_beca');
     }
 }

@@ -17,13 +17,18 @@ class BeServicio extends Model
 
     public function jornadaBeca()
     {
-        return $this->belongsTo(JornadaBeca::class, 'id_be_servicio');
+        return $this->hasMany(JornadaBeca::class, 'id_be_servicio');
 
     }
     
     public function servicioCo()
     {
-        return $this->belongsTo(ServicioCo::class, 'id_be_servicio');
+        return $this->hasMany(ServicioCo::class, 'id_be_servicio');
+    }
+
+    public function estatus()
+    {
+        return $this->belongsTo(Estatus::class, 'id_estatus');
     }
   
 }

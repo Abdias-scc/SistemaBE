@@ -19,4 +19,9 @@ class EstadoVe extends Model
         return $this->hasMany(Municipio::class, 'id_estado_ve');
     }
 
+    public function sede()
+    {
+        return $this->hasMany(Sede::class, 'id_estado_ve'); 
+    }
+
 }

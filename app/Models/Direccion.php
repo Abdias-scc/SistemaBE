@@ -18,5 +18,14 @@ class Direccion extends Model
         'id_municipio'
     ];
 
+    public function persona()
+    {
+        return $this->belongsTo(Persona::class, 'id_persona');
+    }
+
+    public function municipio()
+    {
+        return $this->belongsTo(Municipio::class, 'id_municipio');
+    }
   
 }

@@ -14,4 +14,14 @@ class Municipio extends Model
     protected $primaryKey = "id_municipio";
     public $timestamps = false; // Se activa si se necesita manejar created_at y updated_at
     protected $fillable = ['nombre_municipio', 'id_estado_ve'];
+
+
+    public function estados()
+    {
+        return $this->belongsTo(EstadoVe::class, 'id_estado_ve');
+    }
+    public function direcciones()
+    {
+        return $this->hasMany(Direccion::class, 'id_municipio');
+    }
 }

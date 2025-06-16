@@ -15,8 +15,8 @@ class Permiso extends Model
     public $timestamps = false; // Disable timestamps if not needed
     protected $guarded = ['id_permiso']; // only block the id_permiso
 
-    public function usuarioPermiso()
+    public function usuarios()
     {
-        return $this->belongsTo(Perfil::class, 'id_permiso');
+        return $this->belongsToMany(Perfil::class, 'user_permiso', 'id_usuario', 'id_permiso');
     }
 }
