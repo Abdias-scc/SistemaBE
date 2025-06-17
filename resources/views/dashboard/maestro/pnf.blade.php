@@ -296,11 +296,14 @@
                 }
             });
         });
-
+        const editPNF = document.getElementById('editPNF');
+        editPNF.addEventListener('input', function (){
+            this.value = this.value.replace(/[0-9]/g, '').toUpperCase();
+        })
 
         document.getElementById('saveEdit').addEventListener('click', function(e) {
             e.preventDefault();
-            const editPNF = document.getElementById('editPNF');
+            
             //recuperamos la id del pnf
             const id = document.getElementById('sedeCentralSwitch').getAttribute('data-pnf-id');
             const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
@@ -377,14 +380,6 @@
 
         });
 
-        // Quitar la clase is-invalid al escribir
-        ['editCedula', 'editNombre', 'editApellido', 'editPNF'].forEach(function(id) {
-            document.getElementById(id).addEventListener('input', function() {
-                this.classList.remove('is-invalid');
-            });
-        });
-
-
     });
     /*Script para el boton de eliminar*/
     document.querySelectorAll('button[id="deleteButton"]').forEach(function(btn) {
@@ -430,15 +425,23 @@
                     return response.json()
                 })
                 .then(response =>{
-                    //Eliminamos el pnf de la tabla
-                    row.remove()
-                    //Imprimimos una alerta
-                    Swal.fire({
-                        title: '¡Eliminado!',
-                        text: 'El PNF ha sido eliminado',
-                        icon: 'success',
-                        confirmButtonText: 'Aceptar',
-                    })
+                    if(resposen.isConfirmed){
+                        //Eliminamos el pnf de la tabla
+                        row.remove()
+                        //Imprimimos una alerta
+                        Swal.fire({
+                            title: '¡Eliminado!',
+                            text: 'El PNF ha sido eliminado',
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar',
+                        })
+                        .then(result =>{
+                            if(result.isConfirmed){
+                                window.location.reload()
+                            }
+                        })
+
+                    }
                 })
 
             })
@@ -497,7 +500,7 @@
                         <div class="col-md-12">
                             <div class="mb-3 text-center">
                                 <label for="regPNF" class="form-label w-100" style="display: block; font-weight: bold;">PNF</label>
-                                <input type="text" class="form-control mx-auto" id="regPNF" name="regPNF" required style="width: 90%;" placeholder="Escribe el nombre del nuevo PNF">
+                                <input type="text" class="form-control mx-auto" id="regPNF" name="regPNF" required style="width: 90%;" placeholder="Escribe el nombre del nuevo PNF" maxlength="35">
                                 <div class="invalid-feedback">
                                     El PNF no puede estar vacío.
                                 </div>
@@ -525,10 +528,14 @@
         const input = document.getElementById('regPNF');
         const tbody = document.getElementById('sortable-table').querySelector('tbody');
 
+        input.addEventListener('input', function(e) {
+        // Elimina automáticamente cualquier número que se intente ingresar
+            this.value = this.value.replace(/[0-9]/g, '').toUpperCase();
+        });
         function agregarFila(){
             const tr = document.createElement('tr');
             tr.innerHTML = `<tr>
-                        <td>${input.value.trim()}</td>
+                        <td>${input.value.toUpperCase().trim()}</td>
                         <td>
                             <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -560,7 +567,16 @@
             if (input.value.trim() === '') {
                 input.classList.add('is-invalid');
                 valid = false;
-            } else {
+            } else if(!/^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$/.test(input.value)){
+                Swal.fire({
+                    title: 'Error',
+                    text: 'El PNF solo puede contener letras, no números ni caracteres especiales.',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+                input.classList.add('is-invalid');
+                valid = false;
+            }else {
                 input.classList.remove('is-invalid');
             }
 
@@ -584,7 +600,8 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Aquí puedes agregar la lógica para enviar los datos al backend
-                    const new_pnf = input.value.trim();
+                    const new_pnf = input.value.toUpperCase().trim();
+                    console.log(new_pnf)
                     //Consulamos a la url para agregar pnf
                     fetch('/dashboard/pnf/agregar',{
                         method: 'POST',
@@ -603,9 +620,10 @@
                                 icon: 'error',
                                 confirmButtonText: 'Aceptar',
                             });
+                            //no devolvemos nada
+                            return;
                         }
-                    })
-                    .then(response =>{
+                        
                         //agregamos a la tabla el nuevo pnf
                         agregarFila()
                         //enviamos una alerta al usuario
@@ -615,6 +633,12 @@
                             icon: 'success',
                             confirmButtonText: 'Aceptar',
                         })
+                        .then(result =>{
+                            if(result.isConfirmed){
+                                window.location.reload()
+                            }
+                        })
+
                     })
                     .catch(error =>{
                         Swal.fire({
