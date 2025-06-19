@@ -9,7 +9,7 @@
         <!-- NO QUITAR(por alguna razon no agarra la modal sin esto xd) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     <title>@yield('title')</title>
-    @vite(['resources/js/dashboard/main.js', 'resources/css/general.css','resources/js/app.js'])
+    @vite(['resources/js/dashboard/main.js', 'resources/css/general.css', 'resources/js/filtroTabla.js'])
 </head>
 <body>
     @include('components.menu_lateral')
