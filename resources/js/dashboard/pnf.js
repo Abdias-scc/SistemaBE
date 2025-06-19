@@ -256,8 +256,7 @@ document.querySelectorAll('.sede-switch').forEach(function(switchInput) {
 
 
 const input = document.getElementById('regPNF');
-// Verificar si la tabla existe o crear una nueva estructura
-let tableContainer = document.querySelector('.table-container');
+
 
 //Eliminar números y convertir a mayúsculas en el campo de edición
 input.addEventListener('input', function() {
@@ -265,31 +264,6 @@ input.addEventListener('input', function() {
     this.value = this.value.replace(/[0-9]/g, '').toUpperCase();
 });
 
-function agregarFila(){
-    const tr = document.createElement('tr');
-    tr.innerHTML = `<tr>
-                <td>${input.value.toUpperCase().trim()}</td>
-                <td>
-                    <button class="btn-minimal btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <img src="{{ asset('icons/edit_blue.svg') }}" alt="Icono de editar" class="icon-edit">
-                        Editar
-                    </button>
-                    <button class="btn-minimal btn-delete" id="deleteButton">
-                        <img src="{{ asset('icons/delete_red.svg') }}" alt="Icono de eliminar" class="icon-delete">
-                        Eliminar
-                    </button>
-                </td>
-                <td>
-                    <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                        <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Informatica">
-                        <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
-                            Activo
-                        </label>
-                    </div>
-                </td>
-            </tr>`;
-    tbody.appendChild(tr);
-}
 
 // Validación y envío del formulario de registro
 document.getElementById('registerStudent').addEventListener('click', function(e) {
@@ -322,7 +296,6 @@ document.getElementById('registerStudent').addEventListener('click', function(e)
         });
         return;
     }
-
     // Confirmación con SweetAlert
     Swal.fire({
         title: '¿Registrar PNF?',
@@ -334,7 +307,6 @@ document.getElementById('registerStudent').addEventListener('click', function(e)
         if (result.isConfirmed) {
             // Aquí puedes agregar la lógica para enviar los datos al backend
             const new_pnf = input.value.toUpperCase().trim();
-            console.log(new_pnf)
             //Consulamos a la url para agregar pnf
             fetch('/dashboard/pnf/agregar',{
                 method: 'POST',
@@ -357,30 +329,6 @@ document.getElementById('registerStudent').addEventListener('click', function(e)
                     return;
                 }
 
-                // Si no hay tabla existente (cuando $pnfs->isEmpty() es true)
-                if (tableContainer && tableContainer.querySelector('.alert')) {
-                    // Preparamos el contenedor para cuando se agregue el primer PNF
-                    tableContainer.innerHTML = `
-                        <table class="table table-striped table-bordered my-2" id="sortable-table">
-                            <thead>
-                                <tr>
-                                    <th scope="col" onclick="sortTable(0)">PNF ↑</th>
-                                    <th scope="col">Estado</th>
-                                    <th scope="col">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    `;
-                    tbody = tableContainer.querySelector('tbody');
-                } 
-                // Si ya hay tabla existente
-                else if (tableContainer) {
-                    tbody = document.getElementById('sortable-table').querySelector('tbody');
-                }
-
-                //agregamos a la tabla el nuevo pnf
-                agregarFila()
                 //enviamos una alerta al usuario
                 Swal.fire({
                     title: '¡Creado!',

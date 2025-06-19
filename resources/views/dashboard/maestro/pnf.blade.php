@@ -25,9 +25,20 @@
         <div class="table-container">
             @if ($pnfs->isEmpty())
                 {{-- Si no hay estudiantes, mostrar mensaje --}}
-                <div class="alert alert-info text-center" role="alert">
-                    No hay pnfs registrados.
-                </div>
+                <table class="table table-striped table-bordered my-2">
+                    <thead>
+                        <tr>
+                            <th scope="col">PNF</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3" class="text-center">No hay PNF registrados.</td>
+                        </tr>
+                    </tbody>
+                </table>
             @else
             <table class="table table-striped table-bordered my-2" id="sortable-table">
                 <thead>
