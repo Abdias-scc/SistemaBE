@@ -244,42 +244,6 @@
             }
         });
 
-        // Script para el ordenado de la tabla
-        window.sortTable = function(columnIndex) {
-            const table = document.getElementById('sortable-table');
-            const tbody = table.querySelector('tbody');
-            const rows = Array.from(tbody.querySelectorAll('tr'));
-            let direction = 'asc';
-
-            if (table.getAttribute('data-sort-column') == columnIndex) {
-                direction = table.getAttribute('data-sort-direction') === 'asc' ? 'desc' : 'asc';
-            }
-
-            rows.sort((a, b) => {
-                const aValue = a.cells[columnIndex].textContent.trim().toLowerCase();
-                const bValue = b.cells[columnIndex].textContent.trim().toLowerCase();
-                if (direction === 'asc') {
-                    return aValue.localeCompare(bValue, 'es', { numeric: false });
-                } else {
-                    return bValue.localeCompare(aValue, 'es', { numeric: false });
-                }
-            });
-
-            tbody.innerHTML = '';
-            rows.forEach(row => tbody.appendChild(row));
-
-            const headers = table.querySelectorAll('th');
-            headers.forEach((header, index) => {
-                header.innerHTML = header.textContent.replace(/ ↑| ↓/g, '');
-                if (index === columnIndex) {
-                    header.innerHTML += direction === 'asc' ? ' ↑' : ' ↓';
-                }
-            });
-
-            table.setAttribute('data-sort-column', columnIndex);
-            table.setAttribute('data-sort-direction', direction);
-        };
-
         // Script para el botón de eliminar
         document.querySelectorAll('button[id="deleteButton"]').forEach(function(btn) {
             btn.addEventListener('click', function(e) {

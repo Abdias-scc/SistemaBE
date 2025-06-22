@@ -18,7 +18,7 @@ class Persona extends Model
     
     protected $guarded = ['id_persona']; // solo bloquea el id_persona
 
-    public function pnfs()
+     public function pnfs()
     {
         return $this->belongsTo(PersonaPnf::class, 'id_persona', 'persona_pnf', 'id_pnf');
     }
@@ -55,5 +55,10 @@ class Persona extends Model
     public function regisDiarioComedor()
     {
         return $this->hasMany(RegisDiarioComedor::class, 'id_persona');
+    }
+
+    public function users()
+    {
+        return $this->hasOne(User::class, 'id_persona');
     }
 }
