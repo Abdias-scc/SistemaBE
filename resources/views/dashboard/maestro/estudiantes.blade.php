@@ -557,7 +557,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label for="regCedula" class="form-label">Cédula</label>
+                                    <label for="regCedula" class="form-label" id="cedulaLimite">Cédula</label>
                                     <input type="number" class="form-control" id="regCedula" name="cedula" required pattern="\d{1,10}" maxlength="10" style="max-width: 220px;" placeholder="Ej: 1234567890">
                                     <div class="invalid-feedback">
                                         Solo números, máximo 10 dígitos.

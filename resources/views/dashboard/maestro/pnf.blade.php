@@ -53,14 +53,14 @@
                         <td>
                             @if($pnf->id_estatus === 1)
                                 <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                    <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Informatica" data-pnf-id="{{ $pnf->id_pnf }}">
+                                    <input class="form-check-input sede-switch sedeCentralSwitch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Informatica" data-pnf-id="{{ $pnf->id_pnf }}">
                                     <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
                                         Activo
                                     </label>
                                 </div>
                             @else
                                 <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                    <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" style="width: 2.5em; height: 1.3em;" data-sede="Informatica" data-pnf-id="{{ $pnf->id_pnf }}">
+                                    <input class="form-check-input sede-switch sedeCentralSwitch" type="checkbox" id="sedeCentralSwitch" style="width: 2.5em; height: 1.3em;" data-sede="Informatica" data-pnf-id="{{ $pnf->id_pnf }}">
                                     <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
                                         Inactivo
                                     </label>
@@ -302,6 +302,7 @@
             e.preventDefault();
             const editPNF = document.getElementById('editPNF');
             //recuperamos la id del pnf
+
             const id = document.getElementById('sedeCentralSwitch').getAttribute('data-pnf-id');
             const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
@@ -409,8 +410,8 @@
             .then((result)=>{
                 //Si el usuario confirma la eliminación, enviar la solicitud a eliminar al backend
                 const id = btn.getAttribute('data-pnf-id');
-
-                fetch(`/dashboard/pnf/borrar/${id}`,{
+                if(result.isConfirmed){
+                    fetch(`/dashboard/pnf/borrar/${id}`,{
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -440,6 +441,8 @@
                         confirmButtonText: 'Aceptar',
                     })
                 })
+                }
+                
 
             })
 
@@ -541,7 +544,7 @@
                         </td>
                         <td>
                             <div class="form-check form-switch d-flex align-items-center" style="margin-bottom: 0;">
-                                <input class="form-check-input sede-switch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Informatica">
+                                <input class="form-check-input sede-switch sedeCentralSwitch" type="checkbox" id="sedeCentralSwitch" checked style="width: 2.5em; height: 1.3em;" data-sede="Informatica">
                                 <label class="form-check-label ms-2" for="sedeCentralSwitch" style="user-select: none;">
                                     Activo
                                 </label>

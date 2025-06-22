@@ -106,11 +106,15 @@ function sortTable(columnIndex) {
     table.setAttribute('data-sort-direction', direction);
 }
 
+
+
 //VALIDACIONES DE INPUTS
 document.addEventListener('DOMContentLoaded', function() {
     // Validación para el campo Cédula en editar estudiante
     document.getElementById('editCedula').addEventListener('input', function() {
+
         // Solo números y máximo 8 dígitos
+        
         validarInputVacio1(this);
     });
 
@@ -127,6 +131,8 @@ document.addEventListener('DOMContentLoaded', function() {
     mostrarFecha('editFechaNacimiento', 'editEdad');
 
 })
+
+
 
 
 
