@@ -37,6 +37,7 @@
                         <th scope="col" onclick="sortTable(0)">Cedula ↑</th>
                         <th scope="col" onclick="sortTable(1)">Nombre ↑</th>
                         <th scope="col" onclick="sortTable(2)">Apellido ↑</th>
+
                         <th scope="col" style="width: 1%; white-space: nowrap;">Acciones</th>
                     </tr>
                 </thead>
@@ -46,6 +47,7 @@
                         <td>{{ $estudiante->cedula_persona }}</td>
                         <td>{{ $estudiante->nombre_persona }}</td>
                         <td>{{ $estudiante->apellido_persona }}</td>
+    
                         <td>
                             <button class="btn-minimal btn-details" id="detailsButton" data-bs-toggle="modal" data-bs-target="#detailsStudentModal">
                                 <img src="{{ asset('icons/details.svg') }}" alt="Icono de editar" class="icon-edit">
@@ -220,11 +222,19 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
+                                    <label for="editSegundoNombre" class="form-label">Segundo Nombre</label>
+                                    <input type="text" class="form-control" id="editSegundoNombre" name="segundo_nombre" placeholder="Ej: Luis">
+                                </div>
+                                <div class="mb-3">
                                     <label for="editApellido" class="form-label">Apellido</label>
                                     <input type="text" class="form-control" id="editApellido" name="apellido" required placeholder="Ej: Hernandez">
                                     <div class="invalid-feedback">
                                         El apellido no puede estar vacío.
                                     </div>
+                                </div>    
+                                <div class="mb-3">
+                                    <label for="editSegundoApellido" class="form-label">Segundo Apellido</label>
+                                    <input type="text" class="form-control" id="editSegundApellido" name="segundo_apellido" placeholder="Ej: Colmenarez"> 
                                 </div>
                                 <div class="mb-3">
                                     <div class="row g-2 align-items-end">
@@ -423,8 +433,16 @@
                                 <input type="text" class="form-control" id="detailsNombre" readonly>
                             </div>
                             <div class="mb-3">
+                                <label for="detailsSegundoNombre" class="form-label">Segundo Nombre</label>
+                                <input type="text" class="form-control" id="detailsSegundoNombre" readonly>
+                            </div>
+                            <div class="mb-3">
                                 <label for="detailsApellido" class="form-label">Apellido</label>
                                 <input type="text" class="form-control" id="detailsApellido" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="detailsSegundoApellido" class="form-label">Segundo Apellido</label>
+                                <input type="text" class="form-control" id="detailsSegundoApellido" readonly>
                             </div>
                             <div class="mb-3">
                                 <div class="row g-2 align-items-end">
@@ -494,7 +512,9 @@
         //recuperar todos los input de detalles en una variables
         const detailsCedula = document.getElementById('detailsCedula');
         const detailsNombre = document.getElementById('detailsNombre');
+        const detailsSegundoNombre = document.getElementById('detailsSegundoNombre');
         const detailsApellido = document.getElementById('detailsApellido');
+        const detailsSegundoApellido = document.getElementById('detailsSegundoApellido');
         const detailsSexo = document.getElementById('detailsSexo');
         const detailsTelefono = document.getElementById('detailsTelefono');
         const detailsFechaNacimiento = document.getElementById('detailsFechaNacimiento');
@@ -525,7 +545,9 @@
                     //Aqui comienza la magia 
                     detailsCedula.value = detallesEstudiante.cedula;
                     detailsNombre.value = detallesEstudiante.nombre;
+                    detailsSegundoNombre.value = detallesEstudiante.segundo_nombre;
                     detailsApellido.value = detallesEstudiante.apellido;
+                    detailsSegundoApellido.value = detallesEstudiante.segundo_apellido;
                     detailsSexo.value = detallesEstudiante.genero;
                     detailsTelefono.value = detallesEstudiante.telefono;
                     detailsFechaNacimiento.value = detallesEstudiante.fecha_nacimiento;
@@ -571,11 +593,19 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
+                                    <label for="regSegundoNombre" class="form-label">Segundo Nombre</label>
+                                    <input type="text" class="form-control" id="regSegundoNombre" name="SegundoNombre" placeholder="Ej: Luis">
+                                </div>
+                                <div class="mb-3">
                                     <label for="regApellido" class="form-label">Apellido</label>
                                     <input type="text" class="form-control" id="regApellido" name="apellido" required placeholder="Ej: Hernandez">
                                     <div class="invalid-feedback">
                                         El apellido no puede estar vacío.
                                     </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="regSegundoApellido" class="form-label">Segundo Apellido</label>
+                                    <input type="text" class="form-control" id="regSegundoApellido" name="SegundoApellido" placeholder="Ej: Colmenarez">
                                 </div>
                                 <div class="mb-3">
                                     <div class="row g-2 align-items-end">
