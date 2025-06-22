@@ -8,6 +8,8 @@
 @section('content')
     @section('titulo', 'Estudiantes')
     <script src="{{ asset('js/estudiante.js') }}"></script>
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="contenedor">
         <div class="d-flex justify-content-end my-4" style="max-width: 400px; margin-left: auto; flex-direction: column;">
@@ -294,10 +296,50 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="editDireccion" class="form-label">Dirección Permanente</label>
-                                    <input type="text" class="form-control" id="editDireccion" name="direccion" required placeholder="Ej: Calle 123, Ciudad">
+                                    <label for="editDireccion" class="form-label">Estado de Residencia</label>
+                                    <select class="form-select" id="editDireccion" name="direccion" required>
+                                        <option value="" selected disabled>Seleccione un estado</option>
+                                        <option value="Amazonas">Amazonas</option>
+                                        <option value="Anzoátegui">Anzoátegui</option>
+                                        <option value="Apure">Apure</option>
+                                        <option value="Aragua">Aragua</option>
+                                        <option value="Barinas">Barinas</option>
+                                        <option value="Bolívar">Bolívar</option>
+                                        <option value="Carabobo">Carabobo</option>
+                                        <option value="Cojedes">Cojedes</option>
+                                        <option value="Delta Amacuro">Delta Amacuro</option>
+                                        <option value="Distrito Capital">Distrito Capital</option>
+                                        <option value="Falcón">Falcón</option>
+                                        <option value="Guárico">Guárico</option>
+                                        <option value="Lara">Lara</option>
+                                        <option value="Mérida">Mérida</option>
+                                        <option value="Miranda">Miranda</option>
+                                        <option value="Monagas">Monagas</option>
+                                        <option value="Nueva Esparta">Nueva Esparta</option>
+                                        <option value="Portuguesa">Portuguesa</option>
+                                        <option value="Sucre">Sucre</option>
+                                        <option value="Táchira">Táchira</option>
+                                        <option value="Trujillo">Trujillo</option>
+                                        <option value="La Guaira">La Guaira</option>
+                                        <option value="Yaracuy">Yaracuy</option>
+                                        <option value="Zulia">Zulia</option>
+                                    </select>
                                     <div class="invalid-feedback">
-                                        La dirección no puede estar vacía.
+                                        Debe seleccionar un estado de residencia.
+                                    </div>
+                                </div>
+                                <div id="portuguesaFields" style="display: none;">
+                                    <div class="mb-3">
+                                        <label for="editSector" class="form-label">Sector</label>
+                                        <input type="text" class="form-control" id="editSector" name="sector" placeholder="Ej: Centro">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editCalle" class="form-label">Calle</label>
+                                        <input type="text" class="form-control" id="editCalle" name="calle" placeholder="Ej: Calle 5">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editCasa" class="form-label">Casa</label>
+                                        <input type="text" class="form-control" id="editCasa" name="casa" placeholder="Ej: Casa 12">
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -579,7 +621,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label for="regCedula" class="form-label">Cédula</label>
+                                    <label for="regCedula" class="form-label" id="cedulaLimite">Cédula</label>
                                     <input type="number" class="form-control" id="regCedula" name="cedula" required pattern="\d{1,10}" maxlength="10" style="max-width: 220px;" placeholder="Ej: 1234567890">
                                     <div class="invalid-feedback">
                                         Solo números, máximo 10 dígitos.
@@ -665,10 +707,50 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="regDireccion" class="form-label">Dirección Permanente</label>
-                                    <input type="text" class="form-control" id="regDireccion" name="direccion" required placeholder="Ej: Calle 123, Ciudad">
+                                    <label for="regDireccion" class="form-label">Estado de Residencia</label>
+                                    <select class="form-select" id="regDireccion" name="direccion" required>
+                                        <option value="" selected disabled>Seleccione un estado</option>
+                                        <option value="Amazonas">Amazonas</option>
+                                        <option value="Anzoátegui">Anzoátegui</option>
+                                        <option value="Apure">Apure</option>
+                                        <option value="Aragua">Aragua</option>
+                                        <option value="Barinas">Barinas</option>
+                                        <option value="Bolívar">Bolívar</option>
+                                        <option value="Carabobo">Carabobo</option>
+                                        <option value="Cojedes">Cojedes</option>
+                                        <option value="Delta Amacuro">Delta Amacuro</option>
+                                        <option value="Distrito Capital">Distrito Capital</option>
+                                        <option value="Falcón">Falcón</option>
+                                        <option value="Guárico">Guárico</option>
+                                        <option value="Lara">Lara</option>
+                                        <option value="Mérida">Mérida</option>
+                                        <option value="Miranda">Miranda</option>
+                                        <option value="Monagas">Monagas</option>
+                                        <option value="Nueva Esparta">Nueva Esparta</option>
+                                        <option value="Portuguesa">Portuguesa</option>
+                                        <option value="Sucre">Sucre</option>
+                                        <option value="Táchira">Táchira</option>
+                                        <option value="Trujillo">Trujillo</option>
+                                        <option value="La Guaira">La Guaira</option>
+                                        <option value="Yaracuy">Yaracuy</option>
+                                        <option value="Zulia">Zulia</option>
+                                    </select>
                                     <div class="invalid-feedback">
-                                        La dirección no puede estar vacía.
+                                        Debe seleccionar un estado de residencia.
+                                    </div>
+                                </div>
+                                <div id="regPortuguesaFields" style="display: none;">
+                                    <div class="mb-3">
+                                        <label for="regSector" class="form-label">Sector</label>
+                                        <input type="text" class="form-control" id="regSector" name="sector" placeholder="Ej: Centro">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="regCalle" class="form-label">Calle</label>
+                                        <input type="text" class="form-control" id="regCalle" name="calle" placeholder="Ej: Calle 5">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="regCasa" class="form-label">Casa</label>
+                                        <input type="text" class="form-control" id="regCasa" name="casa" placeholder="Ej: Casa 12">
                                     </div>
                                 </div>
                                 <div class="mb-3">
