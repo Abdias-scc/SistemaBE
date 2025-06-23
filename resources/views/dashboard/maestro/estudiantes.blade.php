@@ -241,14 +241,14 @@
                                 <div class="mb-3">
                                     <div class="row g-2 align-items-end">
                                         <div class="col-md-6">
-                                            <label for="editSexo" class="form-label">Sexo</label>
+                                            <label for="editSexo" class="form-label">Género</label>
                                             <select class="form-select" id="editSexo" name="sexo" required>
-                                                <option selected disabled>Seleccione Sexo</option>
+                                                <option selected disabled>Seleccione Género</option>
                                                 <option value="Masculino">Masculino</option>
                                                 <option value="Femenino">Femenino</option>
                                             </select>
                                             <div class="invalid-feedback">
-                                                Ingrese el Sexo.
+                                                Ingrese el Género.
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -296,7 +296,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="editDireccion" class="form-label">Estado de Residencia</label>
+                                    <label for="editDireccion" class="form-label">Procedencia</label>
                                     <select class="form-select" id="editDireccion" name="direccion" required>
                                         <option value="" selected disabled>Seleccione un estado</option>
                                         <option value="Amazonas">Amazonas</option>
@@ -325,30 +325,44 @@
                                         <option value="Zulia">Zulia</option>
                                     </select>
                                     <div class="invalid-feedback">
-                                        Debe seleccionar un estado de residencia.
+                                        Debe seleccionar un estado de Procedencia.
                                     </div>
                                 </div>
                                 <div id="portuguesaFields" style="display: none;">
                                     <div class="mb-3">
-                                        <label for="editSector" class="form-label">Sector</label>
-                                        <input type="text" class="form-control" id="editSector" name="sector" placeholder="Ej: Centro">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="editCalle" class="form-label">Calle</label>
-                                        <input type="text" class="form-control" id="editCalle" name="calle" placeholder="Ej: Calle 5">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="editCasa" class="form-label">Casa</label>
-                                        <input type="text" class="form-control" id="editCasa" name="casa" placeholder="Ej: Casa 12">
+                                        <label for="editMunicipio" class="form-label">Municipio</label>
+                                        <select class="form-select" id="editMunicipio" name="municipio" required>
+                                            <option value="" selected disabled>Seleccione un Municipio</option>
+                                            <option value="Araure">Araure</option>
+                                            <option value="Esteller">Esteller</option>
+                                            <option value="Guanare">Guanare</option>
+                                            <option value="Guanarito">Guanarito</option>
+                                            <option value="Ospino">Ospino</option>
+                                            <option value="Paez">Paez</option>
+                                            <option value="Sucre">Sucre</option>
+                                            <option value="Turen">Turen</option>
+                                            <option value="Monseñor">Monseñor Jose V. de Unda</option>
+                                            <option value="aguaBlanca">Agua Blanca</option>
+                                            <option value="Papelon">Papelón</option>
+                                            <option value="sanGenaro">San Genaro de Boconoito</option>
+                                            <option value="sanRafael">San Rafael de Onoto</option>
+                                            <option value="santaRosalia">Santa Rosalia</option>
+                                        </select>    
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="editProcedencia" class="form-label">Procedencia</label>
-                                    <input type="text" class="form-control" id="editProcedencia" name="procedencia" required placeholder="Ej: Agua Blanca, Acarigua">
-                                    <div class="invalid-feedback">
-                                        La procedencia no puede estar vacía.
-                                    </div>
+                                    <label for="editSector" class="form-label">Sector/Urbanización</label>
+                                    <input type="text" class="form-control" id="editSector" name="sector" placeholder="Ej: Centro">
                                 </div>
+                                <div class="mb-3">
+                                    <label for="editCalle" class="form-label">Calle</label>
+                                    <input type="text" class="form-control" id="editCalle" name="calle" placeholder="Ej: Calle 5">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editCasa" class="form-label">Número Casa</label>
+                                    <input type="text" class="form-control" id="editCasa" name="casa" placeholder="Ej: Casa 12">
+                                </div>
+                                
                                 <div class="mb-3 form-check">
                                     <input type="checkbox" class="form-check-input" id="editForaneo" name="foraneo">
                                     <label class="form-check-label" for="editForaneo">¿Es Foráneo?</label>
@@ -455,6 +469,23 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const estadoSelect = document.getElementById('editDireccion'); // Select de estados
+    const portuguesaFieldsDiv = document.getElementById('portuguesaFields'); // El div que se mostrara
+
+    portuguesaFieldsDiv.style.display = 'none';
+
+    estadoSelect.addEventListener('change', function() {
+        // Si el valor seleccionado es 'Portuguesa'
+        if (estadoSelect.value === 'Portuguesa') {
+            portuguesaFieldsDiv.style.display = 'block'; // Muestra el div
+        } else {
+            portuguesaFieldsDiv.style.display = 'none'; // Oculta el div si se selecciona otro estado
+        }
+    });
+});
+    </script>
     <!-- Modal de detalles del estudiante -->
     <div class="modal fade" id="detailsStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detailsStudentModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" style="max-width: 450px;">
@@ -489,7 +520,7 @@
                             <div class="mb-3">
                                 <div class="row g-2 align-items-end">
                                     <div class="col-md-6">
-                                        <label for="detailsSexo" class="form-label">Sexo</label>
+                                        <label for="detailsSexo" class="form-label">Género</label>
                                         <input type="text" class="form-control" id="detailsSexo" readonly>
                                     </div>
                                     <div class="col-md-6">
@@ -523,13 +554,22 @@
                                 <input type="email" class="form-control" id="detailsEmail" readonly>
                             </div>
                             <div class="mb-3">
-                                <label for="detailsDireccion" class="form-label">Dirección Permanente</label>
+                                <label for="detailsDireccion" class="form-label">Procedencia</label>
                                 <input type="text" class="form-control" id="detailsDireccion" readonly>
                             </div>
                             <div class="mb-3">
-                                <label for="detailsProcedencia" class="form-label">Procedencia</label>
-                                <input type="text" class="form-control" id="detailsProcedencia" readonly>
-                            </div>
+                                    <label for="detailsSector" class="form-label">Sector/Urbanizacion</label>
+                                    <input type="text" class="form-control" id="detailsSector" name="sector" placeholder="Ej: Centro">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="detailsCalle" class="form-label">Calle</label>
+                                    <input type="text" class="form-control" id="detailsCalle" name="calle" placeholder="Ej: Calle 5">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="detailsCasa" class="form-label">Casa</label>
+                                    <input type="text" class="form-control" id="detailsCasa" name="casa" placeholder="Ej: Casa 12">
+                                </div>
+                                </div>
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="detailsForaneo" disabled>
                                 <label class="form-check-label" for="detailsForaneo">¿Es Foráneo?</label>
@@ -652,14 +692,14 @@
                                 <div class="mb-3">
                                     <div class="row g-2 align-items-end">
                                         <div class="col-md-6">
-                                            <label for="regSexo" class="form-label">Sexo</label>
+                                            <label for="regSexo" class="form-label">Género</label>
                                             <select class="form-select" id="regSexo" name="sexo" required>
-                                                <option value="" selected disabled>Seleccione Sexo</option>
+                                                <option value="" selected disabled>Seleccione Género</option>
                                                 <option value="Masculino">Masculino</option>
                                                 <option value="Femenino">Femenino</option>
                                             </select>
                                             <div class="invalid-feedback">
-                                                Ingrese el Sexo.
+                                                Ingrese el Género.
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -707,8 +747,8 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="regDireccion" class="form-label">Estado de Residencia</label>
-                                    <select class="form-select" id="regDireccion" name="direccion" required>
+                                    <label for="regisDireccion" class="form-label">Procedencia</label>
+                                    <select class="form-select" id="regisDireccion" name="direccion" required>
                                         <option value="" selected disabled>Seleccione un estado</option>
                                         <option value="Amazonas">Amazonas</option>
                                         <option value="Anzoátegui">Anzoátegui</option>
@@ -736,29 +776,43 @@
                                         <option value="Zulia">Zulia</option>
                                     </select>
                                     <div class="invalid-feedback">
-                                        Debe seleccionar un estado de residencia.
+                                        Debe seleccionar un estado de Procedencia.
                                     </div>
-                                </div>
-                                <div id="regPortuguesaFields" style="display: none;">
+                                </div>    
+                                <div id="portuguesaFieldsRegis" style="display: none;">
                                     <div class="mb-3">
-                                        <label for="regSector" class="form-label">Sector</label>
-                                        <input type="text" class="form-control" id="regSector" name="sector" placeholder="Ej: Centro">
+                                        <label for="regisMunicipio" class="form-label">Municipio</label>
+                                        <select class="form-select" id="regisMunicipio" name="municipio" required>
+                                            <option value="" selected disabled>Seleccione un Municipio</option>
+                                            <option value="Araure">Araure</option>
+                                            <option value="Esteller">Esteller</option>
+                                            <option value="Guanare">Guanare</option>
+                                            <option value="Guanarito">Guanarito</option>
+                                            <option value="Ospino">Ospino</option>
+                                            <option value="Paez">Paez</option>
+                                            <option value="Sucre">Sucre</option>
+                                            <option value="Turen">Turen</option>
+                                            <option value="Monseñor">Monseñor Jose V. de Unda</option>
+                                            <option value="aguaBlanca">Agua Blanca</option>
+                                            <option value="Papelon">Papelón</option>
+                                            <option value="sanGenaro">San Genaro de Boconoito</option>
+                                            <option value="sanRafael">San Rafael de Onoto</option>
+                                            <option value="santaRosalia">Santa Rosalia</option>
+                                        </select>    
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="regCalle" class="form-label">Calle</label>
-                                        <input type="text" class="form-control" id="regCalle" name="calle" placeholder="Ej: Calle 5">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="regCasa" class="form-label">Casa</label>
-                                        <input type="text" class="form-control" id="regCasa" name="casa" placeholder="Ej: Casa 12">
-                                    </div>
+                                </div>                                                              
+                                <div class="mb-3">
+                                    <label for="regSector" class="form-label">Sector/Urbanizacion</label>
+                                    <input type="text" class="form-control" id="regSector" name="sector" placeholder="Ej: Centro">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="regProcedencia" class="form-label">Procedencia</label>
-                                    <input type="text" class="form-control" id="regProcedencia" name="procedencia" required placeholder="Ej: Agua Blanca, Acarigua">
-                                    <div class="invalid-feedback">
-                                        La procedencia no puede estar vacía.
-                                    </div>
+                                    <label for="regCalle" class="form-label">Calle</label>
+                                    <input type="text" class="form-control" id="regCalle" name="calle" placeholder="Ej: Calle 5">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="regCasa" class="form-label">Casa</label>
+                                    <input type="text" class="form-control" id="regCasa" name="casa" placeholder="Ej: Casa 12">
+                                </div>
                                 </div>
                                 <div class="mb-3 form-check">
                                     <input type="checkbox" class="form-check-input" id="regPatria" name="patria">
@@ -768,6 +822,32 @@
                                     <input type="checkbox" class="form-check-input" id="regForaneo" name="foraneo">
                                     <label class="form-check-label" for="regForaneo">¿Es Foráneo?</label>
                                 </div>
+                                <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Obtenemos una referencia al select de estados
+    const estadoSelectRegis = document.getElementById('regisDireccion');
+
+    // Obtenemos una referencia al div que contiene el select de municipios de Portuguesa
+    const portuguesaFieldsDivRegis = document.getElementById('portuguesaFieldsRegis');
+
+    // Aseguramos que el div de municipios de Portuguesa esté oculto al cargar la página
+    // Esto es crucial para que no se muestre por defecto si el CSS no lo oculta ya.
+    portuguesaFieldsDivRegis.style.display = 'none';
+
+    // Agregamos un "escuchador de eventos" al select de estados.
+    // Cada vez que el valor del select cambie, se ejecutará la función.
+    estadoSelectRegis.addEventListener('change', function() {
+        // Verificamos si el valor seleccionado en el select de estados es "Portuguesa"
+        if (estadoSelectRegis.value === 'Portuguesa') {
+            // Si es Portuguesa, mostramos el div de los campos de Portuguesa
+            portuguesaFieldsDivRegis.style.display = 'block';
+        } else {
+            // Si se selecciona cualquier otro estado, ocultamos el div
+            portuguesaFieldsDivRegis.style.display = 'none';
+        }
+    });
+});
+    </script>
                                 
                                 <!--  Campos extra de foraneo -->
                                 <div id="patriaExtraFields" style="display: none; overflow: hidden; max-height: 0; transition: max-height 0.4s ease;">
@@ -863,4 +943,5 @@
             </div>
         </div>
     </div>
+     
 @endsection
